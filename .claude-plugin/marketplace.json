@@ -1,0 +1,142 @@
+{
+  "name": "ljhskill",
+  "owner": {
+    "name": "handsomeng"
+  },
+  "metadata": {
+    "description": "LJHskill，俗称「两句话」：第一句说清你卡在哪，第二句它带你跑对的工具。从《内容电商从 0 到 1 打品》方法论中提炼出的 13 个可执行 Claude Code skill，覆盖选品、定位、场景、内容、验证、投放、算账全链路。",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "ljh",
+      "description": "打品工具箱主入口。任务前根据你的问题路由到最合适的工具，任务后读结论推荐下一步。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "content-ecommerce",
+      "keywords": ["ecommerce", "router", "toolkit", "chinese"],
+      "skills": ["./skills/ljh"]
+    },
+    {
+      "name": "ljh-xuanpin",
+      "description": "选品五步判断。拿到一个候选品，判断值不值得下场投入打。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "content-ecommerce",
+      "keywords": ["product-selection", "ecommerce", "chinese"],
+      "skills": ["./skills/ljh-xuanpin"]
+    },
+    {
+      "name": "ljh-dingwei",
+      "description": "新品定位一页纸。价值四象限 + 心智句 + 竞争差异，把新品定位压进一张全队力出一孔的填空表。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "content-ecommerce",
+      "keywords": ["positioning", "product", "chinese"],
+      "skills": ["./skills/ljh-dingwei"]
+    },
+    {
+      "name": "ljh-maidian",
+      "description": "卖点体检。盖住成分功效自检 + 心智句双重校验，判断你的卖点是独一份还是公共卖点。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "content-ecommerce",
+      "keywords": ["selling-point", "validation", "chinese"],
+      "skills": ["./skills/ljh-maidian"]
+    },
+    {
+      "name": "ljh-changjing",
+      "description": "场景机会地图。扒竞品素材拆成能算账的表，四象限定性，画出自己该重投哪个场景。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "content-ecommerce",
+      "keywords": ["scenario", "competitor-analysis", "chinese"],
+      "skills": ["./skills/ljh-changjing"]
+    },
+    {
+      "name": "ljh-duiqi",
+      "description": "品·人群·内容对齐表。每上新品用一张表把全团队认知钉在同一点，核心是卖点翻译四列表。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "content-ecommerce",
+      "keywords": ["alignment", "content", "chinese"],
+      "skills": ["./skills/ljh-duiqi"]
+    },
+    {
+      "name": "ljh-jiaoben",
+      "description": "带货脚本评审。用七步说服链骨架逐段核对你的脚本，指出缺哪步、哪句没配画面。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "content-ecommerce",
+      "keywords": ["script", "review", "chinese"],
+      "skills": ["./skills/ljh-jiaoben"]
+    },
+    {
+      "name": "ljh-yinzi",
+      "description": "内容因子拆解与专攻排序。把爆款拆到因子级，用 EV 公式给专攻课题排优先级。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "content-ecommerce",
+      "keywords": ["content-factor", "analysis", "chinese"],
+      "skills": ["./skills/ljh-yinzi"]
+    },
+    {
+      "name": "ljh-koc",
+      "description": "KOC 验证方案设计。低成本验证卖点的完整方案：怎么铺、通过线怎么定、报告怎么写。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "content-ecommerce",
+      "keywords": ["koc", "validation", "chinese"],
+      "skills": ["./skills/ljh-koc"]
+    },
+    {
+      "name": "ljh-qianchuan",
+      "description": "千川掉量诊断。三问定位 + 五层链路红灯决策树 + 掉量秒查表，掉量时两分钟定位第一动作。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "content-ecommerce",
+      "keywords": ["qianchuan", "ads", "diagnosis", "chinese"],
+      "skills": ["./skills/ljh-qianchuan"]
+    },
+    {
+      "name": "ljh-suanzhang",
+      "description": "单元经济算账。月度总账测算表 + 盈亏平衡 ROI + LTV 实算，判断渠道该不该砍、出价能出多高。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "content-ecommerce",
+      "keywords": ["unit-economics", "ltv", "chinese"],
+      "skills": ["./skills/ljh-suanzhang"]
+    },
+    {
+      "name": "ljh-daren",
+      "description": "达人选号与反作弊。六维决策表初筛达人，识别假播放假粉假互动，花钱前别被假热闹坑。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "content-ecommerce",
+      "keywords": ["influencer", "anti-fraud", "chinese"],
+      "skills": ["./skills/ljh-daren"]
+    },
+    {
+      "name": "ljh-liangye",
+      "description": "见主播的两页材料。喂产品资料，产出第一页给对方记住、第二页给对方开口的标准谈判材料。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "content-ecommerce",
+      "keywords": ["pitch", "livestream", "chinese"],
+      "skills": ["./skills/ljh-liangye"]
+    }
+  ]
+}
