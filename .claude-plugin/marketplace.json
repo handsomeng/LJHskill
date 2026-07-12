@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "LJHskill，俗称「两句话」：第一句说清你卡在哪，第二句它带你跑对的工具。从《内容电商从 0 到 1 打品》方法论中提炼出的 13 个可执行 Claude Code skill，覆盖选品、定位、场景、内容、验证、投放、算账全链路。",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "plugins": [
     {
