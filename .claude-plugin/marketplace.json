@@ -10,13 +10,27 @@
   "plugins": [
     {
       "name": "ljh",
-      "description": "打品工具箱主入口。任务前根据你的问题路由到最合适的工具，任务后读结论推荐下一步。",
+      "description": "打品工具箱主入口，装这一个就得到整套工具箱（含全部 13 个 skill）。任务前根据你的问题路由到最合适的工具，任务后读结论推荐下一步。",
       "source": "./",
       "strict": false,
       "version": "1.0.0",
       "category": "content-ecommerce",
       "keywords": ["ecommerce", "router", "toolkit", "chinese"],
-      "skills": ["./skills/ljh"]
+      "skills": [
+        "./skills/ljh",
+        "./skills/ljh-xuanpin",
+        "./skills/ljh-dingwei",
+        "./skills/ljh-maidian",
+        "./skills/ljh-changjing",
+        "./skills/ljh-duiqi",
+        "./skills/ljh-jiaoben",
+        "./skills/ljh-yinzi",
+        "./skills/ljh-koc",
+        "./skills/ljh-qianchuan",
+        "./skills/ljh-suanzhang",
+        "./skills/ljh-daren",
+        "./skills/ljh-liangye"
+      ]
     },
     {
       "name": "ljh-xuanpin",
@@ -30,7 +44,7 @@
     },
     {
       "name": "ljh-dingwei",
-      "description": "新品定位一页纸。价值四象限 + 心智句 + 竞争差异，把新品定位压进一张全队力出一孔的填空表。",
+      "description": "新品定位一页纸。价值四象限 + 心智句 + 竞争差异，把新品定位压进一张全队照着打的填空表。",
       "source": "./",
       "strict": false,
       "version": "1.0.0",

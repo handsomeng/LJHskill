@@ -15,6 +15,8 @@ claude plugin marketplace add handsomeng/LJHskill
 claude plugin install ljh@ljhskill
 ```
 
+装 `ljh@ljhskill` 即获得全部 13 个 skill。只想单独装某一个工具时，才用类似 `claude plugin install ljh-xuanpin@ljhskill` 的命令。
+
 ### 通用安装（Codex / Claude Code）
 
 ```bash
@@ -29,7 +31,7 @@ npx -y skills add handsomeng/LJHskill -g --all
 |---|---|
 | `/ljh` | 主入口。任务前根据你的问题路由到对的工具，任务后读结论推荐下一步 |
 | `/ljh-xuanpin` | 选品五步判断。这个品值不值得下场打 |
-| `/ljh-dingwei` | 新品定位一页纸。价值四象限 + 心智句，全队力出一孔 |
+| `/ljh-dingwei` | 新品定位一页纸。价值四象限 + 心智句，全队照一张纸打，不许各编各的 |
 | `/ljh-maidian` | 卖点体检。盖住成分自检 + 双重校验，判断卖点是独一份还是公共卖点 |
 | `/ljh-changjing` | 场景机会地图。扒竞品素材拆成能算账的表，四象限定性 |
 | `/ljh-duiqi` | 品·人群·内容对齐表。卖点翻译四列表，新品认知钉在同一点 |
