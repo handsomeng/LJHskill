@@ -8,6 +8,7 @@
 4. marketplace.json：JSON 合法、skills 路径存在、ljh 主条目覆盖全部 skills、目录数与条目数一致
 5. evals/*.json：JSON 合法，符合 schema
 6. 敏感词检查：仅当 内部/禁词.txt 存在时才跑，本地专用
+7. 档案协议齐全性：全部 skills/*/SKILL.md 必须包含「ljh-档案」字样
 
 用法：python3 scripts/validate.py
 任一项 FAIL，退出码为 1。
@@ -234,6 +235,21 @@ def check_sensitive_words(skill_dirs):
     fail_lines("6. 敏感词检查（本地禁词文件，扫描 skills/*/SKILL.md）", problems)
 
 
+# ---------- 7. 档案协议齐全性 ----------
+
+def check_archive_protocol(skill_dirs):
+    problems = []
+    for d in skill_dirs:
+        skill_md = d / "SKILL.md"
+        if not skill_md.exists():
+            continue
+        text = skill_md.read_text(encoding="utf-8")
+        if "ljh-档案" not in text:
+            problems.append(f"{d.name}/SKILL.md 缺少「ljh-档案」字样，档案协议未植入")
+
+    fail_lines("7. 档案协议齐全性（全部 SKILL.md 含「ljh-档案」）", problems)
+
+
 def public_markdown_files():
     """仓库内会公开的 markdown 文件：所有 SKILL.md + README.md（不含 内部/、CLAUDE.md）。"""
     files = []
@@ -255,6 +271,7 @@ def main():
     check_marketplace(skill_dirs)
     check_evals(skill_dirs)
     check_sensitive_words(skill_dirs)
+    check_archive_protocol(skill_dirs)
 
     print()
     print("=" * 60)
