@@ -5,6 +5,7 @@ description: |
   触发方式：/ljh-xuanpin、「这个品值不值得打」「帮我判断一下这个候选品」「选品怎么判断」
   Product selection judgment. Give a candidate product, get a five-step go/no-go verdict.
   Trigger: /ljh-xuanpin, "should I pursue this product", "judge this product candidate"
+  选购个人消费品、挑选股票基金这类非打品选品场景，不要自动触发。
 ---
 
 # ljh-xuanpin：选品判断器

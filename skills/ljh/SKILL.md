@@ -5,6 +5,7 @@ description: |
   触发方式：/ljh、两句话、「打品」、「帮我看看这个品」、「不知道下一步该干什么」、「带我从头打这个品」
   Main entry point for the product-launch toolkit. Three modes: pre-task routing, post-task navigation, and a guided walkthrough across the full product-launch chain.
   Trigger: /ljh, "help me launch this product", "what should I do next", "walk me through this product from scratch"
+  不要在与电商打品无关的通用咨询上自动触发。
 ---
 
 # ljh：两句话工具箱主入口

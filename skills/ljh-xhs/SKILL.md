@@ -5,6 +5,7 @@ description: |
   触发方式：/ljh-xhs、「帮我拆一条小红书爆款」「这条图文笔记为什么能卖」「小红书图文怎么复刻」「这张封面为什么点击高」
   Xiaohongshu (RED) viral image-text post decomposer. Given a sample post, judge whether it is even decomposable, then break down cover, page 2-5 handoff, viral factors and mechanism, variable layering, and produce a controlled-variant migration plan.
   Trigger: /ljh-xhs, "break down this Xiaohongshu viral post", "why does this post convert", "how do I replicate this RED post"
+  不要在拆解抖音视频、公众号文章等非小红书图文场景自动触发。
 ---
 
 # ljh-xhs：小红书图文爆款拆解器

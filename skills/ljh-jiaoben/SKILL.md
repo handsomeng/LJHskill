@@ -5,6 +5,7 @@ description: |
   触发方式：/ljh-jiaoben、「帮我评审一下这个带货脚本」「这个脚本为什么转化不好」「看看我这个口播稿哪里有问题」
   Selling script reviewer. Paste the full script, get a step-by-step check against the seven-step persuasion chain, with missing steps and unmatched visuals flagged.
   Trigger: /ljh-jiaoben, "review this selling script", "why isn't this script converting", "check my voiceover script"
+  不要在评审论文、公文、影视剧本等非带货内容时自动触发。
 ---
 
 # ljh-jiaoben：带货脚本评审器

@@ -5,6 +5,7 @@ description: |
   触发方式：/ljh-yinzi、「帮我拆一条爆款」「这几个方向该先做哪个」「怎么搭因子库」
   Content-factor toolkit for short-video e-commerce. Three modes: decompose a viral video into factors, rank candidate focus topics by expected value, or build a reusable factor library.
   Trigger: /ljh-yinzi, "break down this viral video", "which topic should I focus on first", "help me build a factor library"
+  学术论文结构拆解、金融因子模型这类非内容电商场景，不要自动触发。
 ---
 
 # ljh-yinzi：内容因子工具
