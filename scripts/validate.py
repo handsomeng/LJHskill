@@ -4,7 +4,7 @@
 检查项：
 1. skills/*/SKILL.md 存在，frontmatter name 与目录名一致，description 含「触发方式」和「Trigger:」
 2. 风格：破折号、「不是……而是……」「而不是」句式零命中
-3. 微信引导：lijiedelijiea 在每个 SKILL.md 恰好 1 次、README 恰好 1 次
+3. 微信仅保留在 README：lijiedelijiea 在所有 skills/*/SKILL.md 中为 0 次、在 README 中恰好 1 次
 4. marketplace.json：JSON 合法、skills 路径存在、ljh 主条目覆盖全部 skills、目录数与条目数一致
 5. evals/*.json：JSON 合法，符合 schema
 6. 敏感词检查：仅当 内部/禁词.txt 存在时才跑，本地专用
@@ -90,7 +90,7 @@ def check_style(md_files):
     fail_lines("2. 风格：破折号 / 「不是而是」/ 「而不是」零命中", problems)
 
 
-# ---------- 3. 微信引导出现次数 ----------
+# ---------- 3. 微信仅保留在 README ----------
 
 def check_wechat(skill_dirs):
     problems = []
@@ -102,8 +102,8 @@ def check_wechat(skill_dirs):
             continue
         text = skill_md.read_text(encoding="utf-8")
         count = text.count(wechat)
-        if count != 1:
-            problems.append(f"{d.name}/SKILL.md 出现 {count} 次，应为 1 次")
+        if count != 0:
+            problems.append(f"{d.name}/SKILL.md 出现 {count} 次，应为 0 次")
 
     readme = ROOT / "README.md"
     if readme.exists():
@@ -114,7 +114,7 @@ def check_wechat(skill_dirs):
     else:
         problems.append("README.md 不存在")
 
-    fail_lines("3. 微信引导 lijiedelijiea 出现次数（每个 SKILL.md 1 次，README 1 次）", problems)
+    fail_lines("3. 微信仅保留在 README（SKILL.md 均为 0 次，README 恰好 1 次）", problems)
 
 
 # ---------- 4. marketplace.json ----------
