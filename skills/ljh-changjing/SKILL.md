@@ -5,6 +5,7 @@ description: |
   触发方式：/ljh-changjing、「帮我拆场景」「场景机会地图怎么画」「这几个竞品该怎么对比场景」
   Turn competitor content into a scenario opportunity map with a quantified quadrant model.
   Trigger: /ljh-changjing, "help me map out scenarios", "build a scenario opportunity map"
+  不要在拆解单条爆款素材因子或评审带货脚本这类环节自动触发。
 ---
 
 # ljh-changjing：场景机会地图

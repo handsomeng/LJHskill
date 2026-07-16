@@ -5,6 +5,7 @@ description: |
   触发方式：/ljh-maidian、「帮我看看这个卖点行不行」「这句卖点站得住吗」「体检一下我的卖点」「这个卖点会不会被主播怼回来」
   Selling-point health check. Feed in one or a batch of selling-point copy, run six checks, and get a pass/reject verdict with concrete fixes.
   Trigger: /ljh-maidian, "check my selling point", "is this selling point solid", "will this get challenged by a live host"
+  论文摘要评审、产品说明书合规审查等非带货卖点语境，不要自动触发。
 ---
 
 # ljh-maidian：卖点体检器

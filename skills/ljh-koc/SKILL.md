@@ -5,6 +5,7 @@ description: |
   触发方式：/ljh-koc、「帮我设计一个 KOC 验证方案」「KOC 数据跑完了帮我出个报告」「这个卖点该怎么验」
   KOC validation plan design and validation report generation. Design a plan before launch, judge results and write a report after data comes in.
   Trigger: /ljh-koc, "help me design a KOC validation plan", "help me write a validation report from this data"
+  明星代言合作方案、品牌公关声明这类非KOC小范围验证场景，不要自动触发。
 ---
 
 # ljh-koc：KOC 验证方案设计与报告生成

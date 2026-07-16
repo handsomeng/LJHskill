@@ -5,6 +5,7 @@ description: |
   触发方式：/ljh-daren、「帮我看看这个达人能不能投」「这个账号数据是不是刷的」「这个号值不值得投」「达人报价合不合理」「怎么判断这个号是不是真流量」
   Influencer account diagnosis tool. Screens accounts against a six-dimension scorecard and runs a three-part anti-fraud check to output a partner/negotiate/pass recommendation.
   Trigger: /ljh-daren, "should I book this influencer", "is this account's data fake"
+  评价明星艺人形象或核实合作伙伴征信之类的非达人投放场景，不要自动触发。
 ---
 
 # ljh-daren：达人选号诊断器

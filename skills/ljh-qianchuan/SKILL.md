@@ -5,6 +5,7 @@ description: |
   触发方式：/ljh-qianchuan、「千川消耗掉了」「投放量突然没了」「ROI 掉了怎么办」
   Douyin ad (Qianchuan) traffic-drop diagnostic tool. Walks through a decision tree one node at a time to find the first action within two minutes.
   Trigger: /ljh-qianchuan, "my ad spend dropped", "Qianchuan traffic disappeared", "ROI suddenly dropped"
+  不要在非千川的广告平台问题或网站流量下降问题上自动触发。
 ---
 
 # ljh-qianchuan：千川掉量诊断器

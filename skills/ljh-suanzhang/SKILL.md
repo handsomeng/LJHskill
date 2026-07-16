@@ -5,6 +5,7 @@ description: |
   触发方式：/ljh-suanzhang、「这个渠道亏钱该不该砍」「帮我算一下能出多少获客价」「算算这个品的月账」
   Unit-economics calculator for short-video e-commerce. Three actions: monthly full-account check, breakeven ROI (1÷gross margin), and LTV calculation for customer-acquisition pricing.
   Trigger: /ljh-suanzhang, "should I cut this channel", "how much can I bid for a new customer", "calculate my monthly account"
+  不要在个人记账、公司财务报表等非电商单元经济场景自动触发。
 ---
 
 # ljh-suanzhang：单元经济算账器

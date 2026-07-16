@@ -5,6 +5,7 @@ description: |
   触发方式：/ljh-liangye、「帮我做一份见主播的材料」「怎么跟主播讲这个产品」「主播资料怎么准备」「当面怎么塑品」「产品资料太长了帮我提炼」
   Generates the two-page pitch material for meeting influencers or livestream hosts: one page to be remembered, one page to open the mouth, plus a six-step in-person pitch script.
   Trigger: /ljh-liangye, "prepare materials for meeting a livestream host", "how do I pitch this product in person"
+  商务合同谈判材料、招投标材料等非见主播语境，不要自动触发。
 ---
 
 # ljh-liangye：见主播两页材料生成器

@@ -5,6 +5,7 @@ description: |
   触发方式：/ljh-duiqi、「帮我做一张品人群内容对齐表」「这个新品的卖点怎么翻译成人话」「帮编导团队对齐一下这个品」
   Product-audience-content alignment table generator. Feed in product info, output a five-block alignment table with a selling-point translation table at its core.
   Trigger: /ljh-duiqi, "help me build a product-audience-content alignment table", "translate this product's selling points into consumer language"
+  团队排班表、项目进度对齐表等非内容电商语境，不要自动触发。
 ---
 
 # ljh-duiqi：品·人群·内容对齐表生成器

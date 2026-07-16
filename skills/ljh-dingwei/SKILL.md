@@ -5,6 +5,7 @@ description: |
   触发方式：/ljh-dingwei、「帮我写一份产品定位」「这个新品怎么定位」「填一下定位一页纸」「这个品的心智句怎么收」
   New-product positioning one-pager generator. Feed in product materials and get a filled six-column positioning sheet with a value quadrant and validation checks.
   Trigger: /ljh-dingwei, "write a product positioning", "fill the positioning one-pager", "help me define this new product"
+  企业战略定位、城市品牌定位这类通用定位场景，不要自动触发。
 ---
 
 # ljh-dingwei：新品定位一页纸生成器
