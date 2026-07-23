@@ -1,0 +1,4 @@
+interface:
+  display_name: "关键指标波动诊断专家"
+  short_description: "沿指标树定位内容电商波动根因，并输出首个可验证的运营动作。"
+  default_prompt: "Use $ljh-zhibiao to collect missing platform, account, primary metric, and comparison-period information first. If the user cannot provide enough context, clearly label the answer as preliminary and present several testable possibilities; otherwise diagnose the fluctuation and identify the first operating action."
