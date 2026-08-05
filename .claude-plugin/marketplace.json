@@ -4,7 +4,7 @@
     "name": "handsomeng"
   },
   "metadata": {
-    "description": "LJHskill，俗称「两句话」：第一句说清你卡在哪，第二句它带你跑对的工具。从《内容电商从 0 到 1 打品》方法论中提炼出的 15 个可执行 Claude Code skill，覆盖选品、定位、场景、内容、验证、投放、指标诊断、算账全链路。",
+    "description": "LJHskill，外号「电商老家伙」：第一句说清你卡在哪，第二句它带你跑对的工具。从《内容电商从 0 到 1 打品》方法论中提炼出的 15 个可执行 Claude Code skill，覆盖选品、定位、场景、内容、验证、投放、指标诊断、算账全链路。",
     "version": "0.5.0"
   },
   "plugins": [
@@ -15,7 +15,12 @@
       "strict": false,
       "version": "1.0.0",
       "category": "content-ecommerce",
-      "keywords": ["ecommerce", "router", "toolkit", "chinese"],
+      "keywords": [
+        "ecommerce",
+        "router",
+        "toolkit",
+        "chinese"
+      ],
       "skills": [
         "./skills/ljh",
         "./skills/ljh-xuanpin",
@@ -41,8 +46,14 @@
       "strict": false,
       "version": "1.0.0",
       "category": "content-ecommerce",
-      "keywords": ["product-selection", "ecommerce", "chinese"],
-      "skills": ["./skills/ljh-xuanpin"]
+      "keywords": [
+        "product-selection",
+        "ecommerce",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-xuanpin"
+      ]
     },
     {
       "name": "ljh-dingwei",
@@ -51,8 +62,14 @@
       "strict": false,
       "version": "1.0.0",
       "category": "content-ecommerce",
-      "keywords": ["positioning", "product", "chinese"],
-      "skills": ["./skills/ljh-dingwei"]
+      "keywords": [
+        "positioning",
+        "product",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-dingwei"
+      ]
     },
     {
       "name": "ljh-maidian",
@@ -61,8 +78,14 @@
       "strict": false,
       "version": "1.0.0",
       "category": "content-ecommerce",
-      "keywords": ["selling-point", "validation", "chinese"],
-      "skills": ["./skills/ljh-maidian"]
+      "keywords": [
+        "selling-point",
+        "validation",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-maidian"
+      ]
     },
     {
       "name": "ljh-changjing",
@@ -71,8 +94,14 @@
       "strict": false,
       "version": "1.0.0",
       "category": "content-ecommerce",
-      "keywords": ["scenario", "competitor-analysis", "chinese"],
-      "skills": ["./skills/ljh-changjing"]
+      "keywords": [
+        "scenario",
+        "competitor-analysis",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-changjing"
+      ]
     },
     {
       "name": "ljh-duiqi",
@@ -81,8 +110,14 @@
       "strict": false,
       "version": "1.0.0",
       "category": "content-ecommerce",
-      "keywords": ["alignment", "content", "chinese"],
-      "skills": ["./skills/ljh-duiqi"]
+      "keywords": [
+        "alignment",
+        "content",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-duiqi"
+      ]
     },
     {
       "name": "ljh-jiaoben",
@@ -91,8 +126,14 @@
       "strict": false,
       "version": "1.0.0",
       "category": "content-ecommerce",
-      "keywords": ["script", "review", "chinese"],
-      "skills": ["./skills/ljh-jiaoben"]
+      "keywords": [
+        "script",
+        "review",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-jiaoben"
+      ]
     },
     {
       "name": "ljh-yinzi",
@@ -101,8 +142,14 @@
       "strict": false,
       "version": "1.0.0",
       "category": "content-ecommerce",
-      "keywords": ["content-factor", "analysis", "chinese"],
-      "skills": ["./skills/ljh-yinzi"]
+      "keywords": [
+        "content-factor",
+        "analysis",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-yinzi"
+      ]
     },
     {
       "name": "ljh-koc",
@@ -111,8 +158,14 @@
       "strict": false,
       "version": "1.0.0",
       "category": "content-ecommerce",
-      "keywords": ["koc", "validation", "chinese"],
-      "skills": ["./skills/ljh-koc"]
+      "keywords": [
+        "koc",
+        "validation",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-koc"
+      ]
     },
     {
       "name": "ljh-qianchuan",
@@ -121,8 +174,15 @@
       "strict": false,
       "version": "1.0.0",
       "category": "content-ecommerce",
-      "keywords": ["qianchuan", "ads", "diagnosis", "chinese"],
-      "skills": ["./skills/ljh-qianchuan"]
+      "keywords": [
+        "qianchuan",
+        "ads",
+        "diagnosis",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-qianchuan"
+      ]
     },
     {
       "name": "ljh-suanzhang",
@@ -131,8 +191,14 @@
       "strict": false,
       "version": "1.0.0",
       "category": "content-ecommerce",
-      "keywords": ["unit-economics", "ltv", "chinese"],
-      "skills": ["./skills/ljh-suanzhang"]
+      "keywords": [
+        "unit-economics",
+        "ltv",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-suanzhang"
+      ]
     },
     {
       "name": "ljh-daren",
@@ -141,8 +207,14 @@
       "strict": false,
       "version": "1.0.0",
       "category": "content-ecommerce",
-      "keywords": ["influencer", "anti-fraud", "chinese"],
-      "skills": ["./skills/ljh-daren"]
+      "keywords": [
+        "influencer",
+        "anti-fraud",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-daren"
+      ]
     },
     {
       "name": "ljh-liangye",
@@ -151,8 +223,14 @@
       "strict": false,
       "version": "1.0.0",
       "category": "content-ecommerce",
-      "keywords": ["pitch", "livestream", "chinese"],
-      "skills": ["./skills/ljh-liangye"]
+      "keywords": [
+        "pitch",
+        "livestream",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-liangye"
+      ]
     },
     {
       "name": "ljh-xhs",
@@ -161,8 +239,15 @@
       "strict": false,
       "version": "1.0.0",
       "category": "content-ecommerce",
-      "keywords": ["xiaohongshu", "red", "viral-post", "chinese"],
-      "skills": ["./skills/ljh-xhs"]
+      "keywords": [
+        "xiaohongshu",
+        "red",
+        "viral-post",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-xhs"
+      ]
     },
     {
       "name": "ljh-zhibiao",
@@ -171,8 +256,15 @@
       "strict": false,
       "version": "1.0.0",
       "category": "content-ecommerce",
-      "keywords": ["metrics", "diagnosis", "ecommerce", "chinese"],
-      "skills": ["./skills/ljh-zhibiao"]
+      "keywords": [
+        "metrics",
+        "diagnosis",
+        "ecommerce",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-zhibiao"
+      ]
     }
   ]
 }
