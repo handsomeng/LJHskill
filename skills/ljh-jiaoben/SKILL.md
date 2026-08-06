@@ -1,5 +1,8 @@
 ---
 name: ljh-jiaoben
+displayName: ljh-jiaoben
+slug: ljh-jiaoben
+version: 0.5.0
 description: |
   带货脚本评审器。用户贴脚本全文，按七步说服链逐段核对，指出缺哪步、哪句没配画面、表达形式和内核哪层出问题。
   触发方式：/ljh-jiaoben、「帮我评审一下这个带货脚本」「这个脚本为什么转化不好」「看看我这个口播稿哪里有问题」

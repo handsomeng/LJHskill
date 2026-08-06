@@ -1,5 +1,8 @@
 ---
 name: ljh-dingwei
+displayName: ljh-dingwei
+slug: ljh-dingwei
+version: 0.5.0
 description: |
   新品定位一页纸生成器。喂产品资料，产出六栏定位一页纸：定位一句话、价值四象限、必要项与差异项、竞争差异、翻译成内容、双重校验。
   触发方式：/ljh-dingwei、「帮我写一份产品定位」「这个新品怎么定位」「填一下定位一页纸」「这个品的心智句怎么收」

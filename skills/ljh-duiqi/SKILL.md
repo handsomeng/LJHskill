@@ -1,5 +1,8 @@
 ---
 name: ljh-duiqi
+displayName: ljh-duiqi
+slug: ljh-duiqi
+version: 0.5.0
 description: |
   品·人群·内容对齐表生成器。喂产品资料，产出五块对齐表，核心是把产品语言翻译成消费者人话和画面的四列表。
   触发方式：/ljh-duiqi、「帮我做一张品人群内容对齐表」「这个新品的卖点怎么翻译成人话」「帮编导团队对齐一下这个品」

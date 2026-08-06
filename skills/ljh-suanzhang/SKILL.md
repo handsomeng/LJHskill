@@ -1,5 +1,8 @@
 ---
 name: ljh-suanzhang
+displayName: ljh-suanzhang
+slug: ljh-suanzhang
+version: 0.5.0
 description: |
   单元经济算账器。三个动作：月度总账（判断渠道砍不砍）、盈亏平衡 ROI（1÷毛利率）、LTV 实算（敢出多高获客价）。
   触发方式：/ljh-suanzhang、「这个渠道亏钱该不该砍」「帮我算一下能出多少获客价」「算算这个品的月账」
