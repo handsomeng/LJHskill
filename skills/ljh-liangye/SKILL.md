@@ -1,5 +1,8 @@
 ---
 name: ljh-liangye
+displayName: ljh-liangye
+slug: ljh-liangye
+version: 0.5.0
 description: |
   见主播两页材料生成器，把产品资料压缩成一页记得住、一页开得了口的标准材料，附当面塑品六步提词。
   触发方式：/ljh-liangye、「帮我做一份见主播的材料」「怎么跟主播讲这个产品」「主播资料怎么准备」「当面怎么塑品」「产品资料太长了帮我提炼」

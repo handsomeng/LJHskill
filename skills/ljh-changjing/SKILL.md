@@ -1,5 +1,8 @@
 ---
 name: ljh-changjing
+displayName: ljh-changjing
+slug: ljh-changjing
+version: 0.5.0
 description: |
   场景机会地图。带你把竞品素材拆成能算账的表，用体量乘效率的四象限定性，最后画出自己该重投哪个场景的机会地图。
   触发方式：/ljh-changjing、「帮我拆场景」「场景机会地图怎么画」「这几个竞品该怎么对比场景」

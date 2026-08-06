@@ -1,5 +1,8 @@
 ---
 name: ljh-maidian
+displayName: ljh-maidian
+slug: ljh-maidian
+version: 0.5.0
 description: |
   卖点体检器。丢一句或一组卖点文案进来，跑六道检验，判断这是独一份卖点还是随时会被抄的公共卖点，给出通过/打回结论和改法。
   触发方式：/ljh-maidian、「帮我看看这个卖点行不行」「这句卖点站得住吗」「体检一下我的卖点」「这个卖点会不会被主播怼回来」

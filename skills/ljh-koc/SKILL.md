@@ -1,5 +1,8 @@
 ---
 name: ljh-koc
+displayName: ljh-koc
+slug: ljh-koc
+version: 0.5.0
 description: |
   KOC 验证方案设计与验证报告生成。还没铺就帮你设计验证方案，跑完了就帮你判定结果并出报告。
   触发方式：/ljh-koc、「帮我设计一个 KOC 验证方案」「KOC 数据跑完了帮我出个报告」「这个卖点该怎么验」

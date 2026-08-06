@@ -1,5 +1,8 @@
 ---
 name: ljh-yinzi
+displayName: ljh-yinzi
+slug: ljh-yinzi
+version: 0.5.0
 description: |
   内容因子工具。三种模式：拆解（把一条爆款素材拆到因子级）、排序（给候选专攻课题按 EV 打分排优先级并跑完整 SOP）、建库（指导搭建因子库三张表）。
   触发方式：/ljh-yinzi、「帮我拆一条爆款」「这几个方向该先做哪个」「怎么搭因子库」

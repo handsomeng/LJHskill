@@ -1,5 +1,8 @@
 ---
 name: ljh-xuanpin
+displayName: ljh-xuanpin
+slug: ljh-xuanpin
+version: 0.5.0
 description: |
   选品判断器。你报一个候选品，我按五步逐项核对，给出值不值得打的结论。
   触发方式：/ljh-xuanpin、「这个品值不值得打」「帮我判断一下这个候选品」「选品怎么判断」
