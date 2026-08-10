@@ -12,7 +12,7 @@
 
 LJHskill（李解瀚森 skill），外号「电商老家伙」：第一句说清你卡在哪，第二句它带你跑对的工具。取 LJH 三个字母的谐音。
 
-从一门约 20 万字的内容电商实操课里，把可执行的部分（诊断表、判断标准、SOP、填空模板）提炼出 15 个 Agent skill，覆盖选品、定位、卖点、场景、内容、验证、投放、指标诊断、算账全链路。课程正文不在本仓库，这里只有拿来就能跑的工具。
+从一门约 20 万字的内容电商实操课里，把可执行的部分（诊断表、判断标准、SOP、填空模板）提炼出 16 个 Agent skill，覆盖选品、定位、卖点、场景、内容、验证、投放、指标诊断、算账全链路。课程正文不在本仓库，这里只有拿来就能跑的工具。
 
 **最新版本 v0.5.0**
 
@@ -53,7 +53,7 @@ claude plugin marketplace add handsomeng/LJHskill
 claude plugin install ljh@ljhskill
 ```
 
-装 `ljh@ljhskill` 即获得全部 15 个 skill。只想单独装某一个工具时，才用类似 `claude plugin install ljh-xuanpin@ljhskill` 的命令。
+装 `ljh@ljhskill` 即获得全部 16 个 skill。只想单独装某一个工具时，才用类似 `claude plugin install ljh-xuanpin@ljhskill` 的命令。
 
 ### 通用安装（Codex / Claude Code）
 
@@ -73,6 +73,7 @@ npx -y skills add handsomeng/LJHskill -g --all
 | `/ljh-maidian` | 卖点体检。盖住成分自检 + 双重校验，判断卖点是独一份还是公共卖点 |
 | `/ljh-changjing` | 场景机会地图。扒竞品素材拆成能算账的表，四象限定性 |
 | `/ljh-duiqi` | 品·人群·内容对齐表。卖点翻译四列表，新品认知钉在同一点 |
+| `/ljh-shangxiang` | 商详页策略。输出说服地图、逐屏结构，安排证据并标注风险 |
 | `/ljh-jiaoben` | 带货脚本评审。七步说服链逐段核对，指出缺哪步、哪句没配画面 |
 | `/ljh-yinzi` | 内容因子拆解。爆款拆到因子级，专攻课题按 EV 排序 |
 | `/ljh-koc` | KOC 验证。低成本卖点验证方案设计 + 验证报告 |
@@ -94,7 +95,7 @@ changjing（往哪个场景发力）
     ↓
 koc（小成本验证卖点）
     ↓
-duiqi → jiaoben → yinzi（内容怎么做、怎么放大）
+duiqi → shangxiang → jiaoben → yinzi（商详页和内容怎么做、怎么放大）
     ↓
 daren / liangye / qianchuan（投放怎么花钱）
     ↓
@@ -105,15 +106,16 @@ suanzhang（这盘账到底赚不赚）
 
 **场景一，新手入局**：手上有个品，还没想清楚该不该做。从 `/ljh-xuanpin` 开始判断值不值得打，走完定位、卖点、场景、验证、内容、投放，一路走到 `/ljh-suanzhang` 把账算清楚。这条链串起来就是一套完整的决策流程。也可以直接说带我从头打这个品，主入口会带你陪跑走完全链。
 
-**场景二，已经在跑的盘子**：品在跑了，但哪里疼就查哪里。千川掉量用 `/ljh-qianchuan`，GMV、转化、ROI、新客、复购或内容效率波动用 `/ljh-zhibiao`，口碑被骂用 `/ljh-maidian`，脚本转化不理想用 `/ljh-jiaoben`。如果同时在做小红书图文种草，一条笔记卖爆了想复刻，用 `/ljh-xhs` 拆到能迁移的机制层面，不用从头走一遍，15 个工具随时单独调用。
+**场景二，已经在跑的盘子**：品在跑了，但哪里疼就查哪里。千川掉量用 `/ljh-qianchuan`，GMV、转化、ROI、新客、复购或内容效率波动用 `/ljh-zhibiao`，口碑被骂用 `/ljh-maidian`，脚本转化不理想用 `/ljh-jiaoben`。如果同时在做小红书图文种草，一条笔记卖爆了想复刻，用 `/ljh-xhs` 拆到能迁移的机制层面，不用从头走一遍，16 个工具随时单独调用。
 
-**场景三，只拿一个工具用**：不想装全套也可以。15 个 skill 每个都能单独安装、单独跑，互不依赖，拿走你需要的那一个就够。
+**场景三，只拿一个工具用**：不想装全套也可以。16 个 skill 每个都能单独安装、单独跑，互不依赖，拿走你需要的那一个就够。
 
 **场景四，给团队用**：团队装同一套，各自按自己的岗位取用。
 
 - 编导：用 `/ljh-jiaoben` 评审脚本，用 `/ljh-yinzi` 拆内容因子
 - 投手：用 `/ljh-qianchuan` 排查千川问题
 - 业务负责人：用 `/ljh-zhibiao` 诊断关键指标波动，用 `/ljh-suanzhang` 核对经营总账
+- 商品运营：用 `/ljh-shangxiang` 制定商详页策略，安排逐屏承接、证据和风险
 - 商务：用 `/ljh-daren` 选号，用 `/ljh-liangye` 准备见主播的材料
 - 操盘手：用 `/ljh-xuanpin` 定选品，用 `/ljh-suanzhang` 把总账算清楚
 

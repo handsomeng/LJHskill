@@ -114,7 +114,7 @@ def parse_judge_json(text):
     if fence_match:
         cleaned = fence_match.group(1)
     else:
-        brace_match = re.search(r"\{.*\}", cleaned, re.S)
+        brace_match = re.search(r"(\{.*\})", cleaned, re.S)
         if brace_match:
             cleaned = brace_match.group(1)
 

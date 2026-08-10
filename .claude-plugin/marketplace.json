@@ -4,13 +4,13 @@
     "name": "handsomeng"
   },
   "metadata": {
-    "description": "LJHskill，外号「电商老家伙」：第一句说清你卡在哪，第二句它带你跑对的工具。从《内容电商从 0 到 1 打品》方法论中提炼出的 15 个可执行 Claude Code skill，覆盖选品、定位、场景、内容、验证、投放、指标诊断、算账全链路。",
+    "description": "LJHskill，外号「电商老家伙」：第一句说清你卡在哪，第二句它带你跑对的工具。从《内容电商从 0 到 1 打品》方法论中提炼出的 16 个可执行 Claude Code skill，覆盖选品、定位、场景、内容、验证、投放、指标诊断、算账全链路。",
     "version": "0.5.0"
   },
   "plugins": [
     {
       "name": "ljh",
-      "description": "打品工具箱主入口，装这一个就得到整套工具箱（含全部 15 个 skill）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从选品走到算账。",
+      "description": "打品工具箱主入口，装这一个就得到整套工具箱（含全部 16 个 skill）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从选品走到算账。",
       "source": "./",
       "strict": false,
       "version": "1.0.0",
@@ -36,7 +36,8 @@
         "./skills/ljh-daren",
         "./skills/ljh-liangye",
         "./skills/ljh-xhs",
-        "./skills/ljh-zhibiao"
+        "./skills/ljh-zhibiao",
+        "./skills/ljh-shangxiang"
       ]
     },
     {
@@ -264,6 +265,23 @@
       ],
       "skills": [
         "./skills/ljh-zhibiao"
+      ]
+    },
+    {
+      "name": "ljh-shangxiang",
+      "description": "商详页说服地图。把定位、卖点、场景、人群和验证证据编排成商品详情页策略、逐屏结构与内容文档，可选输出低保真 HTML。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "content-ecommerce",
+      "keywords": [
+        "product-detail",
+        "persuasion",
+        "ecommerce",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-shangxiang"
       ]
     }
   ]
