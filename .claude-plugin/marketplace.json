@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "LJHskill，外号「电商老家伙」：第一句说清你卡在哪，第二句它带你跑对的工具。从《内容电商从 0 到 1 打品》方法论中提炼出的 16 个可执行 Claude Code skill，覆盖选品、定位、场景、内容、验证、投放、指标诊断、算账全链路。",
-    "version": "0.5.0"
+    "version": "0.6.0"
   },
   "plugins": [
     {
