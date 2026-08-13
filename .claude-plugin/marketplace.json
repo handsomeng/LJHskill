@@ -4,13 +4,13 @@
     "name": "handsomeng"
   },
   "metadata": {
-    "description": "LJHskill，外号「电商老家伙」：第一句说清你卡在哪，第二句它带你跑对的工具。从《内容电商从 0 到 1 打品》方法论中提炼出的 16 个可执行 Claude Code skill，覆盖选品、定位、场景、内容、验证、投放、指标诊断、算账全链路。",
-    "version": "0.6.0"
+    "description": "LJHskill，外号「电商老家伙」：第一句说清你卡在哪，第二句它带你跑对的工具。从《内容电商从 0 到 1 打品》方法论中提炼出的 17 个可执行 Claude Code skill，覆盖开品、选品、定位、场景、内容、验证、投放、指标诊断、算账全链路。",
+    "version": "0.7.0"
   },
   "plugins": [
     {
       "name": "ljh",
-      "description": "打品工具箱主入口，装这一个就得到整套工具箱（含全部 16 个 skill）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从选品走到算账。",
+      "description": "打品工具箱主入口，装这一个就得到整套工具箱（含全部 17 个 skill）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从开品或选品走到算账。",
       "source": "./",
       "strict": false,
       "version": "1.0.0",
@@ -23,6 +23,7 @@
       ],
       "skills": [
         "./skills/ljh",
+        "./skills/ljh-kaipin",
         "./skills/ljh-xuanpin",
         "./skills/ljh-dingwei",
         "./skills/ljh-maidian",
@@ -38,6 +39,23 @@
         "./skills/ljh-xhs",
         "./skills/ljh-zhibiao",
         "./skills/ljh-shangxiang"
+      ]
+    },
+    {
+      "name": "ljh-kaipin",
+      "description": "开品概念推进器。把工厂提案、竞品线索、趋势判断或老品问题，推进成可评审、可验证的产品概念文档。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "content-ecommerce",
+      "keywords": [
+        "new-product",
+        "concept",
+        "ecommerce",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-kaipin"
       ]
     },
     {
