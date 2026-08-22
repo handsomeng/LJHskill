@@ -10,7 +10,7 @@
   "plugins": [
     {
       "name": "ljh",
-      "description": "打品工具箱主入口，装这一个就得到整套工具箱（含全部 17 个 skill）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从开品或选品走到算账。",
+      "description": "打品工具箱主入口，装这一个就得到整套工具箱（含全部 18 个 skill）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从开品或选品走到算账。",
       "source": "./",
       "strict": false,
       "version": "1.0.0",
@@ -23,6 +23,7 @@
       ],
       "skills": [
         "./skills/ljh",
+        "./skills/ljh-lianming",
         "./skills/ljh-kaipin",
         "./skills/ljh-xuanpin",
         "./skills/ljh-dingwei",
@@ -39,6 +40,23 @@
         "./skills/ljh-xhs",
         "./skills/ljh-zhibiao",
         "./skills/ljh-shangxiang"
+      ]
+    },
+    {
+      "name": "ljh-lianming",
+      "description": "联名开品引擎。给自有品牌 × IP/品牌/产品的联名，双端挖元素、十种结合逻辑生成候选方向、四道验证闸初筛，输出联名开品一页纸。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "content-ecommerce",
+      "keywords": [
+        "co-branding",
+        "ip-collaboration",
+        "product-ideation",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-lianming"
       ]
     },
     {
