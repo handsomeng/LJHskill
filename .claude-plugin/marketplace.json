@@ -4,13 +4,13 @@
     "name": "handsomeng"
   },
   "metadata": {
-    "description": "LJHskill，外号「电商老家伙」：第一句说清你卡在哪，第二句它带你跑对的工具。从《内容电商从 0 到 1 打品》方法论中提炼出的 17 个可执行 Claude Code skill，覆盖开品、选品、定位、场景、内容、验证、投放、指标诊断、算账全链路。",
-    "version": "0.7.0"
+    "description": "LJHskill，外号「电商老家伙」：第一句说清你卡在哪，第二句它带你跑对的工具。从《内容电商从 0 到 1 打品》方法论中提炼出的 18 个可执行 Claude Code skill，覆盖开品、选品、价值、定位、场景、内容、验证、投放、指标诊断、算账全链路。",
+    "version": "0.9.0"
   },
   "plugins": [
     {
       "name": "ljh",
-      "description": "打品工具箱主入口，装这一个就得到整套工具箱（含全部 18 个 skill）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从开品或选品走到算账。",
+      "description": "打品工具箱主入口，装这一个就得到整套工具箱（含全部 19 个 skill）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从开品或选品走到算账。",
       "source": "./",
       "strict": false,
       "version": "1.0.0",
@@ -25,6 +25,7 @@
         "./skills/ljh",
         "./skills/ljh-lianming",
         "./skills/ljh-kaipin",
+        "./skills/ljh-jiazhi",
         "./skills/ljh-xuanpin",
         "./skills/ljh-dingwei",
         "./skills/ljh-maidian",
@@ -74,6 +75,23 @@
       ],
       "skills": [
         "./skills/ljh-kaipin"
+      ]
+    },
+    {
+      "name": "ljh-jiazhi",
+      "description": "产品价值地图。五层价值（直观/功能/场景/关系/意义）加证据底座，随对话逐步显影，回答用户为什么在意这个品。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "content-ecommerce",
+      "keywords": [
+        "value-map",
+        "product-value",
+        "positioning",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-jiazhi"
       ]
     },
     {
