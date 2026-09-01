@@ -3,9 +3,9 @@
 
 工作原理（两段式，每个用例两次 `claude -p` 调用）：
 
-1. 扮演段：读取 skills/{skill}/SKILL.md 全文和 evals/{skill}.json 里该 case 的
-   scenario，拼一个 prompt 让被测模型严格按 SKILL.md 的指令扮演这个 skill，模拟
-   完整交互并输出最终回复给用户的内容。
+1. 扮演段：读取 skills/{skill}/SKILL.md 全文，安全递归加载它直接引用的本地
+   references Markdown，以及 evals/{skill}.json 里该 case 的 scenario。引用文件
+   按相对路径放入 prompt；绝对路径、越界、缺失和超限会让该 case 记录 ERROR。
 
 2. 裁判段：把扮演段的输出连同该 case 的 must（语义断言，意思到了就算满足，不要求
    字面匹配）/ must_not（语义禁区，同义表达也算命中）交给第二次 `claude -p` 调用，
@@ -27,7 +27,8 @@ import re
 import subprocess
 import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from pathlib import Path
+from pathlib import Path, PurePosixPath
+from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
 EVALS_DIR = ROOT / "evals"
@@ -36,11 +37,16 @@ DEFAULT_MODEL = "claude-sonnet-5"
 JUDGE_MODEL = "claude-haiku-4-5-20251001"
 RESULT_PATH = Path("/tmp/ljh_evals_last_run.json")
 TIMEOUT_SECONDS = 300
+MAX_REFERENCE_BUNDLE_BYTES = 512 * 1024
+MARKDOWN_LINK_PATTERN = re.compile(r"!?\[[^\]\n]*\]\(\s*(<[^>\n]+>|[^)\s]+)")
 
 ROLEPLAY_PROMPT_TEMPLATE = """你要严格按照下面这份 SKILL.md 的指令扮演这个 skill。用户的输入和背景如下。请模拟完整交互（scenario 里给了用户会怎么回答的信息就用它作答），输出这个 skill 最终会给用户的完整回复。
 
 ===SKILL.md===
 {skill_md}
+
+===本 Skill 本地 references===
+{reference_bundle}
 
 ===用户输入===
 {scenario}"""
@@ -62,6 +68,138 @@ JUDGE_PROMPT_TEMPLATE = """你是一个行为回归测试的裁判。下面是�
 
 ===must_not（禁止出现）===
 {must_not}"""
+
+
+class ReferenceBundleError(ValueError):
+    """本地 Markdown 引用不安全、缺失或超过 bundle 限额。"""
+
+
+def extract_markdown_links(text):
+    """按出现顺序返回 Markdown 链接目标，不解析外部内容。"""
+    return [match.group(1) for match in MARKDOWN_LINK_PATTERN.finditer(text)]
+
+
+def resolve_local_markdown_link(source_path, skill_dir, raw_target, references_only=False):
+    """安全解析一个本地 Markdown 链接；外部或非 Markdown 链接返回 None。"""
+    source_path = Path(source_path)
+    skill_dir = Path(skill_dir).resolve()
+    target = raw_target.strip()
+    if target.startswith("<") and target.endswith(">"):
+        target = target[1:-1].strip()
+
+    try:
+        parsed = urlsplit(target)
+    except ValueError as exc:
+        raise ReferenceBundleError(f"链接格式无效：{raw_target}") from exc
+    if parsed.scheme.lower() in {"http", "https"}:
+        return None
+    if parsed.scheme or parsed.netloc:
+        raise ReferenceBundleError(f"不支持的链接协议：{raw_target}")
+
+    decoded_path = unquote(parsed.path).replace("\\", "/")
+    if not decoded_path:
+        return None
+    if not decoded_path.lower().endswith(".md"):
+        return None
+    if decoded_path.startswith("/") or re.match(r"^[A-Za-z]:/", decoded_path):
+        raise ReferenceBundleError(f"拒绝绝对路径：{raw_target}")
+
+    parts = PurePosixPath(decoded_path).parts
+    if ".." in parts:
+        raise ReferenceBundleError(f"拒绝 .. 越界路径：{raw_target}")
+
+    source_resolved = source_path.resolve()
+    try:
+        source_resolved.relative_to(skill_dir)
+    except ValueError as exc:
+        raise ReferenceBundleError(f"引用来源位于 Skill 目录外：{source_path}") from exc
+
+    unresolved = source_path.parent.joinpath(*parts)
+    cursor = source_path.parent
+    for part in parts:
+        cursor = cursor / part
+        if cursor.is_symlink():
+            raise ReferenceBundleError(f"拒绝符号链接引用：{raw_target}")
+
+    resolved = unresolved.resolve()
+    try:
+        relative = resolved.relative_to(skill_dir)
+    except ValueError as exc:
+        raise ReferenceBundleError(f"引用文件位于 Skill 目录外：{raw_target}") from exc
+
+    if references_only and (not relative.parts or relative.parts[0] != "references"):
+        return None
+    if not resolved.exists():
+        raise ReferenceBundleError(f"本地 Markdown 引用不存在：{raw_target}")
+    if not resolved.is_file():
+        raise ReferenceBundleError(f"本地 Markdown 引用不是文件：{raw_target}")
+    return resolved
+
+
+def load_reference_bundle(skill_md_path, max_total_bytes=MAX_REFERENCE_BUNDLE_BYTES):
+    """递归加载 SKILL.md 直接引用的 references，返回 [(相对路径, 内容)]。"""
+    skill_md_path = Path(skill_md_path)
+    skill_dir = skill_md_path.parent.resolve()
+    try:
+        skill_text = skill_md_path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        raise ReferenceBundleError(f"SKILL.md 读取失败：{exc}") from exc
+
+    queue = []
+    for raw_target in extract_markdown_links(skill_text):
+        target = resolve_local_markdown_link(
+            skill_md_path,
+            skill_dir,
+            raw_target,
+            references_only=True,
+        )
+        if target is not None:
+            queue.append(target)
+
+    seen = {skill_md_path.resolve()}
+    bundle = []
+    total_bytes = 0
+    while queue:
+        path = queue.pop(0)
+        resolved = path.resolve()
+        if resolved in seen:
+            continue
+        seen.add(resolved)
+        try:
+            raw = resolved.read_bytes()
+            content = raw.decode("utf-8")
+        except (OSError, UnicodeError) as exc:
+            raise ReferenceBundleError(f"reference 读取失败：{resolved}: {exc}") from exc
+
+        total_bytes += len(raw)
+        if total_bytes > max_total_bytes:
+            raise ReferenceBundleError(
+                f"reference bundle 超过 {max_total_bytes} 字节上限"
+            )
+
+        relative = resolved.relative_to(skill_dir).as_posix()
+        bundle.append((relative, content))
+        for raw_target in extract_markdown_links(content):
+            target = resolve_local_markdown_link(
+                resolved,
+                skill_dir,
+                raw_target,
+                references_only=False,
+            )
+            if target is not None and target not in seen:
+                queue.append(target)
+
+    return bundle
+
+
+def format_reference_bundle(bundle):
+    """把 reference bundle 格式化为带相对路径的 prompt 片段。"""
+    if not bundle:
+        return "（无本地 Markdown reference）"
+    sections = []
+    for relative, content in bundle:
+        sections.append(f"--- {relative} ---\n{content}")
+    return "\n\n".join(sections)
 
 
 def load_cases(skill_filter, case_filter):
@@ -140,10 +278,19 @@ def run_case(skill_name, case, model):
         record["note"] = f"找不到 {skill_md_path}"
         return record
 
-    skill_md = skill_md_path.read_text(encoding="utf-8")
+    try:
+        skill_md = skill_md_path.read_text(encoding="utf-8")
+        reference_bundle = load_reference_bundle(skill_md_path)
+    except (OSError, UnicodeError, ReferenceBundleError) as exc:
+        record["note"] = f"reference bundle 加载失败：{exc}"
+        return record
     scenario = case.get("scenario", "")
 
-    roleplay_prompt = ROLEPLAY_PROMPT_TEMPLATE.format(skill_md=skill_md, scenario=scenario)
+    roleplay_prompt = ROLEPLAY_PROMPT_TEMPLATE.format(
+        skill_md=skill_md,
+        reference_bundle=format_reference_bundle(reference_bundle),
+        scenario=scenario,
+    )
     ok, roleplay_output = call_claude(roleplay_prompt, model)
     if not ok:
         record["note"] = f"扮演段调用失败：{roleplay_output}"
