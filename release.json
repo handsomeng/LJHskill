@@ -1,0 +1,11 @@
+{
+  "suite": "ljhskill",
+  "version": "1.0.0",
+  "suite_version": "1.0.0",
+  "released_at": "2026-09-01T00:55:18+08:00",
+  "summary": "v1.0.0 阶段性治理：更新提醒、Brief 迁移、经营三轴、字段所有权、选品/KOC/算账及场景/因子/联名治理。",
+  "readme_url": "https://github.com/handsomeng/LJHskill/blob/main/README.md",
+  "update_instructions_url": "https://github.com/handsomeng/LJHskill/blob/main/README.md#如何更新",
+  "readme_update_entry": "https://github.com/handsomeng/LJHskill/blob/main/README.md#v100-发布说明",
+  "release_url": "https://raw.githubusercontent.com/handsomeng/LJHskill/main/release.json"
+}

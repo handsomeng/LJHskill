@@ -4,16 +4,15 @@
     "name": "handsomeng"
   },
   "metadata": {
-    "description": "LJHskill，外号「电商老家伙」：第一句说清你卡在哪，第二句它带你跑对的工具。从《内容电商从 0 到 1 打品》方法论中提炼出的 18 个可执行 Claude Code skill，覆盖开品、选品、价值、定位、场景、内容、验证、投放、指标诊断、算账全链路。",
-    "version": "0.9.0"
+    "description": "LJHskill，外号「电商老家伙」：第一句说清你卡在哪，第二句它带你跑对的工具。从《内容电商从 0 到 1 打品》方法论中提炼出的 18 个业务工具 + 1 个主入口，覆盖开品、选品、价值、定位、场景、内容、验证、投放、指标诊断、算账全链路。",
+    "version": "1.0.0"
   },
   "plugins": [
     {
       "name": "ljh",
-      "description": "打品工具箱主入口，装这一个就得到整套工具箱（含全部 19 个 skill）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从开品或选品走到算账。",
+      "description": "打品工具箱主入口，装这一个就得到整套工具箱（含 18 个业务工具 + 1 个主入口）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从开品或选品走到算账。",
       "source": "./",
       "strict": false,
-      "version": "1.0.0",
       "category": "content-ecommerce",
       "keywords": [
         "ecommerce",
@@ -37,7 +36,7 @@
         "./skills/ljh-qianchuan",
         "./skills/ljh-suanzhang",
         "./skills/ljh-daren",
-        "./skills/ljh-liangye",
+        "./skills/ljh-brief",
         "./skills/ljh-xhs",
         "./skills/ljh-zhibiao",
         "./skills/ljh-shangxiang"
@@ -45,10 +44,9 @@
     },
     {
       "name": "ljh-lianming",
-      "description": "联名开品引擎。给自有品牌 × IP/品牌/产品的联名，双端挖元素、十种结合逻辑生成候选方向、四道验证闸初筛，输出联名开品一页纸。",
+      "description": "联名开品引擎。十种结合逻辑作为候选菜单，候选先过品牌与人群、产品与场景、授权与合规、供应与预估账四道硬闸，再输出可评审候选。",
       "source": "./",
       "strict": false,
-      "version": "1.0.0",
       "category": "content-ecommerce",
       "keywords": [
         "co-branding",
@@ -65,7 +63,6 @@
       "description": "开品概念推进器。把工厂提案、竞品线索、趋势判断或老品问题，推进成可评审、可验证的产品概念文档。",
       "source": "./",
       "strict": false,
-      "version": "1.0.0",
       "category": "content-ecommerce",
       "keywords": [
         "new-product",
@@ -79,10 +76,9 @@
     },
     {
       "name": "ljh-jiazhi",
-      "description": "产品价值地图。五层价值（直观/功能/场景/关系/意义）加证据底座，随对话逐步显影，回答用户为什么在意这个品。",
+      "description": "产品价值地图。整理直观、功能、场景、关系和意义五层价值候选及证据缺口，不生产标准定位。",
       "source": "./",
       "strict": false,
-      "version": "1.0.0",
       "category": "content-ecommerce",
       "keywords": [
         "value-map",
@@ -96,10 +92,9 @@
     },
     {
       "name": "ljh-xuanpin",
-      "description": "选品五步判断。拿到一个候选品，判断值不值得下场投入打。",
+      "description": "选品可行性判断器。核对需求机会、产品交付、合规、供应链和预估贡献毛利五个可行性闸门，结论为进入验证、补数后再判或暂缓。",
       "source": "./",
       "strict": false,
-      "version": "1.0.0",
       "category": "content-ecommerce",
       "keywords": [
         "product-selection",
@@ -112,10 +107,9 @@
     },
     {
       "name": "ljh-dingwei",
-      "description": "新品定位一页纸。价值四象限 + 心智句 + 竞争差异，把新品定位压进一张全队照着打的填空表。",
+      "description": "新品定位一页纸。选品进入验证后，收口并登记标准定位、标准人群和心智句，保留确认与证据状态。",
       "source": "./",
       "strict": false,
-      "version": "1.0.0",
       "category": "content-ecommerce",
       "keywords": [
         "positioning",
@@ -128,10 +122,9 @@
     },
     {
       "name": "ljh-maidian",
-      "description": "卖点体检。盖住成分功效自检 + 心智句双重校验，判断你的卖点是独一份还是公共卖点。",
+      "description": "卖点体检。只评审卖点或主张的独特性、表达成立性和证据缺口，不做合规批准。",
       "source": "./",
       "strict": false,
-      "version": "1.0.0",
       "category": "content-ecommerce",
       "keywords": [
         "selling-point",
@@ -144,10 +137,9 @@
     },
     {
       "name": "ljh-changjing",
-      "description": "场景机会地图。扒竞品素材拆成能算账的表，四象限定性，画出自己该重投哪个场景。",
+      "description": "场景机会地图。区分内容投入体量、销售结果和结果密度，四象限只筛选待补证或测试的场景候选。",
       "source": "./",
       "strict": false,
-      "version": "1.0.0",
       "category": "content-ecommerce",
       "keywords": [
         "scenario",
@@ -160,10 +152,9 @@
     },
     {
       "name": "ljh-duiqi",
-      "description": "品·人群·内容对齐表。每上新品用一张表把全团队认知钉在同一点，核心是卖点翻译四列表。",
+      "description": "品、人群、内容对齐表。把上游已确认字段翻译成团队可执行的人话和画面，并保留字段、证据与验证三轴状态。",
       "source": "./",
       "strict": false,
-      "version": "1.0.0",
       "category": "content-ecommerce",
       "keywords": [
         "alignment",
@@ -176,10 +167,9 @@
     },
     {
       "name": "ljh-jiaoben",
-      "description": "带货脚本评审。用七步说服链骨架逐段核对你的脚本，指出缺哪步、哪句没配画面。",
+      "description": "带货脚本评审。按平台、目标、时长和格式选择七步诊断镜头，定位结构、证据与画面缺口，只给局部修改方向。",
       "source": "./",
       "strict": false,
-      "version": "1.0.0",
       "category": "content-ecommerce",
       "keywords": [
         "script",
@@ -192,10 +182,9 @@
     },
     {
       "name": "ljh-yinzi",
-      "description": "内容因子拆解与专攻排序。把爆款拆到因子级，用 EV 公式给专攻课题排优先级。",
+      "description": "内容因子工具。单条素材只出因子候选，多个有依据候选形成后才用 EV 区间辅助比较，并支持受控测试与因子库。",
       "source": "./",
       "strict": false,
-      "version": "1.0.0",
       "category": "content-ecommerce",
       "keywords": [
         "content-factor",
@@ -208,10 +197,9 @@
     },
     {
       "name": "ljh-koc",
-      "description": "KOC 验证方案设计。低成本验证卖点的完整方案：怎么铺、通过线怎么定、报告怎么写。",
+      "description": "KOC 与素材验证。区分自然种草或寄样与付费素材或投流，写清变量、对照、样本、时间窗和停止条件。",
       "source": "./",
       "strict": false,
-      "version": "1.0.0",
       "category": "content-ecommerce",
       "keywords": [
         "koc",
@@ -227,7 +215,6 @@
       "description": "千川掉量诊断。三问定位 + 五层链路红灯决策树 + 掉量秒查表，掉量时两分钟定位第一动作。",
       "source": "./",
       "strict": false,
-      "version": "1.0.0",
       "category": "content-ecommerce",
       "keywords": [
         "qianchuan",
@@ -241,10 +228,9 @@
     },
     {
       "name": "ljh-suanzhang",
-      "description": "单元经济算账。月度总账测算表 + 盈亏平衡 ROI + LTV 实算，判断渠道该不该砍、出价能出多高。",
+      "description": "内容电商单元经济算账。支持预估和实算双模式，核对贡献毛利、目标 ROAS、渠道总账、LTV 与最大 CAC。",
       "source": "./",
       "strict": false,
-      "version": "1.0.0",
       "category": "content-ecommerce",
       "keywords": [
         "unit-economics",
@@ -260,7 +246,6 @@
       "description": "达人选号与反作弊。六维决策表初筛达人，识别假播放假粉假互动，花钱前别被假热闹坑。",
       "source": "./",
       "strict": false,
-      "version": "1.0.0",
       "category": "content-ecommerce",
       "keywords": [
         "influencer",
@@ -272,11 +257,10 @@
       ]
     },
     {
-      "name": "ljh-liangye",
-      "description": "见主播的两页材料。喂产品资料，产出第一页给对方记住、第二页给对方开口的标准谈判材料。",
+      "name": "ljh-brief",
+      "description": "主播合作 Brief。整理产品一句话、使用时刻、核心买点、证据、演示提示、合作机制和风险。",
       "source": "./",
       "strict": false,
-      "version": "1.0.0",
       "category": "content-ecommerce",
       "keywords": [
         "pitch",
@@ -284,7 +268,7 @@
         "chinese"
       ],
       "skills": [
-        "./skills/ljh-liangye"
+        "./skills/ljh-brief"
       ]
     },
     {
@@ -292,7 +276,6 @@
       "description": "小红书图文爆款拆解器。先判样本等级再拆内容，封面十变量、图文承接、14 类爆款因子、成立机制抽象，最后给受控变体迁移方案。",
       "source": "./",
       "strict": false,
-      "version": "1.0.0",
       "category": "content-ecommerce",
       "keywords": [
         "xiaohongshu",
@@ -309,7 +292,6 @@
       "description": "关键指标波动诊断专家。沿指标树定位 GMV、转化率、ROI、费比、新客、复购和内容效率的首个异常节点，再给出可验证的运营动作。",
       "source": "./",
       "strict": false,
-      "version": "1.0.0",
       "category": "content-ecommerce",
       "keywords": [
         "metrics",
@@ -323,10 +305,9 @@
     },
     {
       "name": "ljh-shangxiang",
-      "description": "商详页说服地图。把定位、卖点、场景、人群和验证证据编排成商品详情页策略、逐屏结构与内容文档，可选输出低保真 HTML。",
+      "description": "商详页说服地图。只编排上游已确认字段、证据和画面，输出逐屏策略与内容文档，不升级状态，也不重做定位。",
       "source": "./",
       "strict": false,
-      "version": "1.0.0",
       "category": "content-ecommerce",
       "keywords": [
         "product-detail",
