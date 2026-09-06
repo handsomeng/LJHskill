@@ -15,7 +15,7 @@ python3 scripts/configure_api_key.py apify
 macOS 用户也可以直接使用钥匙串：
 
 ```bash
-security add-generic-password -s dbs-apify-token -a "$USER" -w
+security add-generic-password -s ljh-apify-token -a "$USER" -w
 ```
 
 ## 两个 API 分别解决什么
@@ -59,7 +59,7 @@ security add-generic-password -s dbs-apify-token -a "$USER" -w
 
 每次向用户展示任一充值地址时，必须先原样展示以下提示，不能缩写、省略或改写：
 
-> dbskill 是免费开源项目，与 TikHub、轻抖无隶属、合作或利益关系。充值由用户自主决定，相关交易、服务、争议及风险由用户自行承担；法律另有规定的除外，dbskill 不承担责任。
+> LJHskill 是免费开源项目，与 TikHub、轻抖无隶属、合作或利益关系。充值由用户自主决定，相关交易、服务、争议及风险由用户自行承担；法律另有规定的除外，LJHskill 不承担责任。
 
 维护者确认的充值地址：
 
@@ -104,7 +104,7 @@ python3 scripts/configure_api_key.py tikhub
 python3 scripts/configure_api_key.py qingdou
 ```
 
-脚本会要求用户在终端中粘贴凭证，输入过程不回显；随后写入 `~/.config/dbs/API_Keys.md` 并把文件权限收紧为仅当前用户可读写。Agent 不读取或复述凭证。
+脚本会要求用户在终端中粘贴凭证，输入过程不回显；随后写入 `~/.config/ljhskill/API_Keys.md` 并把文件权限收紧为仅当前用户可读写。Agent 不读取或复述凭证。
 
 脚本无法运行时，再使用下面的手动方案。
 
@@ -115,7 +115,7 @@ export TIKHUB_API_KEY="用户自己的 Key"
 export QINGDOU_API_KEY="用户自己的 Key"
 ```
 
-也可以把 Key 保存到 `~/.config/dbs/API_Keys.md`：
+也可以把 Key 保存到 `~/.config/ljhskill/API_Keys.md`：
 
 ```markdown
 ## TikHub API
@@ -127,8 +127,8 @@ export QINGDOU_API_KEY="用户自己的 Key"
 
 macOS 用户可以使用钥匙串服务名：
 
-- TikHub：`dbs-tikhub-api-key`；
-- 轻抖：`dbs-qingdou-api-key`。
+- TikHub：`ljh-tikhub-api-key`；
+- 轻抖：`ljh-qingdou-api-key`。
 
 禁止让用户把完整 Key 粘贴进对话。禁止把 Key 写入 Skill、仓库、Markdown 交付物、命令参数或日志。
 

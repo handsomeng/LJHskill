@@ -158,8 +158,8 @@ python3 scripts/build_report.py "/绝对路径/短视频文字稿"
 
 1. 环境变量：`APIFY_TOKEN`、`TIKHUB_API_KEY`、`QINGDOU_API_KEY`；
 2. 用户指定的本地文件：`APIFY_KEYS_FILE`、`TIKHUB_API_KEYS_FILE`、`QINGDOU_API_KEYS_FILE`；
-3. `~/.config/dbs/API_Keys.md`；
-4. macOS 钥匙串：`dbs-apify-token`、`dbs-tikhub-api-key`、`dbs-qingdou-api-key`；
+3. `~/.config/ljhskill/API_Keys.md`；
+4. macOS 钥匙串：`ljh-apify-token`、`ljh-tikhub-api-key`、`ljh-qingdou-api-key`；
 5. Apify token 还会读取 `~/vibecoding/.credentials.md`（本机个人凭证文件）。
 
 禁止把 Key 写入 Skill、命令参数、Markdown、Git 或日志。Apify 下载、TikHub 查询和轻抖

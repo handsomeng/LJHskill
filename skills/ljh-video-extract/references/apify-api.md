@@ -70,8 +70,8 @@ GET /v2/datasets/{datasetId}/items?clean=true&token={TOKEN}
 
 1. 环境变量 `APIFY_TOKEN`
 2. 环境变量 `APIFY_KEYS_FILE` 指定的文件（正则 `apify_api_\w+`）
-3. `~/.config/dbs/API_Keys.md` 的 `## Apify API` 段落（`- **Token**: apify_api_xxx`）
-4. macOS 钥匙串服务 `dbs-apify-token`
+3. `~/.config/ljhskill/API_Keys.md` 的 `## Apify API` 段落（`- **Token**: apify_api_xxx`）
+4. macOS 钥匙串服务 `ljh-apify-token`
 5. `~/vibecoding/.credentials.md`（本机个人凭证文件，正则 `apify_api_\w+`）
 
 ## 转写通道
@@ -83,7 +83,7 @@ GET /v2/datasets/{datasetId}/items?clean=true&token={TOKEN}
 
 本地 whisper 的 venv python 发现顺序：
 
-1. 环境变量 `DBS_WHISPER_PYTHON`
+1. 环境变量 `LJH_WHISPER_PYTHON`
 2. `~/.workbuddy/skills/douyin-video-teardown/.venv/bin/python`
 3. `~/.claude/skills/douyin-video-teardown/.venv/bin/python`
 4. `~/.codex/skills/douyin-video-teardown/.venv/bin/python`

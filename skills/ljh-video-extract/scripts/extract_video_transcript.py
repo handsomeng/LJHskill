@@ -19,8 +19,8 @@ from typing import Any
 
 
 DEFAULT_BASE_URL = "https://www.qingdou.vip"
-KEYCHAIN_SERVICE = "dbs-qingdou-api-key"
-DEFAULT_API_KEYS_FILE = Path.home() / ".config" / "dbs" / "API_Keys.md"
+KEYCHAIN_SERVICE = "ljh-qingdou-api-key"
+DEFAULT_API_KEYS_FILE = Path.home() / ".config" / "ljhskill" / "API_Keys.md"
 SUCCESS_CODE = 1001
 ITEM_STATUS = {
     0: "任务处理中",
@@ -109,7 +109,7 @@ def find_api_key() -> str:
                     return key_line.group(1)
     if (
         sys.platform == "darwin"
-        and os.environ.get("DBS_VIDEO_EXTRACT_DISABLE_KEYCHAIN") != "1"
+        and os.environ.get("LJH_VIDEO_EXTRACT_DISABLE_KEYCHAIN") != "1"
     ):
         try:
             result = subprocess.run(
@@ -150,7 +150,7 @@ def request_json(
         headers={
             "Accept": "application/json",
             "Content-Type": "application/json;charset=UTF-8",
-            "User-Agent": "dbs-video-extract/1.0",
+            "User-Agent": "ljh-video-extract/1.0",
             "x-api-key": api_key,
         },
     )

@@ -30,9 +30,9 @@ class CombinedError(RuntimeError):
 
 
 LEGAL_NOTICE = (
-    "dbskill 是免费开源项目，与 TikHub、轻抖无隶属、合作或利益关系。"
+    "LJHskill 是免费开源项目，与 TikHub、轻抖无隶属、合作或利益关系。"
     "充值由用户自主决定，相关交易、服务、争议及风险由用户自行承担；"
-    "法律另有规定的除外，dbskill 不承担责任。"
+    "法律另有规定的除外，LJHskill 不承担责任。"
 )
 PURCHASE_URLS = {
     "TikHub": "https://user.tikhub.io/dashboard/add-credit",
@@ -379,7 +379,7 @@ def run_transcript(
 
 
 def find_whisper_python() -> str:
-    configured = os.environ.get("DBS_WHISPER_PYTHON", "").strip()
+    configured = os.environ.get("LJH_WHISPER_PYTHON", "").strip()
     candidates = ([Path(configured).expanduser()] if configured else []) + list(
         WHISPER_PYTHON_CANDIDATES
     )

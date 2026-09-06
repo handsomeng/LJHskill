@@ -23,8 +23,8 @@ MCP_URLS = {
     "wechat": "https://mcp.tikhub.io/wechat/mcp",
 }
 MCP_PROTOCOL_VERSION = "2024-11-05"
-DEFAULT_API_KEYS_FILE = Path.home() / ".config" / "dbs" / "API_Keys.md"
-KEYCHAIN_SERVICE = "dbs-tikhub-api-key"
+DEFAULT_API_KEYS_FILE = Path.home() / ".config" / "ljhskill" / "API_Keys.md"
+KEYCHAIN_SERVICE = "ljh-tikhub-api-key"
 ACCOUNT_PATH = "/api/v1/tikhub/user/get_user_info"
 
 
@@ -121,7 +121,7 @@ def find_api_key() -> str:
 
     if (
         sys.platform == "darwin"
-        and os.environ.get("DBS_VIDEO_EXTRACT_DISABLE_KEYCHAIN") != "1"
+        and os.environ.get("LJH_VIDEO_EXTRACT_DISABLE_KEYCHAIN") != "1"
     ):
         try:
             result = subprocess.run(
@@ -199,7 +199,7 @@ def request_json(
         headers={
             "Accept": "application/json",
             "Authorization": f"Bearer {api_key}",
-            "User-Agent": "dbs-video-extract/1.0",
+            "User-Agent": "ljh-video-extract/1.0",
         },
     )
     try:
@@ -275,7 +275,7 @@ def mcp_post(
         "Accept": "application/json, text/event-stream",
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
-        "User-Agent": "dbs-video-extract/1.0",
+        "User-Agent": "ljh-video-extract/1.0",
     }
     if session_id:
         headers["Mcp-Session-Id"] = session_id
@@ -312,7 +312,7 @@ def mcp_initialize(api_key: str, timeout: float, platform: str = "douyin") -> st
             "params": {
                 "protocolVersion": MCP_PROTOCOL_VERSION,
                 "capabilities": {},
-                "clientInfo": {"name": "dbs-video-extract", "version": "1.0"},
+                "clientInfo": {"name": "ljh-video-extract", "version": "1.0"},
             },
         },
         timeout,

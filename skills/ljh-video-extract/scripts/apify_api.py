@@ -8,8 +8,8 @@ Actor：
 Token 查找顺序：
 1. 环境变量 APIFY_TOKEN
 2. 环境变量 APIFY_KEYS_FILE 指定的文件（正则 apify_api_ 串）
-3. ~/.config/dbs/API_Keys.md 的 ## Apify API 段落
-4. macOS 钥匙串服务 dbs-apify-token
+3. ~/.config/ljhskill/API_Keys.md 的 ## Apify API 段落
+4. macOS 钥匙串服务 ljh-apify-token
 5. ~/vibecoding/.credentials.md（本机个人凭证文件，正则 apify_api_ 串）
 
 踩坑备忘：
@@ -36,8 +36,8 @@ from typing import Any
 BASE = "https://api.apify.com/v2"
 ACTOR_DOWNLOAD = "easyapi~douyin-video-downloader"
 ACTOR_TRANSCRIPT = "apple_yang~douyin-transcripts-scraper"
-KEYCHAIN_SERVICE = "dbs-apify-token"
-DEFAULT_API_KEYS_FILE = Path.home() / ".config" / "dbs" / "API_Keys.md"
+KEYCHAIN_SERVICE = "ljh-apify-token"
+DEFAULT_API_KEYS_FILE = Path.home() / ".config" / "ljhskill" / "API_Keys.md"
 PERSONAL_KEYS_FILE = Path.home() / "vibecoding" / ".credentials.md"
 
 
@@ -67,7 +67,7 @@ def find_token() -> str:
 
     if (
         sys.platform == "darwin"
-        and os.environ.get("DBS_VIDEO_EXTRACT_DISABLE_KEYCHAIN") != "1"
+        and os.environ.get("LJH_VIDEO_EXTRACT_DISABLE_KEYCHAIN") != "1"
     ):
         try:
             result = subprocess.run(
