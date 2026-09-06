@@ -20,3 +20,6 @@
 Apify（easyapi 数据+无水印媒体，本地 whisper 转写），小红书/视频号走 TikHub+轻抖；批量
 提取后 build_report.py 出多维统计报告。接入主入口路由、README、marketplace、evals
 （3 用例），版本升至 v1.1.0，validate 全绿。
+2026-09-06：ljh-video-extract 无 dbs 化：免责文案、User-Agent/openai.yaml 配置、配置路径
+（~/.config/ljhskill/API_Keys.md）、钥匙串服务名（ljh-*）、环境变量（LJH_*）全部改
+ljh 前缀；本机 Claude/Codex 安装目录同步改名。validate 全绿。

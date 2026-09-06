@@ -20,7 +20,7 @@ from pathlib import Path
 def find_ffmpeg() -> str:
     import shutil
 
-    configured = __import__("os").environ.get("DBS_FFMPEG", "").strip()
+    configured = __import__("os").environ.get("LJH_FFMPEG", "").strip()
     if configured:
         return configured
     found = shutil.which("ffmpeg")
@@ -32,7 +32,7 @@ def find_ffmpeg() -> str:
         return imageio_ffmpeg.get_ffmpeg_exe()
     except (ImportError, OSError):
         raise SystemExit(
-            "找不到 ffmpeg：请设置环境变量 DBS_FFMPEG，或安装 imageio-ffmpeg。"
+            "找不到 ffmpeg：请设置环境变量 LJH_FFMPEG，或安装 imageio-ffmpeg。"
         )
 
 

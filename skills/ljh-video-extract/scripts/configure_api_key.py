@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""在本地隐蔽读取并保存 dbs-video-extract 的服务凭证。"""
+"""在本地隐蔽读取并保存 ljh-video-extract 的服务凭证。"""
 
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ import tempfile
 from pathlib import Path
 
 
-DEFAULT_CONFIG_PATH = Path.home() / ".config" / "dbs" / "API_Keys.md"
+DEFAULT_CONFIG_PATH = Path.home() / ".config" / "ljhskill" / "API_Keys.md"
 PROVIDERS = {
     "tikhub": {
         "display_name": "TikHub",
@@ -41,7 +41,7 @@ def parse_args() -> argparse.Namespace:
         "--file",
         type=Path,
         default=DEFAULT_CONFIG_PATH,
-        help="本地私密配置文件，默认 ~/.config/dbs/API_Keys.md",
+        help="本地私密配置文件，默认 ~/.config/ljhskill/API_Keys.md",
     )
     return parser.parse_args()
 
