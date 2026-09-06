@@ -1,11 +1,11 @@
 {
   "suite": "ljhskill",
-  "version": "1.0.0",
-  "suite_version": "1.0.0",
+  "version": "1.1.0",
+  "suite_version": "1.1.0",
   "released_at": "2026-09-01T00:55:18+08:00",
-  "summary": "v1.0.0 阶段性治理：更新提醒、Brief 迁移、经营三轴、字段所有权、选品/KOC/算账及场景/因子/联名治理。",
+  "summary": "v1.1.0 新增短视频提取与分析工具 ljh-video-extract：抖音走 Apify（数据+口播+无水印媒体），批量后出多维统计报告；小红书/视频号走 TikHub+轻抖。",
   "readme_url": "https://github.com/handsomeng/LJHskill/blob/main/README.md",
   "update_instructions_url": "https://github.com/handsomeng/LJHskill/blob/main/README.md#如何更新",
-  "readme_update_entry": "https://github.com/handsomeng/LJHskill/blob/main/README.md#v100-发布说明",
+  "readme_update_entry": "https://github.com/handsomeng/LJHskill/blob/main/README.md#v110-发布说明",
   "release_url": "https://raw.githubusercontent.com/handsomeng/LJHskill/main/release.json"
 }

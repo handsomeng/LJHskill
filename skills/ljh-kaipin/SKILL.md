@@ -2,7 +2,7 @@
 name: ljh-kaipin
 displayName: ljh-kaipin
 slug: ljh-kaipin
-version: 1.0.0
+version: 1.1.0
 description: |
   开品概念推进器。把工厂提案、竞品线索、趋势判断或老品问题，推进成可评审、可验证的产品概念文档。
   触发方式：/ljh-kaipin、「帮我开个新品」「工厂给了个提案」「还没有产品只有一个想法」「老品怎么迭代」「微创新怎么判断」

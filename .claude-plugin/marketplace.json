@@ -4,13 +4,13 @@
     "name": "handsomeng"
   },
   "metadata": {
-    "description": "LJHskill，外号「电商老家伙」：第一句说清你卡在哪，第二句它带你跑对的工具。从《内容电商从 0 到 1 打品》方法论中提炼出的 18 个业务工具 + 1 个主入口，覆盖开品、选品、价值、定位、场景、内容、验证、投放、指标诊断、算账全链路。",
-    "version": "1.0.0"
+    "description": "LJHskill，外号「电商老家伙」：第一句说清你卡在哪，第二句它带你跑对的工具。从《内容电商从 0 到 1 打品》方法论中提炼出的 19 个业务工具 + 1 个主入口，覆盖开品、选品、价值、定位、场景、内容、验证、投放、指标诊断、算账全链路。",
+    "version": "1.1.0"
   },
   "plugins": [
     {
       "name": "ljh",
-      "description": "打品工具箱主入口，装这一个就得到整套工具箱（含 18 个业务工具 + 1 个主入口）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从开品或选品走到算账。",
+      "description": "打品工具箱主入口，装这一个就得到整套工具箱（含 19 个业务工具 + 1 个主入口）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从开品或选品走到算账。",
       "source": "./",
       "strict": false,
       "category": "content-ecommerce",
@@ -39,7 +39,8 @@
         "./skills/ljh-brief",
         "./skills/ljh-xhs",
         "./skills/ljh-zhibiao",
-        "./skills/ljh-shangxiang"
+        "./skills/ljh-shangxiang",
+        "./skills/ljh-video-extract"
       ]
     },
     {
@@ -317,6 +318,24 @@
       ],
       "skills": [
         "./skills/ljh-shangxiang"
+      ]
+    },
+    {
+      "name": "ljh-video-extract",
+      "description": "短视频提取与分析。接收抖音、小红书、视频号链接或分享文案，提取口播文稿、作品数据和无水印 mp4/mp3；批量输入后出统计报告（词频、重复话术、开场钩子、促销词、时长/字数）。抖音默认走 Apify，需要 Apify token。",
+      "source": "./",
+      "strict": false,
+      "category": "content-ecommerce",
+      "keywords": [
+        "video",
+        "extract",
+        "transcript",
+        "douyin",
+        "analysis",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-video-extract"
       ]
     }
   ]

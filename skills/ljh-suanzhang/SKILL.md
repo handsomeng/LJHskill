@@ -2,7 +2,7 @@
 name: ljh-suanzhang
 displayName: ljh-suanzhang
 slug: ljh-suanzhang
-version: 1.0.0
+version: 1.1.0
 description: |
   内容电商单元经济算账器。开品阶段用预估模式算区间、假设和敏感性，实跑阶段用实算模式核对贡献毛利、目标 ROI、渠道总账、LTV 与最大 CAC。
   触发方式：/ljh-suanzhang、「帮我预估这个品的账」「这个渠道赚不赚钱」「目标 ROI 怎么定」「最大获客成本是多少」

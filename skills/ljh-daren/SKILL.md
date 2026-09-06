@@ -2,7 +2,7 @@
 name: ljh-daren
 displayName: ljh-daren
 slug: ljh-daren
-version: 1.0.0
+version: 1.1.0
 description: |
   达人选号诊断器，用六维决策表初筛达人账号，跑反作弊三查，给出可谈/压价谈/放弃的合作建议。
   触发方式：/ljh-daren、「帮我看看这个达人能不能投」「这个账号数据是不是刷的」「这个号值不值得投」「达人报价合不合理」「怎么判断这个号是不是真流量」

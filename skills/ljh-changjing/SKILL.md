@@ -2,7 +2,7 @@
 name: ljh-changjing
 displayName: ljh-changjing
 slug: ljh-changjing
-version: 1.0.0
+version: 1.1.0
 description: |
   场景机会地图。把同口径竞品素材整理成内容投入体量、销售结果和结果密度，筛出值得补证或测试的场景方向。
   触发方式：/ljh-changjing、「帮我拆场景」「场景机会地图怎么画」「这几个竞品该怎么对比场景」

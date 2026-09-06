@@ -2,7 +2,7 @@
 name: ljh-dingwei
 displayName: ljh-dingwei
 slug: ljh-dingwei
-version: 1.0.0
+version: 1.1.0
 description: |
   新品定位一页纸生成器。候选品通过可行性闸门后，把价值候选收口成标准定位、标准人群和心智句，并保留确认与证据状态。
   触发方式：/ljh-dingwei、「帮我写一份产品定位」「这个新品怎么定位」「填一下定位一页纸」「这个品的心智句怎么收」
