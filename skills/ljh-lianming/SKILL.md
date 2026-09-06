@@ -2,7 +2,7 @@
 name: ljh-lianming
 displayName: ljh-lianming
 slug: ljh-lianming
-version: 1.0.0
+version: 1.1.0
 description: |
   联名开品引擎。双端整理有来源的元素，用十种结合逻辑菜单生成候选，先过四道硬闸，再输出可评审方向。
   触发方式：/ljh-lianming、「想做个联名」「IP 联名怎么做」「跟 XX 品牌联名」「联名产品/周边」「跨界合作」「联名开品」

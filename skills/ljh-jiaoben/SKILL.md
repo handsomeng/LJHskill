@@ -2,7 +2,7 @@
 name: ljh-jiaoben
 displayName: ljh-jiaoben
 slug: ljh-jiaoben
-version: 1.0.0
+version: 1.1.0
 description: |
   带货脚本评审器。根据平台、内容目标、时长和格式，用七步说服链定位结构断点、证据与画面缺口，并给局部修改方向。
   触发方式：/ljh-jiaoben、「帮我评审一下这个带货脚本」「这个脚本为什么转化不好」「看看我这个口播稿哪里有问题」

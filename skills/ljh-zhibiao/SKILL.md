@@ -2,7 +2,7 @@
 name: ljh-zhibiao
 displayName: ljh-zhibiao
 slug: ljh-zhibiao
-version: 1.0.0
+version: 1.1.0
 description: |
   关键指标波动诊断专家。沿内容电商指标树逐层定位 GMV、转化率、ROI、费比、新客、复购、内容效率等波动的首个异常节点，再把根因落到一个可验证的运营动作。
   触发方式：/ljh-zhibiao、「GMV 为什么掉了」「转化率突然变差」「ROI 和费比异常」「新客或复购波动」「内容效率下降怎么查」

@@ -2,7 +2,7 @@
 name: ljh-yinzi
 displayName: ljh-yinzi
 slug: ljh-yinzi
-version: 1.0.0
+version: 1.1.0
 description: |
   内容因子工具。拆解单条素材形成因子候选，使用粗略预期价值辅助值（EV）比较多个有依据的专攻方向，或搭建可追溯因子库。
   触发方式：/ljh-yinzi、「帮我拆一条爆款」「这几个方向该先做哪个」「怎么搭因子库」

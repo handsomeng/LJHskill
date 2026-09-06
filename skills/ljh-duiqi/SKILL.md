@@ -2,7 +2,7 @@
 name: ljh-duiqi
 displayName: ljh-duiqi
 slug: ljh-duiqi
-version: 1.0.0
+version: 1.1.0
 description: |
   品、人群、内容对齐表生成器。把上游已确认字段和统一验证结果整理成团队可执行的人话与画面，并保留证据和修改边界。
   触发方式：/ljh-duiqi、「做品人群内容对齐表」「卖点怎么翻译成人话」「把验证结果交给编导」

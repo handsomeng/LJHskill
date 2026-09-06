@@ -2,7 +2,7 @@
 name: ljh-xuanpin
 displayName: ljh-xuanpin
 slug: ljh-xuanpin
-version: 1.0.0
+version: 1.1.0
 description: |
   选品可行性判断器。在需求、市场、竞品和 SKU 判断基础上，核对交付、合规、供应链与预估贡献毛利，给出进入验证、补数后再判或暂缓。
   触发方式：/ljh-xuanpin、「这个品值不值得投入」「帮我判断候选品」「选品怎么判断」

@@ -2,7 +2,7 @@
 name: ljh-maidian
 displayName: ljh-maidian
 slug: ljh-maidian
-version: 1.0.0
+version: 1.1.0
 description: |
   卖点体检器。评审卖点或主张的独特性、表达成立性和证据缺口，输出判断、状态与修改建议。
   触发方式：/ljh-maidian、「帮我看看这个卖点行不行」「这句卖点站得住吗」「体检一下我的卖点」「这个卖点会不会被主播质疑」

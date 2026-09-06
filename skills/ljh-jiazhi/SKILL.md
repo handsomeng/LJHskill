@@ -2,7 +2,7 @@
 name: ljh-jiazhi
 displayName: ljh-jiazhi
 slug: ljh-jiazhi
-version: 1.0.0
+version: 1.1.0
 description: |
   产品价值地图生成器。用户一点点给产品信息和想法，AI 引导他把五层价值（直观/功能/场景/关系/意义）加证据底座逐步构想出来，回答"用户为什么在意"。
   触发方式：/ljh-jiazhi、「帮我把这个品的价值梳理一下」「用户为什么会在意这个品」「价值地图」「五层价值」「这个品能挖出哪些价值点」「价值怎么构想」

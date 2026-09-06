@@ -2,7 +2,7 @@
 name: ljh-brief
 displayName: ljh-brief
 slug: ljh-brief
-version: 1.0.0
+version: 1.1.0
 description: |
   主播合作 Brief 生成器。把已确认的产品资料整理成主播能理解、能复述、能执行的一份合作 Brief，附可选的当面沟通提词。
   触发方式：/ljh-brief、「帮我做一份主播合作 Brief」「怎么跟主播讲这个产品」「主播资料怎么准备」「当面怎么塑品」「产品资料太长了帮我提炼」

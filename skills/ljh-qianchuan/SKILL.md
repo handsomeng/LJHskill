@@ -2,7 +2,7 @@
 name: ljh-qianchuan
 displayName: ljh-qianchuan
 slug: ljh-qianchuan
-version: 1.0.0
+version: 1.1.0
 description: |
   千川掉量诊断器。用户描述掉量症状，按决策树一步步走，两分钟给出第一动作。
   触发方式：/ljh-qianchuan、「千川消耗掉了」「投放量突然没了」「ROI 掉了怎么办」
