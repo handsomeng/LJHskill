@@ -32,8 +32,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-EXPECTED_VERSION = "1.1.0"
-EXPECTED_SKILL_COUNT = 20
+EXPECTED_VERSION = "1.2.0"
+EXPECTED_SKILL_COUNT = 25
 MAIN_SKILL_NAME = "ljh"
 UPDATE_CHECK_SOURCE = ROOT / "scripts" / "check_update.py.template"
 UPDATE_CHECK_PROTOCOL = (
@@ -52,6 +52,7 @@ THREE_AXIS_CONSUMERS = (
     "ljh-jiazhi",
     "ljh-koc",
     "ljh-lianming",
+    "ljh-liuyaosu",
     "ljh-maidian",
     "ljh-shangxiang",
     "ljh-suanzhang",
@@ -73,6 +74,7 @@ OWNERSHIP_CONSUMERS = (
     "ljh-duiqi",
     "ljh-jiaoben",
     "ljh-jiazhi",
+    "ljh-liuyaosu",
     "ljh-maidian",
     "ljh-shangxiang",
 )
@@ -275,13 +277,13 @@ def check_skill_files():
     skill_dirs = sorted([p for p in skills_dir.iterdir() if p.is_dir()])
     if len(skill_dirs) != EXPECTED_SKILL_COUNT:
         problems.append(
-            f"skills/ 目录数 {len(skill_dirs)}，应为 {EXPECTED_SKILL_COUNT}（19 个业务工具 + 1 个主入口）"
+            f"skills/ 目录数 {len(skill_dirs)}，应为 {EXPECTED_SKILL_COUNT}（24 个业务工具 + 1 个主入口）"
         )
     skill_names = {d.name for d in skill_dirs}
     if MAIN_SKILL_NAME not in skill_names:
         problems.append(f"缺少主入口目录 skills/{MAIN_SKILL_NAME}")
-    if len(skill_dirs) - (MAIN_SKILL_NAME in skill_names) != 19:
-        problems.append("业务工具目录数应为 19 个")
+    if len(skill_dirs) - (MAIN_SKILL_NAME in skill_names) != 24:
+        problems.append("业务工具目录数应为 24 个")
 
     for d in skill_dirs:
         skill_md = d / "SKILL.md"
@@ -1159,7 +1161,7 @@ def check_behavior_runner_and_package_tests():
     if package_test_path.is_file():
         package_test_text = package_test_path.read_text(encoding="utf-8")
         package_contracts = (
-            "EXPECTED_SKILL_COUNT = 20",
+            "EXPECTED_SKILL_COUNT = 25",
             "shutil.copytree",
             "rglob(\"*.md\")",
             "resolve_local_markdown_link",

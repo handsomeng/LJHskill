@@ -4,13 +4,13 @@
     "name": "handsomeng"
   },
   "metadata": {
-    "description": "LJHskill，外号「电商老家伙」：第一句说清你卡在哪，第二句它带你跑对的工具。从《内容电商从 0 到 1 打品》方法论中提炼出的 19 个业务工具 + 1 个主入口，覆盖开品、选品、价值、定位、场景、内容、验证、投放、指标诊断、算账全链路。",
-    "version": "1.1.0"
+    "description": "LJHskill，外号「电商老家伙」：第一句说清你卡在哪，第二句它带你跑对的工具。从《内容电商从 0 到 1 打品》方法论中提炼出的 24 个业务工具 + 1 个主入口，覆盖开品、选品、价值、定位、场景、内容、验证、投放、复盘、直播、竞品拆解、指标诊断、算账全链路。",
+    "version": "1.2.0"
   },
   "plugins": [
     {
       "name": "ljh",
-      "description": "打品工具箱主入口，装这一个就得到整套工具箱（含 19 个业务工具 + 1 个主入口）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从开品或选品走到算账。",
+      "description": "打品工具箱主入口，装这一个就得到整套工具箱（含 24 个业务工具 + 1 个主入口）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从开品或选品走到算账。",
       "source": "./",
       "strict": false,
       "category": "content-ecommerce",
@@ -27,13 +27,18 @@
         "./skills/ljh-jiazhi",
         "./skills/ljh-xuanpin",
         "./skills/ljh-dingwei",
+        "./skills/ljh-liuyaosu",
         "./skills/ljh-maidian",
         "./skills/ljh-changjing",
         "./skills/ljh-duiqi",
         "./skills/ljh-jiaoben",
         "./skills/ljh-yinzi",
+        "./skills/ljh-jingpin",
         "./skills/ljh-koc",
         "./skills/ljh-qianchuan",
+        "./skills/ljh-qianchuan-fupan",
+        "./skills/ljh-zhibo-fupan",
+        "./skills/ljh-zhibo-chaijie",
         "./skills/ljh-suanzhang",
         "./skills/ljh-daren",
         "./skills/ljh-brief",
@@ -122,6 +127,22 @@
       ]
     },
     {
+      "name": "ljh-liuyaosu",
+      "description": "六要素定义与素材体检。把用户、需求、场景、痛点、卖点、买点定死并落成脚本结构，或量化体检一批素材口播，给三条改法和验收线。",
+      "source": "./",
+      "strict": false,
+      "category": "content-ecommerce",
+      "keywords": [
+        "six-elements",
+        "content-audit",
+        "positioning",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-liuyaosu"
+      ]
+    },
+    {
       "name": "ljh-maidian",
       "description": "卖点体检。只评审卖点或主张的独特性、表达成立性和证据缺口，不做合规批准。",
       "source": "./",
@@ -197,6 +218,22 @@
       ]
     },
     {
+      "name": "ljh-jingpin",
+      "description": "竞品全量拆解。拿竞品品牌全部带货视频，看出货结构、达人类型、共用素材和口播骨架，对照爆款和普通视频在说服链、钩子、词频、画面上的差别。",
+      "source": "./",
+      "strict": false,
+      "category": "content-ecommerce",
+      "keywords": [
+        "competitor-teardown",
+        "short-video",
+        "creator-matrix",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-jingpin"
+      ]
+    },
+    {
       "name": "ljh-koc",
       "description": "KOC 与素材验证。区分自然种草或寄样与付费素材或投流，写清变量、对照、样本、时间窗和停止条件。",
       "source": "./",
@@ -225,6 +262,54 @@
       ],
       "skills": [
         "./skills/ljh-qianchuan"
+      ]
+    },
+    {
+      "name": "ljh-qianchuan-fupan",
+      "description": "千川素材复盘。拿千川素材分析导出，算清这周赚没赚、素材盘子健不健康，列出可以复刻、先观察、考虑降预算三张清单，可选拆视频逐秒看。",
+      "source": "./",
+      "strict": false,
+      "category": "content-ecommerce",
+      "keywords": [
+        "qianchuan",
+        "ad-creative-review",
+        "roas",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-qianchuan-fupan"
+      ]
+    },
+    {
+      "name": "ljh-zhibo-fupan",
+      "description": "直播间周复盘。用罗盘直播明细按周算五维四率，把多卖或少卖的钱拆到曝光和四个转化率上，并列「流量变了」和「直播间变了」两种解释。",
+      "source": "./",
+      "strict": false,
+      "category": "content-ecommerce",
+      "keywords": [
+        "livestream",
+        "weekly-review",
+        "funnel",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-zhibo-fupan"
+      ]
+    },
+    {
+      "name": "ljh-zhibo-chaijie",
+      "description": "同行直播间录屏拆解。每 2 秒看一张画面、口播全文转写，拆出循环结构、热卖数曲线、贴片手卡、话术、评论区和合规风险，列出能借的做法。",
+      "source": "./",
+      "strict": false,
+      "category": "content-ecommerce",
+      "keywords": [
+        "livestream",
+        "competitor-teardown",
+        "script",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-zhibo-chaijie"
       ]
     },
     {

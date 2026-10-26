@@ -2,7 +2,7 @@
 name: ljh-dingwei
 displayName: ljh-dingwei
 slug: ljh-dingwei
-version: 1.1.0
+version: 1.2.0
 description: |
   新品定位一页纸生成器。候选品通过可行性闸门后，把价值候选收口成标准定位、标准人群和心智句，并保留确认与证据状态。
   触发方式：/ljh-dingwei、「帮我写一份产品定位」「这个新品怎么定位」「填一下定位一页纸」「这个品的心智句怎么收」
@@ -219,6 +219,7 @@ description: |
 ## 下一步
 
 - 标准字段已确认，需要检查卖点独特性、表达成立性和证据缺口：`/ljh-maidian`。
+- 内容团队各说各话，需要把定位拆成用户、需求、场景、痛点、卖点、买点六个格子：`/ljh-liuyaosu`。
 - 需要翻译成消费者语言、场景和画面：`/ljh-duiqi`。
 - 需要设计 KOC 或素材验证：`/ljh-koc`。
 - 选品结论尚未进入验证：回 `/ljh-xuanpin`。

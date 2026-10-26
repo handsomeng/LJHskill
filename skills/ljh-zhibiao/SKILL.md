@@ -2,7 +2,7 @@
 name: ljh-zhibiao
 displayName: ljh-zhibiao
 slug: ljh-zhibiao
-version: 1.1.0
+version: 1.2.0
 description: |
   指标波动诊断。沿内容电商指标树逐层定位 GMV、转化率、ROI、费比、新客、复购、内容效率等波动的首个异常节点，再把根因落到一个可验证的运营动作。
   触发方式：/ljh-zhibiao、「GMV 为什么掉了」「转化率突然变差」「ROI 和费比异常」「新客或复购波动」「内容效率下降怎么查」
@@ -284,6 +284,7 @@ GMV、转化率、ROI、费比、新客、复购这些数突然变了，沿着�
 ## 工具衔接
 
 - 诊断落到账户、计划、素材衰减或直播间漏斗，调用 `/ljh-qianchuan` 深挖。
+- 没有突发掉量，要按周看自营直播间漏斗哪一步变了：`/ljh-zhibo-fupan`；要看哪些千川素材该复刻、该降预算：`/ljh-qianchuan-fupan`。
 - 诊断落到内容因子和素材供给，调用 `/ljh-yinzi` 做因子拆解或 EV 排序。
 - 诊断落到小红书具体笔记，调用 `/ljh-xhs` 做封面、承接和机制拆解。
 - 需要判断渠道赚不赚钱、平衡 ROI 或获客上限，调用 `/ljh-suanzhang`。

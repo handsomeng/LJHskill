@@ -2,7 +2,7 @@
 name: ljh-brief
 displayName: ljh-brief
 slug: ljh-brief
-version: 1.1.0
+version: 1.2.0
 description: |
   主播合作 Brief。把定好的产品信息整理成主播一看就懂、能复述、能照着播的一页纸；没确认的地方直接标出来别说，附可选的当面沟通提词。
   触发方式：/ljh-brief、「帮我做一份主播合作 Brief」「怎么跟主播讲这个产品」「主播资料怎么准备」「当面怎么塑品」「产品资料太长了帮我提炼」

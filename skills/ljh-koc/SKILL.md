@@ -2,7 +2,7 @@
 name: ljh-koc
 displayName: ljh-koc
 slug: ljh-koc
-version: 1.1.0
+version: 1.2.0
 description: |
   KOC 与素材验证。小范围试一下这个卖点或场景行不行：先分清是自然种草或寄样还是付费素材或投流，再定变量、对照、样本、时间窗和停止条件，数据回来按事先说好的标准给结论。
   触发方式：/ljh-koc、「帮我设计 KOC 验证」「自然寄样怎么看结果」「付费素材测试怎么判」「验证数据帮我收口」

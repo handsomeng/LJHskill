@@ -21,6 +21,7 @@ CONSUMERS = (
     "ljh-jiazhi",
     "ljh-koc",
     "ljh-lianming",
+    "ljh-liuyaosu",
     "ljh-maidian",
     "ljh-shangxiang",
     "ljh-suanzhang",

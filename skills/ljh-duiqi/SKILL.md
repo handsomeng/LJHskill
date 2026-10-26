@@ -2,7 +2,7 @@
 name: ljh-duiqi
 displayName: ljh-duiqi
 slug: ljh-duiqi
-version: 1.1.0
+version: 1.2.0
 description: |
   品、人群、内容对齐表。把定好的定位、卖点和验证结果，翻译成编导和主播能直接拍、直接说的人话和画面，一张表让团队对齐。
   触发方式：/ljh-duiqi、「做品人群内容对齐表」「卖点怎么翻译成人话」「把验证结果交给编导」
@@ -35,7 +35,7 @@ description: |
 
 ## 要用到的上游结果
 
-优先读取 `/ljh-xuanpin`、`/ljh-dingwei`、`/ljh-maidian`、`/ljh-changjing` 和 `/ljh-koc` 的输出。标准定位、标准人群和心智句只能来自 `/ljh-dingwei` 的已确认版本；卖点沿用上游原文和 `/ljh-maidian` 的评审状态。每条输入至少保留：原字段、所有者、字段决策状态、证据状态、验证结果、来源和时间。
+优先读取 `/ljh-xuanpin`、`/ljh-dingwei`、`/ljh-liuyaosu`、`/ljh-maidian`、`/ljh-changjing` 和 `/ljh-koc` 的输出。`/ljh-liuyaosu` 的六要素定义按原状态使用，其中的用户一格以 `/ljh-dingwei` 已确认的标准人群为准。标准定位、标准人群和心智句只能来自 `/ljh-dingwei` 的已确认版本；卖点沿用上游原文和 `/ljh-maidian` 的评审状态。每条输入至少保留：原字段、所有者、字段决策状态、证据状态、验证结果、来源和时间。
 
 | 输入 | 缺失时怎么处理 |
 |---|---|

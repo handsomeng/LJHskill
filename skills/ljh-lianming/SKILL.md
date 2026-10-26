@@ -2,7 +2,7 @@
 name: ljh-lianming
 displayName: ljh-lianming
 slug: ljh-lianming
-version: 1.1.0
+version: 1.2.0
 description: |
   联名开品。把联名双方能用的元素摆出来，用十种结合逻辑想候选，先过品牌人群、产品场景、授权合规、供应算账四道硬闸，再交出能拿去评审的方向。
   触发方式：/ljh-lianming、「想做个联名」「IP 联名怎么做」「跟 XX 品牌联名」「联名产品/周边」「跨界合作」「联名开品」

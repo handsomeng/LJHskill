@@ -1,11 +1,11 @@
 {
   "suite": "ljhskill",
-  "version": "1.1.0",
-  "suite_version": "1.1.0",
-  "released_at": "2026-09-01T00:55:18+08:00",
-  "summary": "v1.1.0 新增短视频提取与分析工具 ljh-video-extract：抖音走 Apify（数据+口播+无水印媒体），批量后出多维统计报告；小红书/视频号走 TikHub+轻抖。",
+  "version": "1.2.0",
+  "suite_version": "1.2.0",
+  "released_at": "2026-10-26T23:30:00+08:00",
+  "summary": "v1.2.0 新增 5 个工具：千川素材复盘、直播间周复盘、同行直播间录屏拆解、竞品全量拆解、六要素定义与素材体检；旧工具全部改成说人话。",
   "readme_url": "https://github.com/handsomeng/LJHskill/blob/main/README.md",
   "update_instructions_url": "https://github.com/handsomeng/LJHskill/blob/main/README.md#如何更新",
-  "readme_update_entry": "https://github.com/handsomeng/LJHskill/blob/main/README.md#v110-发布说明",
+  "readme_update_entry": "https://github.com/handsomeng/LJHskill/blob/main/README.md#v120-发布说明",
   "release_url": "https://raw.githubusercontent.com/handsomeng/LJHskill/main/release.json"
 }
