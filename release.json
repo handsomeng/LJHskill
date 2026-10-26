@@ -1,11 +1,11 @@
 {
   "suite": "ljhskill",
-  "version": "1.2.0",
-  "suite_version": "1.2.0",
-  "released_at": "2026-10-26T23:30:00+08:00",
-  "summary": "v1.2.0 新增 5 个工具：千川素材复盘、直播间周复盘、同行直播间录屏拆解、竞品全量拆解、六要素定义与素材体检；旧工具全部改成说人话。",
+  "version": "1.2.1",
+  "suite_version": "1.2.1",
+  "released_at": "2026-10-27T10:00:00+08:00",
+  "summary": "v1.2.1 工具箱改名「电商增长工具箱」：内容电商增长赋能的 24 个业务工具，告诉它你的业务困惑，它自动选择合适的工具。",
   "readme_url": "https://github.com/handsomeng/LJHskill/blob/main/README.md",
   "update_instructions_url": "https://github.com/handsomeng/LJHskill/blob/main/README.md#如何更新",
-  "readme_update_entry": "https://github.com/handsomeng/LJHskill/blob/main/README.md#v120-发布说明",
+  "readme_update_entry": "https://github.com/handsomeng/LJHskill/blob/main/README.md#v121-发布说明",
   "release_url": "https://raw.githubusercontent.com/handsomeng/LJHskill/main/release.json"
 }

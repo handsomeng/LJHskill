@@ -2,7 +2,7 @@
 name: ljh-kaipin
 displayName: ljh-kaipin
 slug: ljh-kaipin
-version: 1.2.0
+version: 1.2.1
 description: |
   开品。手上只有工厂提案、竞品线索、一个想法或老品问题时，一轮轮陪你把它做成一份能拿去评审的产品概念文档。
   触发方式：/ljh-kaipin、「帮我开个新品」「工厂给了个提案」「还没有产品只有一个想法」「老品怎么迭代」「微创新怎么判断」

@@ -2,7 +2,7 @@
 name: ljh-changjing
 displayName: ljh-changjing
 slug: ljh-changjing
-version: 1.2.0
+version: 1.2.1
 description: |
   场景机会地图。把同类竞品的带货素材按使用场景分组，看每个场景做的人多不多、卖得好不好，筛出值得我们去测的场景。
   触发方式：/ljh-changjing、「帮我拆场景」「场景机会地图怎么画」「这几个竞品该怎么对比场景」

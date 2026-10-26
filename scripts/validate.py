@@ -32,7 +32,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-EXPECTED_VERSION = "1.2.0"
+EXPECTED_VERSION = "1.2.1"
 EXPECTED_SKILL_COUNT = 25
 MAIN_SKILL_NAME = "ljh"
 UPDATE_CHECK_SOURCE = ROOT / "scripts" / "check_update.py.template"

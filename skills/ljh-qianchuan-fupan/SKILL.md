@@ -2,7 +2,7 @@
 name: ljh-qianchuan-fupan
 displayName: ljh-qianchuan-fupan
 slug: ljh-qianchuan-fupan
-version: 1.2.0
+version: 1.2.1
 description: |
   千川素材复盘。拿千川「素材分析」导出的表，算清这盘账赚不赚、盘子健不健康，给出三张清单：哪几条可以开始复刻、哪几条先观察、哪几条该降预算；有逐秒数据时，再拆「点击最多的那一秒是什么画面」。
   触发方式：/ljh-qianchuan-fupan、「千川素材复盘」「哪些素材可以复刻」「素材该停哪条」「这周素材跑得怎么样」「千川素材逐秒拆解」

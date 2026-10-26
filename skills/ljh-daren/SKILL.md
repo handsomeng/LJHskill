@@ -2,7 +2,7 @@
 name: ljh-daren
 displayName: ljh-daren
 slug: ljh-daren
-version: 1.2.0
+version: 1.2.1
 description: |
   达人选号。这个号能不能投、数据是不是刷的、报价值不值：六个维度过一遍，再查三种假数据，给出可谈、压价谈、暂缓补数或放弃。
   触发方式：/ljh-daren、「帮我看看这个达人能不能投」「这个账号数据是不是刷的」「这个号值不值得投」「达人报价合不合理」「怎么判断这个号是不是真流量」

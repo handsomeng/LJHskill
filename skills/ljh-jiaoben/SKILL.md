@@ -2,7 +2,7 @@
 name: ljh-jiaoben
 displayName: ljh-jiaoben
 slug: ljh-jiaoben
-version: 1.2.0
+version: 1.2.1
 description: |
   带货脚本评审。先看这条内容要干什么，再用七步说服链找出哪一步断了、哪句话缺证据或缺画面，给局部改法。
   触发方式：/ljh-jiaoben、「帮我评审一下这个带货脚本」「这个脚本为什么转化不好」「看看我这个口播稿哪里有问题」

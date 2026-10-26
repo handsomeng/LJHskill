@@ -2,7 +2,7 @@
 name: ljh-liuyaosu
 displayName: ljh-liuyaosu
 slug: ljh-liuyaosu
-version: 1.2.0
+version: 1.2.1
 description: |
   六要素定义与素材体检。把用户、需求、场景、痛点、卖点、买点六件事定死，排出先改哪个，落成一条能直接下发的脚本结构；也可以拿一批素材的口播稿量化体检，看六件事有没有咬上，给三条改法和验收线。
   触发方式：/ljh-liuyaosu、「帮我定六要素」「用户需求场景痛点卖点买点怎么定」「这批素材六要素体检一下」「我们的素材为什么各说各话」

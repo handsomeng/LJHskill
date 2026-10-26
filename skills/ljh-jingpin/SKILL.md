@@ -2,7 +2,7 @@
 name: ljh-jingpin
 displayName: ljh-jingpin
 slug: ljh-jingpin
-version: 1.2.0
+version: 1.2.1
 description: |
   竞品全量拆解。拿一个竞品品牌的全部带货视频（蝉妈妈、飞瓜导出），看它怎么出货、用什么样的达人、素材和口播怎么批量生产、爆款和普通视频差在哪几句话和哪几个画面，最后整理成能照着抄的做法和待讨论的问题。
   触发方式：/ljh-jingpin、「把这个竞品的视频全拆一遍」「竞品品牌全量拆解」「这个品牌的爆款是怎么做出来的」「拆一下对手的达人矩阵」

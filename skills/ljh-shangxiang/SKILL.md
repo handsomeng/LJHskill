@@ -2,7 +2,7 @@
 name: ljh-shangxiang
 displayName: ljh-shangxiang
 slug: ljh-shangxiang
-version: 1.2.0
+version: 1.2.1
 description: |
   商详页说服地图。用户点进详情页后心里有一串问题，把定好的定位、卖点、场景、人群和证据，按这串问题一屏一屏排好：每屏回答什么、怎么说、放什么证据和画面，可选输出低保真 HTML。
   触发方式：/ljh-shangxiang、「商详页怎么排」「商品详情页怎么讲」「详情页信息架构」「货架转化怎么接」「帮我排一张商详页地图」

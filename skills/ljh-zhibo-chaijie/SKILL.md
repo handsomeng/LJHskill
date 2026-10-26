@@ -2,7 +2,7 @@
 name: ljh-zhibo-chaijie
 displayName: ljh-zhibo-chaijie
 slug: ljh-zhibo-chaijie
-version: 1.2.0
+version: 1.2.1
 description: |
   同行直播间录屏拆解（看别人的直播间）。拿一段直播间手机录屏，每 2 秒看一张画面、口播全文转写，拆出一个循环多长、开价和讲品怎么交替、热卖数和在线人数怎么跟着变、贴片手卡、话术、语速、主播配合、评论区和合规风险，最后列出你能借的做法。
   触发方式：/ljh-zhibo-chaijie、「拆一下这个直播间」「同行直播间录屏帮我看看」「这个直播间怎么播的」「直播间话术拆解」

@@ -2,7 +2,7 @@
 name: ljh-video-extract
 displayName: ljh-video-extract
 slug: ljh-video-extract
-version: 1.2.0
+version: 1.2.1
 description: |
   短视频提取与分析工具。把抖音、小红书、视频号链接变成口播文稿、作品数据和无水印媒体，批量时出统计报告。
   触发方式：/ljh-video-extract、「帮我提取这条视频的脚本」「把这条抖音的视频和文案都导出来」「给我分析一下这几个视频」「帮我扒一下这些视频的文案」

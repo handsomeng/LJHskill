@@ -2,7 +2,7 @@
 name: ljh-duiqi
 displayName: ljh-duiqi
 slug: ljh-duiqi
-version: 1.2.0
+version: 1.2.1
 description: |
   品、人群、内容对齐表。把定好的定位、卖点和验证结果，翻译成编导和主播能直接拍、直接说的人话和画面，一张表让团队对齐。
   触发方式：/ljh-duiqi、「做品人群内容对齐表」「卖点怎么翻译成人话」「把验证结果交给编导」
