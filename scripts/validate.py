@@ -17,6 +17,9 @@
 13. 公开文档语言与危险示例边界
 14. 行为运行器 reference bundle 与独立包测试契约
 15. 活跃旧路由引用
+16. 公开文件不指向课程、不含本机路径（扫描 skills 全部文件和 evals）
+17. 三轴状态值白名单（表格里不出现协议外状态，如「部分已核验」「待验证」）
+18. 主入口导航覆盖下游工具的全部结论
 
 用法：python3 scripts/validate.py
 任一项 FAIL，退出码为 1。
@@ -336,8 +339,10 @@ def check_style(md_files):
     bushi_pattern = re.compile(r"不是.{0,12}而是")
     erbushi_pattern = re.compile(r"而不是")
 
-    for f in md_files:
+    for f in list(md_files) + sorted((ROOT / "evals").glob("*.json")):
         text = f.read_text(encoding="utf-8")
+        if f.suffix == ".json":            # 用例里「禁止出现『而不是』」这类说明是在点名禁用句式，不算违规
+            text = text.replace("「而不是」", "").replace("「不是……而是……」", "")
         rel = f.relative_to(ROOT)
         if dash_pattern.search(text):
             problems.append(f"{rel} 命中破折号")
@@ -561,17 +566,14 @@ def check_sensitive_words(skill_dirs):
 
     words = [w.strip() for w in banned_path.read_text(encoding="utf-8").splitlines() if w.strip()]
     problems = []
-    for d in skill_dirs:
-        skill_md = d / "SKILL.md"
-        if not skill_md.exists():
-            continue
-        text = skill_md.read_text(encoding="utf-8")
-        rel = skill_md.relative_to(ROOT)
+    for f in public_skill_files() + sorted((ROOT / "evals").glob("*.json")):
+        text = f.read_text(encoding="utf-8", errors="ignore")
+        rel = f.relative_to(ROOT)
         for w in words:
             if w in text:
                 problems.append(f"{rel} 命中禁词 '{w}'")
 
-    fail_lines("6. 敏感词检查（本地禁词文件，扫描 skills/*/SKILL.md）", problems)
+    fail_lines("6. 敏感词检查（本地禁词文件，扫描 skills 全部文件和 evals）", problems)
 
 
 # ---------- 7. 档案协议齐全性 ----------
@@ -1200,6 +1202,75 @@ def check_active_old_route():
     fail_lines("15. 活跃文件无旧主播工具路由残留", problems)
 
 
+def public_skill_files():
+    """skills/ 下会随仓库公开的全部文本文件（SKILL.md、references、agents、scripts）。"""
+    out = []
+    for f in sorted((ROOT / "skills").rglob("*")):
+        if f.is_file() and "__pycache__" not in f.parts and f.suffix in (".md", ".py", ".yaml", ".yml", ".json", ".txt", ".template"):
+            out.append(f)
+    return out
+
+
+# ---------- 16. 不指向课程、不含本机路径 ----------
+
+COURSE_PATTERNS = (re.compile(r"课程(?:中|里|所|讲|提到)"), re.compile(r"课里"), re.compile(r"(?:付费)?手册(?:里|中)"))
+LOCAL_PATH_PATTERNS = (re.compile(r"/Users/"), re.compile(r"~/vibecoding"), re.compile(r"~/Desktop"), re.compile(r"[Vv]ibecoding\W{1,3}\.credentials"),
+                       re.compile(r"douyin-video-teardown"), re.compile(r"codex_video_read"))
+
+
+def check_course_and_local_paths():
+    problems = []
+    for f in public_skill_files() + sorted((ROOT / "evals").glob("*.json")):
+        rel = f.relative_to(ROOT)
+        for line_no, line in enumerate(f.read_text(encoding="utf-8", errors="ignore").splitlines(), start=1):
+            if any(p.search(line) for p in COURSE_PATTERNS):
+                problems.append(f"{rel}:{line_no} 指向课程，公开工具要直接陈述方法")
+            if any(p.search(line) for p in LOCAL_PATH_PATTERNS):
+                problems.append(f"{rel}:{line_no} 含本机路径或私人工具名")
+    fail_lines("16. 公开文件不指向课程、不含本机路径", problems)
+
+
+# ---------- 17. 三轴状态值白名单 ----------
+
+OFF_PROTOCOL_STATUS = {"部分已核验", "部分核验", "核验中", "待验证", "已验证", "部分通过", "部分验证"}
+
+
+def check_status_whitelist():
+    problems = []
+    for f in public_skill_files():
+        if f.suffix != ".md":
+            continue
+        rel = f.relative_to(ROOT)
+        for line_no, line in enumerate(f.read_text(encoding="utf-8").splitlines(), start=1):
+            if not line.lstrip().startswith("|"):
+                continue
+            cells = {c.strip() for c in line.strip().strip("|").split("|")}
+            for bad in cells & OFF_PROTOCOL_STATUS:
+                problems.append(f"{rel}:{line_no} 表格里出现协议外状态「{bad}」")
+    fail_lines("17. 三轴状态值白名单", problems)
+
+
+# ---------- 18. 主入口导航覆盖下游结论 ----------
+
+DOWNSTREAM_CONCLUSIONS = {
+    "ljh-daren": ("可谈", "压价谈", "放弃", "暂缓补数"),
+    "ljh-xuanpin": ("进入验证", "补数后再判", "暂缓"),
+}
+
+
+def check_main_navigation():
+    problems = []
+    main = ROOT / "skills" / MAIN_SKILL_NAME / "SKILL.md"
+    if not main.exists():
+        return
+    text = main.read_text(encoding="utf-8")
+    for skill, terms in DOWNSTREAM_CONCLUSIONS.items():
+        for t in terms:
+            if t not in text:
+                problems.append(f"skills/ljh/SKILL.md 导航缺少 /{skill} 的结论「{t}」")
+    fail_lines("18. 主入口导航覆盖下游工具的全部结论", problems)
+
+
 def public_markdown_files():
     """仓库公开 Markdown：README、SKILL.md 与各 Skill 的 references。"""
     files = []
@@ -1231,6 +1302,9 @@ def main():
     check_public_language(md_files)
     check_behavior_runner_and_package_tests()
     check_active_old_route()
+    check_course_and_local_paths()
+    check_status_whitelist()
+    check_main_navigation()
 
     print()
     print("=" * 60)

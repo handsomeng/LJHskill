@@ -10,7 +10,6 @@ Token 查找顺序：
 2. 环境变量 APIFY_KEYS_FILE 指定的文件（正则 apify_api_ 串）
 3. ~/.config/ljhskill/API_Keys.md 的 ## Apify API 段落
 4. macOS 钥匙串服务 ljh-apify-token
-5. ~/vibecoding/.credentials.md（本机个人凭证文件，正则 apify_api_ 串）
 
 踩坑备忘：
 - easyapi input 字段必须是 links（数组），不是 videoUrls / startUrls
@@ -38,7 +37,6 @@ ACTOR_DOWNLOAD = "easyapi~douyin-video-downloader"
 ACTOR_TRANSCRIPT = "apple_yang~douyin-transcripts-scraper"
 KEYCHAIN_SERVICE = "ljh-apify-token"
 DEFAULT_API_KEYS_FILE = Path.home() / ".config" / "ljhskill" / "API_Keys.md"
-PERSONAL_KEYS_FILE = Path.home() / "vibecoding" / ".credentials.md"
 
 
 class ApifyError(RuntimeError):
@@ -55,7 +53,6 @@ def find_token() -> str:
     if configured_path:
         candidates.append(Path(configured_path).expanduser())
     candidates.append(DEFAULT_API_KEYS_FILE)
-    candidates.append(PERSONAL_KEYS_FILE)
     for path in candidates:
         try:
             text = path.read_text(encoding="utf-8")

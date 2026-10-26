@@ -70,10 +70,10 @@ SETUP_COMMANDS = {
     "轻抖": "python3 scripts/configure_api_key.py qingdou",
     "Apify": "python3 scripts/configure_api_key.py apify",
 }
+# 本地转写环境：按 SKILL.md「首次安装」建在 ~/.cache/ljhskill/venv，也可以用环境变量 LJH_WHISPER_PYTHON 指定
 WHISPER_PYTHON_CANDIDATES = (
-    Path.home() / ".workbuddy" / "skills" / "douyin-video-teardown" / ".venv" / "bin" / "python",
-    Path.home() / ".claude" / "skills" / "douyin-video-teardown" / ".venv" / "bin" / "python",
-    Path.home() / ".codex" / "skills" / "douyin-video-teardown" / ".venv" / "bin" / "python",
+    Path.home() / ".cache" / "ljhskill" / "venv" / "bin" / "python",
+    Path.home() / ".cache" / "ljhskill" / "venv" / "Scripts" / "python.exe",
 )
 
 
@@ -375,7 +375,7 @@ def run_transcript(
         return {"ok": False, "error": str(error)}
 
 
-# ---------- Apify 抖音路径（瀚森完整版新增） ----------
+# ---------- Apify 抖音路径 ----------
 
 
 def find_whisper_python() -> str:
@@ -386,6 +386,10 @@ def find_whisper_python() -> str:
     for candidate in candidates:
         if candidate.is_file():
             return str(candidate)
+    # 当前 Python 已经装好依赖时直接用
+    import importlib.util
+    if importlib.util.find_spec("faster_whisper") and importlib.util.find_spec("imageio_ffmpeg"):
+        return sys.executable
     return ""
 
 

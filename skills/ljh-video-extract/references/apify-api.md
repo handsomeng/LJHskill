@@ -72,21 +72,19 @@ GET /v2/datasets/{datasetId}/items?clean=true&token={TOKEN}
 2. 环境变量 `APIFY_KEYS_FILE` 指定的文件（正则 `apify_api_\w+`）
 3. `~/.config/ljhskill/API_Keys.md` 的 `## Apify API` 段落（`- **Token**: apify_api_xxx`）
 4. macOS 钥匙串服务 `ljh-apify-token`
-5. `~/vibecoding/.credentials.md`（本机个人凭证文件，正则 `apify_api_\w+`）
 
 ## 转写通道
 
 默认 `--transcriptor auto`：
 
-1. easyapi 下载 mp3（已付费的媒体下载）后，本地 faster-whisper 转写（免费）
+1. easyapi 下载 mp4（已付费的媒体下载）后抽出音轨，本地 faster-whisper 转写（免费）
 2. 本地失败的兜底：apple_yang 云端口播 actor
 
-本地 whisper 的 venv python 发现顺序：
+本地 whisper 用哪个 Python，按这个顺序找：
 
 1. 环境变量 `LJH_WHISPER_PYTHON`
-2. `~/.workbuddy/skills/douyin-video-teardown/.venv/bin/python`
-3. `~/.claude/skills/douyin-video-teardown/.venv/bin/python`
-4. `~/.codex/skills/douyin-video-teardown/.venv/bin/python`
+2. `~/.cache/ljhskill/venv`（SKILL.md「首次安装」建的环境）
+3. 当前运行脚本的 Python（已经装好 `scripts/requirements.txt` 里的依赖时）
 
-模型缓存：`~/.cache/douyin-teardown/whisper`（small 已下载）；模型参数 `--whisper-model`，
+都找不到时自动回落云端转写。模型缓存：`~/.cache/ljhskill/whisper`（第一次运行自动下载）；模型参数 `--whisper-model`，
 默认 `small`，要更准用 `medium` / `large-v3`（慢 3-5 倍）。

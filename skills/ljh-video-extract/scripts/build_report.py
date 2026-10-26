@@ -254,7 +254,7 @@ def build_report(entries: list[dict[str, Any]]) -> str:
             "- 口播为 AI 转写（本地 whisper / 云端），存在同音字误差，成稿以视频原文为准。",
             f"- 词频统计使用{'jieba 分词' if JIEBA_AVAILABLE else '2 字连续窗口（未安装 jieba，装 jieba 后更准）'}；"
             "重复话术按 6 字滑动窗口跨视频匹配。",
-            "- 本报告只做统计呈现，不替代人工判断；需要深入拆解请使用 douyin-video-teardown。",
+            "- 本报告只做统计呈现，不替代人工判断；要拆因子用 /ljh-yinzi，要评说服链用 /ljh-jiaoben，要看整个竞品账号用 /ljh-jingpin。",
             "",
         ]
     )

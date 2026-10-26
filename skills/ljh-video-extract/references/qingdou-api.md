@@ -13,7 +13,7 @@
 - Header：`x-api-key: {API Key}`、`Content-Type: application/json`
 - Body：`userInputList`
 
-用户提供的文档出现两种 Body 形式：
+轻抖官方文档里有两种 Body 形式：
 
 ```json
 {"userInputList":"完整分享文案或视频链接"}
@@ -45,7 +45,7 @@
 - `videoCover`：封面链接；
 - `videoTime`：视频时长。
 
-用户提供的返回样例没有作者字段。脚本兼容 `authorName`、`author_name`、`authorNickname`、`nickname`、`userName`、`accountName`，以及 `author`、`user`、`owner` 对象中的对应字段。没有明确字段时归入 `_未识别作者`。
+轻抖官方返回样例没有作者字段。脚本兼容 `authorName`、`author_name`、`authorNickname`、`nickname`、`userName`、`accountName`，以及 `author`、`user`、`owner` 对象中的对应字段。没有明确字段时归入 `_未识别作者`。
 
 ## 状态码
 

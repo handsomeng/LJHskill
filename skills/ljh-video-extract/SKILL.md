@@ -4,7 +4,7 @@ displayName: ljh-video-extract
 slug: ljh-video-extract
 version: 1.1.0
 description: |
-  短视频提取与分析工具。接收抖音、小红书、微信视频号等短视频链接或分享文案，提取口播文稿、作品数据和无水印媒体（mp4/mp3），按作者和标题归档 Markdown；批量输入并发后生成分析报告（词频、重复话术、开场钩子、促销词、时长/字数、样本概览）。抖音默认走 Apify（数据+口播+媒体），小红书与视频号走 TikHub 数据 + 轻抖文稿。
+  短视频提取与分析工具。把抖音、小红书、视频号链接变成口播文稿、作品数据和无水印媒体，批量时出统计报告。
   触发方式：/ljh-video-extract、「帮我提取这条视频的脚本」「把这条抖音的视频和文案都导出来」「给我分析一下这几个视频」「帮我扒一下这些视频的文案」
   Douyin/Xiaohongshu/WeChat Channels video extractor: transcripts, stats, and watermark-free media from a link or share text; batch extraction plus a multi-dimension stats report.
   Trigger: /ljh-video-extract, "extract the script from this video", "download this douyin video and its transcript", "analyze these videos", "pull the copy from these videos"
@@ -81,6 +81,17 @@ python3 scripts/configure_api_key.py apify
 提示、购买步骤仍按 [references/api-setup.md](references/api-setup.md) 处理，仅面向
 小红书与视频号场景或用户明确要求。
 
+## 首次安装（只有抖音本地转写需要）
+
+本地转写免费、但要先装三个 Python 依赖。没装也能用，抖音口播会自动改走 Apify 云端转写（按条计费）。
+
+```bash
+python3 -m venv ~/.cache/ljhskill/venv
+~/.cache/ljhskill/venv/bin/pip install -r scripts/requirements.txt
+```
+
+装好后脚本会自动找到这个环境；装在别处时，用环境变量 `LJH_WHISPER_PYTHON` 指向那个 Python。第一次转写会下载约 500MB 的 small 模型。
+
 ## 默认执行
 
 优先使用标准输入，避免分享文案中的特殊字符被 Shell 解释：
@@ -97,7 +108,7 @@ python3 scripts/extract_video.py \
 2. Apify `easyapi~douyin-video-downloader` 一次 run 取作品数据与无水印 mp4 直链；
 3. mp4 保存到 `{输出目录}/media/`，用 imageio-ffmpeg 从 mp4 抽取原声音轨
    （easyapi 的 audio 直链实测不可靠，可能返回错误内容，不采用）；
-4. 口播转写：本地 faster-whisper（复用 douyin-video-teardown 的 .venv）；失败时回落
+4. 口播转写：本地 faster-whisper（装法见下面「首次安装」）；本地没装或失败时回落
    Apify 云端 `apple_yang~douyin-transcripts-scraper`；
 5. 按 `{输出目录}/{作者}/{标题}.md` 保存文稿（作者缺失时归入 `_未识别作者`）；
 6. 结果合并进 `{输出目录}/_index.json`（按链接去重），供报告脚本使用。
@@ -150,7 +161,7 @@ python3 scripts/build_report.py "/绝对路径/短视频文字稿"
 
 输出 `{输出目录}/分析报告.md`，包含：样本概览、时长与文稿长度分布、口播词频、
 跨视频重复话术、每条开场前 40 字钩子、促销信号词统计。词频与重复话术是简单统计，
-不作为结论；需要逐帧 / 逐句深度拆解或说服链诊断时改用脚本评审工具（`/ljh-jiaoben`）。
+不作为结论。要拆单条素材的因子用 `/ljh-yinzi`，要评说服链用 `/ljh-jiaoben`，要看一个竞品品牌的全量带货视频用 `/ljh-jingpin`。
 
 ## 密钥与费用
 
@@ -159,8 +170,7 @@ python3 scripts/build_report.py "/绝对路径/短视频文字稿"
 1. 环境变量：`APIFY_TOKEN`、`TIKHUB_API_KEY`、`QINGDOU_API_KEY`；
 2. 用户指定的本地文件：`APIFY_KEYS_FILE`、`TIKHUB_API_KEYS_FILE`、`QINGDOU_API_KEYS_FILE`；
 3. `~/.config/ljhskill/API_Keys.md`；
-4. macOS 钥匙串：`ljh-apify-token`、`ljh-tikhub-api-key`、`ljh-qingdou-api-key`；
-5. Apify token 还会读取 `~/vibecoding/.credentials.md`（本机个人凭证文件）。
+4. macOS 钥匙串：`ljh-apify-token`、`ljh-tikhub-api-key`、`ljh-qingdou-api-key`。
 
 禁止把 Key 写入 Skill、命令参数、Markdown、Git 或日志。Apify 下载、TikHub 查询和轻抖
 转写都可能计费；执行前告知用户，用户已经明确要求提取时无需重复确认。
@@ -196,5 +206,12 @@ Apify 调用细节见 [references/apify-api.md](references/apify-api.md)；TikHu
 
 不要在回复中展示 API Key、`batchId` 或无必要的内部请求标识。
 
-完成当前任务后直接结束。只有用户明确询问下一步，且当前环境已经安装 `/ljh` 时，
-简短提示：「下一步不确定时，可以输入 `/ljh`。」
+## 边界与常见误用
+
+- 只负责把视频、文稿和数据拿下来，加简单统计。不做拆解、不评审脚本、不判断素材好坏。
+- 不下载、不转写直播回放；同行直播间用 `/ljh-zhibo-chaijie`。
+- 统计报告里的高频词和重复话术是现象，不是结论。
+
+## 下一步
+
+拿到文稿后，常见的下一步：单条素材拆因子用 `/ljh-yinzi`；一个竞品品牌的几十上百条视频用 `/ljh-jingpin` 做全量拆解；自己的脚本要评审用 `/ljh-jiaoben`。不确定时输入 `/ljh`。

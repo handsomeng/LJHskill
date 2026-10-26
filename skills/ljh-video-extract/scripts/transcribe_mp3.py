@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """用 faster-whisper 把 mp3 转写成中文口播文字。
 
-必须用装了 faster-whisper 的 venv python 运行（discover_whisper_python 会找
-douyin-video-teardown 的 .venv）。模型缓存复用 ~/.cache/douyin-teardown/whisper。
+必须用装了 faster-whisper 的 Python 运行（安装方法见 SKILL.md「首次安装」）。
+模型缓存在 ~/.cache/ljhskill/whisper，第一次运行会自动下载。
 
 用法：
   python transcribe_mp3.py <mp3 路径> <输出 text 路径> [模型大小，默认 small]
@@ -20,12 +20,11 @@ import sys
 import time
 from pathlib import Path
 
-_CACHE = Path.home() / ".cache" / "douyin-teardown" / "whisper"
-_LEGACY = Path.home() / "Desktop" / "codex_video_read" / "whisper_models"
+_CACHE = Path.home() / ".cache" / "ljhskill" / "whisper"
 
 
 def _model_cache() -> Path:
-    return _LEGACY if _LEGACY.exists() else _CACHE
+    return _CACHE
 
 
 def main() -> int:

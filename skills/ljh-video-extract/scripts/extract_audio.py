@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """从 mp4 抽取音轨为 mp3（用 imageio-ffmpeg 自带的 ffmpeg 二进制）。
 
-必须用安装了 imageio-ffmpeg 的 venv python 运行（douyin-video-teardown 的 .venv）。
+必须用安装了 imageio-ffmpeg 的 Python 运行（安装方法见 SKILL.md「首次安装」）。
 原因：easyapi 的 audio 直链现在可能返回错误内容（实测下载到的音频时长与视频不符），
 从无水印 mp4 抽音轨最可靠。
 

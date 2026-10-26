@@ -1,0 +1,4 @@
+# 本地转写和报告用到的依赖（抖音口播本地转写、从视频抽音轨、报告分词）
+faster-whisper>=1.0
+imageio-ffmpeg>=0.4
+jieba>=0.42
