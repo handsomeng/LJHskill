@@ -1176,7 +1176,7 @@ def check_behavior_runner_and_package_tests():
 
 def check_active_old_route():
     problems = []
-    readme_path = ROOT / "README.md"
+    changelog_path = ROOT / "CHANGELOG.md"
     migration_heading = "## v0.9.1 迁移说明"
 
     for path in ROOT.rglob("*"):
@@ -1192,14 +1192,14 @@ def check_active_old_route():
             continue
         if LEGACY_ROUTE not in text:
             continue
-        if path == readme_path and migration_heading in text:
+        if path == changelog_path and migration_heading in text:
             before_migration = text.split(migration_heading, 1)[0]
             if LEGACY_ROUTE not in before_migration:
                 continue
         problems.append(f"活跃文件仍含旧路由：{path.relative_to(ROOT)}")
 
-    if not readme_path.exists() or migration_heading not in readme_path.read_text(encoding="utf-8"):
-        problems.append("README.md 缺少 v0.9.1 迁移说明")
+    if not changelog_path.exists() or migration_heading not in changelog_path.read_text(encoding="utf-8"):
+        problems.append("CHANGELOG.md 缺少 v0.9.1 迁移说明")
 
     fail_lines("15. 活跃文件无旧主播工具路由残留", problems)
 
