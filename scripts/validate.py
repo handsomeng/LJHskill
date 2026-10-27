@@ -4,7 +4,7 @@
 检查项：
 1. skills/*/SKILL.md 存在，frontmatter name 与目录名一致，description 含「触发方式」和「Trigger:」
 2. 风格：破折号、「不是……而是……」「而不是」句式零命中
-3. 微信检查：lijiedelijiea 在 README 中至少出现 1 次（SKILL.md 中可出现于新手引导）
+3. 微信检查：jay-9306 在 README 中至少出现 1 次（SKILL.md 中可出现于新手引导）
 4. marketplace.json：JSON 合法、业务描述契约和版本一致、skills 路径存在、ljh 主条目覆盖全部 skills，且插件不写显式 version
 5. evals/*.json：JSON 合法、符合 schema，并与 skills 一一对应
 6. 敏感词检查：仅当 内部/禁词.txt 存在时才跑，本地专用
@@ -380,7 +380,7 @@ def check_public_language(md_files):
 
 def check_onboarding(skill_dirs):
     problems = []
-    markers = ("onboarding.json", "用户交流群", "lijiedelijiea", "DamonWang1993")
+    markers = ("onboarding.json", "用户交流群", "jay-9306", "DamonWang1993")
     main_dir = next((d for d in skill_dirs if d.name == MAIN_SKILL_NAME), None)
 
     if main_dir is None:

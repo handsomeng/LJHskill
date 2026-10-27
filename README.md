@@ -140,7 +140,7 @@ npx -y skills add handsomeng/LJHskill -g --all
 
 李解和瀚森一起做的。用着有疑问、想更深入地用，或者单纯想交个朋友，都欢迎加微信。
 
-- 李解：lijiedelijiea
+- 李解：jay-9306
 - 瀚森：DamonWang1993
 
 ## 许可证

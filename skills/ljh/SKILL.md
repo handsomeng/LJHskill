@@ -31,7 +31,7 @@ description: |
 >
 > 我们还有一个 **LJHskill 用户交流群**，解决安装和使用问题，发布功能更新和实战案例。加微信备注「LJHskill」：
 >
-> 李解：`lijiedelijiea`　　瀚森：`DamonWang1993`
+> 李解：`jay-9306`　　瀚森：`DamonWang1993`
 
 ---
 
