@@ -235,6 +235,7 @@ description: |
 ## 边界与下一步
 
 - 选品可行性先用 `/ljh-xuanpin`。
+- 要把一个产品拆成几个场景、给一批 KOC 发拍摄 Brief，用 `/ljh-koc-brief` 生成，再回来定判定线。
 - A 模式寄样要挑账号时，账号能不能用、数据是不是刷的用 `/ljh-daren` 先筛。
 - 广告前贡献毛利、目标 ROAS 和最大 CAC 用 `/ljh-suanzhang`。
 - 卖点独特性和表达成立性可用 `/ljh-maidian` 检查；事实、资质和平台合规仍由品牌方、法务或平台合规人员确认。

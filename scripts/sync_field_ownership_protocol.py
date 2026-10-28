@@ -18,6 +18,7 @@ CONSUMERS = (
     "ljh-duiqi",
     "ljh-jiaoben",
     "ljh-jiazhi",
+    "ljh-koc-brief",
     "ljh-liuyaosu",
     "ljh-maidian",
     "ljh-shangxiang",

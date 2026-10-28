@@ -4,13 +4,13 @@
     "name": "handsomeng"
   },
   "metadata": {
-    "description": "LJHskill（老家伙 skill）电商增长工具箱：全网首个免费开源的内容电商增长赋能 skill 合集，总共 24 个业务工具 + 1 个主入口。告诉它你的业务困惑，它自动选择合适的工具帮你解决问题。从《内容电商从 0 到 1 打品》方法论中提炼，覆盖开品、选品、价值、定位、场景、内容、验证、投放、复盘、直播、竞品拆解、指标诊断、算账全链路。",
+    "description": "LJHskill（老家伙 skill）电商增长工具箱：全网首个免费开源的内容电商增长赋能 skill 合集，总共 25 个业务工具 + 1 个主入口。告诉它你的业务困惑，它自动选择合适的工具帮你解决问题。从《内容电商从 0 到 1 打品》方法论中提炼，覆盖开品、选品、价值、定位、场景、内容、验证、投放、复盘、直播、竞品拆解、指标诊断、算账全链路。",
     "version": "1.2.1"
   },
   "plugins": [
     {
       "name": "ljh",
-      "description": "电商增长工具箱主入口，告诉它你的业务困惑，它自动选择合适的工具。装这一个就得到整套工具箱（含 24 个业务工具 + 1 个主入口）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从开品或选品走到算账。",
+      "description": "电商增长工具箱主入口，告诉它你的业务困惑，它自动选择合适的工具。装这一个就得到整套工具箱（含 25 个业务工具 + 1 个主入口）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从开品或选品走到算账。",
       "source": "./",
       "strict": false,
       "category": "content-ecommerce",
@@ -35,6 +35,7 @@
         "./skills/ljh-yinzi",
         "./skills/ljh-jingpin",
         "./skills/ljh-koc",
+        "./skills/ljh-koc-brief",
         "./skills/ljh-qianchuan",
         "./skills/ljh-qianchuan-fupan",
         "./skills/ljh-zhibo-fupan",
@@ -246,6 +247,22 @@
       ],
       "skills": [
         "./skills/ljh-koc"
+      ]
+    },
+    {
+      "name": "ljh-koc-brief",
+      "description": "KOC 测试 Brief。把产品资料拆成 4 到 6 个场景，每个场景一份 KOC 拿到就能拍的买点 Brief，附每个场景分多少 KOC、看什么数、怎么算跑通。",
+      "source": "./",
+      "strict": false,
+      "category": "content-ecommerce",
+      "keywords": [
+        "koc",
+        "brief",
+        "scenario-testing",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-koc-brief"
       ]
     },
     {

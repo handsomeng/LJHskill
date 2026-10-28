@@ -20,6 +20,7 @@ CONSUMERS = (
     "ljh-jiaoben",
     "ljh-jiazhi",
     "ljh-koc",
+    "ljh-koc-brief",
     "ljh-lianming",
     "ljh-liuyaosu",
     "ljh-maidian",
