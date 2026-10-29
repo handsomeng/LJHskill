@@ -222,6 +222,6 @@ description: |
 
 ## 下一步
 
-- 场景候选需要真实验证：交 `/ljh-koc` 设计自然或付费验证。
+- 场景候选需要真实验证：用 `/ljh-koc-brief` 把挑出的场景写成 KOC 拍摄 Brief，再交 `/ljh-koc` 定怎么算跑通。
 - 需要拆成可控内容变量：交 `/ljh-yinzi` 形成因子候选和测试计划。
 - 需要核对贡献毛利与预算：交 `/ljh-suanzhang`。

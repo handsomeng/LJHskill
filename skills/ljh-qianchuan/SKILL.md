@@ -5,7 +5,7 @@ slug: ljh-qianchuan
 version: 1.2.1
 description: |
   千川掉量诊断。消耗或成交突然掉了，按一棵决策树一步一问，先排除假摔，再定位问题在账户、素材、承接、转化还是人群，给出第一动作。
-  触发方式：/ljh-qianchuan、「千川消耗掉了」「投放量突然没了」「ROI 掉了怎么办」
+  触发方式：/ljh-qianchuan、「千川消耗掉了」「投放量突然没了」「千川 ROI 突然掉了怎么办」
   Douyin ad (Qianchuan) traffic-drop diagnostic tool. Walks through a decision tree one node at a time to find the first action.
   Trigger: /ljh-qianchuan, "my ad spend dropped", "Qianchuan traffic disappeared", "ROI suddenly dropped"
   不要在非千川的广告平台问题或网站流量下降问题上自动触发。

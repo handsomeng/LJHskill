@@ -5,7 +5,7 @@ slug: ljh-zhibiao
 version: 1.2.1
 description: |
   指标波动诊断。沿内容电商指标树逐层定位 GMV、转化率、ROI、费比、新客、复购、内容效率等波动的首个异常节点，再把根因落到一个可验证的运营动作。
-  触发方式：/ljh-zhibiao、「GMV 为什么掉了」「转化率突然变差」「ROI 和费比异常」「新客或复购波动」「内容效率下降怎么查」
+  触发方式：/ljh-zhibiao、「GMV 为什么掉了」「转化率突然变差」「整体 ROI、费比这些经营数异常」「新客或复购波动」「内容效率下降怎么查」
   Content-commerce metric fluctuation diagnostic. Traces GMV, conversion, ROI, cost ratio, new-customer, repeat-purchase, and content-efficiency changes to the first abnormal child metric and a testable operating action.
   Trigger: /ljh-zhibiao, "why did GMV drop", "conversion rate changed", "ROI or cost ratio fluctuated", "new customers or repeat purchase changed", "content efficiency fell"
   不要在没有指标波动、只想做渠道总账，或只想拆一条具体内容素材时自动触发。
