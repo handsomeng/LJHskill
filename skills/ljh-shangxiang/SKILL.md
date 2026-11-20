@@ -16,6 +16,8 @@ description: |
 
 开始前读取 [三轴状态协议](references/three-axis-protocol.md) 和 [交付物字段所有权协议](references/deliverable-field-ownership.md)。页面只消费上游状态，编排和改写不得升级字段、证据或验证结果。
 
+交付前按 [写作规矩](references/writing-rules.md) 自查。
+
 # ljh-shangxiang：商详页说服地图
 
 用户点进详情页，心里依次会问：我为什么继续看、说的是不是我、它能解决什么、凭什么信、我会不会用、现在能不能放心买。这个工具按这串问题把详情页一屏一屏排好。

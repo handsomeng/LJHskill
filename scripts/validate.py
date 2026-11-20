@@ -20,6 +20,8 @@
 16. 公开文件不指向课程、不含本机路径（扫描 skills 全部文件和 evals）
 17. 三轴状态值白名单（表格里不出现协议外状态，如「部分已核验」「待验证」）
 18. 主入口导航覆盖下游工具的全部结论
+19. 写作规矩副本、链接与同步脚本
+20. 内容标签副本、链接、消费者边界与同步脚本
 
 用法：python3 scripts/validate.py
 任一项 FAIL，退出码为 1。
@@ -62,6 +64,46 @@ THREE_AXIS_CONSUMERS = (
 )
 THREE_AXIS_REFERENCE = "references/three-axis-protocol.md"
 THREE_AXIS_LINK = "开始前读取 [三轴状态协议](references/three-axis-protocol.md)"
+WRITING_RULES_SOURCE = ROOT / "shared" / "writing-rules.md"
+WRITING_RULES_CONSUMERS = (
+    "ljh",
+    "ljh-brief",
+    "ljh-changjing",
+    "ljh-daren",
+    "ljh-dingwei",
+    "ljh-duiqi",
+    "ljh-jiaoben",
+    "ljh-jiazhi",
+    "ljh-jingpin",
+    "ljh-kaipin",
+    "ljh-koc",
+    "ljh-koc-brief",
+    "ljh-lianming",
+    "ljh-liuyaosu",
+    "ljh-maidian",
+    "ljh-qianchuan",
+    "ljh-qianchuan-fupan",
+    "ljh-shangxiang",
+    "ljh-suanzhang",
+    "ljh-video-extract",
+    "ljh-xhs",
+    "ljh-xuanpin",
+    "ljh-yinzi",
+    "ljh-zhibiao",
+    "ljh-zhibo-chaijie",
+    "ljh-zhibo-fupan",
+)
+WRITING_RULES_REFERENCE = "references/writing-rules.md"
+WRITING_RULES_LINK = "[写作规矩](references/writing-rules.md)"
+CONTENT_TAXONOMY_SOURCE = ROOT / "shared" / "content-taxonomy.md"
+CONTENT_TAXONOMY_CONSUMERS = (
+    "ljh-yinzi",
+    "ljh-jingpin",
+    "ljh-changjing",
+    "ljh-video-extract",
+)
+CONTENT_TAXONOMY_REFERENCE = "references/content-taxonomy.md"
+CONTENT_TAXONOMY_LINK = "[内容标签](references/content-taxonomy.md)"
 EXPECTED_AXIS_VALUES = {
     "一、字段决策状态": {"已确认", "待确认", "修改建议"},
     "二、证据状态": {"已核验", "待核验", "无证据", "已过期", "不适用"},
@@ -995,6 +1037,83 @@ def check_field_ownership_protocol(skill_dirs):
     fail_lines("11. 字段所有权协议副本、链接与生产消费契约", problems)
 
 
+def check_writing_rules_sync(skill_dirs):
+    problems = []
+    sync_script = ROOT / "scripts" / "sync_writing_rules.py"
+    if not sync_script.exists():
+        problems.append("scripts/sync_writing_rules.py 不存在")
+
+    if not WRITING_RULES_SOURCE.exists():
+        report("19. 写作规矩副本与链接", False, "写作规矩真源不存在")
+        return
+
+    source_bytes = WRITING_RULES_SOURCE.read_bytes()
+    source_hash = hashlib.sha256(source_bytes).hexdigest()
+
+    skill_names = {d.name for d in skill_dirs}
+    missing_consumers = set(WRITING_RULES_CONSUMERS) - skill_names
+    if missing_consumers:
+        problems.append(f"写作规矩消费者目录缺失：{sorted(missing_consumers)}")
+
+    for skill_name in WRITING_RULES_CONSUMERS:
+        skill_dir = ROOT / "skills" / skill_name
+        reference = skill_dir / WRITING_RULES_REFERENCE
+        skill_md = skill_dir / "SKILL.md"
+        if not reference.exists():
+            problems.append(f"{reference.relative_to(ROOT)} 不存在")
+        elif hashlib.sha256(reference.read_bytes()).hexdigest() != source_hash:
+            problems.append(f"{reference.relative_to(ROOT)} 与真源哈希不一致")
+        if not skill_md.exists():
+            continue
+        text = skill_md.read_text(encoding="utf-8")
+        if WRITING_RULES_LINK not in text:
+            problems.append(f"{skill_md.relative_to(ROOT)} 缺少写作规矩读取链接")
+
+    fail_lines("19. 写作规矩副本与链接", problems)
+
+
+def check_content_taxonomy_sync(skill_dirs):
+    problems = []
+    sync_script = ROOT / "scripts" / "sync_content_taxonomy.py"
+    if not sync_script.exists():
+        problems.append("scripts/sync_content_taxonomy.py 不存在")
+
+    if not CONTENT_TAXONOMY_SOURCE.exists():
+        report("20. 内容标签副本与链接", False, "内容标签真源不存在")
+        return
+
+    source_bytes = CONTENT_TAXONOMY_SOURCE.read_bytes()
+    source_hash = hashlib.sha256(source_bytes).hexdigest()
+
+    skill_names = {d.name for d in skill_dirs}
+    missing_consumers = set(CONTENT_TAXONOMY_CONSUMERS) - skill_names
+    if missing_consumers:
+        problems.append(f"内容标签消费者目录缺失：{sorted(missing_consumers)}")
+
+    for skill_name in CONTENT_TAXONOMY_CONSUMERS:
+        skill_dir = ROOT / "skills" / skill_name
+        reference = skill_dir / CONTENT_TAXONOMY_REFERENCE
+        skill_md = skill_dir / "SKILL.md"
+        if not reference.exists():
+            problems.append(f"{reference.relative_to(ROOT)} 不存在")
+        elif hashlib.sha256(reference.read_bytes()).hexdigest() != source_hash:
+            problems.append(f"{reference.relative_to(ROOT)} 与真源哈希不一致")
+        if not skill_md.exists():
+            continue
+        text = skill_md.read_text(encoding="utf-8")
+        if CONTENT_TAXONOMY_LINK not in text:
+            problems.append(f"{skill_md.relative_to(ROOT)} 缺少内容标签读取链接")
+
+    for skill_dir in skill_dirs:
+        if skill_dir.name in CONTENT_TAXONOMY_CONSUMERS:
+            continue
+        unexpected = skill_dir / CONTENT_TAXONOMY_REFERENCE
+        if unexpected.exists():
+            problems.append(f"{unexpected.relative_to(ROOT)} 不应复制无关内容标签")
+
+    fail_lines("20. 内容标签副本与链接", problems)
+
+
 def check_scenario_factor_collab_contracts():
     problems = []
     required_contracts = {
@@ -1309,6 +1428,8 @@ def main():
     check_course_and_local_paths()
     check_status_whitelist()
     check_main_navigation()
+    check_writing_rules_sync(skill_dirs)
+    check_content_taxonomy_sync(skill_dirs)
 
     print()
     print("=" * 60)

@@ -16,6 +16,8 @@ description: |
 
 开始前读取 [三轴状态协议](references/three-axis-protocol.md) 和 [交付物字段所有权协议](references/deliverable-field-ownership.md)。
 
+交付前按 [写作规矩](references/writing-rules.md) 自查。
+
 # ljh-dingwei：新品定位一页纸
 
 你是新品定位官。只有 `/ljh-xuanpin` 已给出「进入验证」时，才进入标准定位流程。你负责产出并维护三个标准字段：标准定位、标准人群、心智句。心智句是让团队和消费者记住「这个产品是谁、适合谁、凭什么值得选」的一句话。

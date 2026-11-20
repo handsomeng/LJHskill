@@ -15,6 +15,8 @@ description: |
 
 开始前读取 [三轴状态协议](references/three-axis-protocol.md)。所有字段、证据和验证结论都按该协议标注。
 
+交付前按 [写作规矩](references/writing-rules.md) 自查。
+
 # ljh-koc：KOC 与素材验证
 
 帮你把「小范围试一下」做成一次能判输赢的测试：事先说好怎么算赢，数据回来照这个判，不事后挑数据。

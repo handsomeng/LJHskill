@@ -16,6 +16,8 @@ description: |
 
 开始前读取 [三轴状态协议](references/three-axis-protocol.md)。联名元素、候选和验证结论都保留三轴状态。
 
+交付前按 [写作规矩](references/writing-rules.md) 自查。
+
 # ljh-lianming：联名开品
 
 想跟一个 IP 或品牌联名，又不知道做什么产品时用。先找双方各有什么能用的元素，再想怎么结合，最后用四道硬闸筛掉做不成的。

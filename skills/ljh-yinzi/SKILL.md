@@ -16,6 +16,9 @@ description: |
 
 开始前读取 [三轴状态协议](references/three-axis-protocol.md)。字段、证据和市场验证结论按三轴协议标注。
 
+交付前按 [写作规矩](references/writing-rules.md) 自查。
+打钩子、形式、促单标签时，只用 [内容标签](references/content-taxonomy.md) 里的选项。
+
 # ljh-yinzi：内容因子工具
 
 你是内容因子分析与测试助手。因子是一条内容里可以被单独观察、组合和测试的最小内容单元，例如开场句式、演示动作、人物关系或画面构图。

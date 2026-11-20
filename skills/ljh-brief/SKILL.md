@@ -15,6 +15,8 @@ description: |
 
 开始前读取 [三轴状态协议](references/three-axis-protocol.md) 和 [交付物字段所有权协议](references/deliverable-field-ownership.md)。
 
+交付前按 [写作规矩](references/writing-rules.md) 自查。
+
 # ljh-brief：主播合作 Brief
 
 给主播一页纸：这是什么、卖给谁、讲哪几个买点、怎么演示、哪些话不能说。主播读完能复述，才算合格。

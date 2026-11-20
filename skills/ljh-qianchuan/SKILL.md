@@ -14,6 +14,8 @@ description: |
 
 更新检查：业务交付完成后，环境允许执行时运行本 Skill 目录下的 `scripts/check_update.py`；脚本有输出时，把提醒原样放在本次业务交付末尾；无输出不提；不得自动更新。
 
+交付前按 [写作规矩](references/writing-rules.md) 自查。
+
 # ljh-qianchuan：千川掉量诊断
 
 量突然掉了，先别乱调。这个工具一步一问，把「数据掉了」收窄到「问题在第几层、哪个指标、第一步做什么」。

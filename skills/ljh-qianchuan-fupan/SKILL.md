@@ -13,6 +13,8 @@ description: |
 
 更新检查：业务交付完成后，环境允许执行时运行本 Skill 目录下的 `scripts/check_update.py`；脚本有输出时，把提醒原样放在本次业务交付末尾；无输出不提；不得自动更新。
 
+交付前按 [写作规矩](references/writing-rules.md) 自查。
+
 # ljh-qianchuan-fupan：千川素材复盘
 
 每周拿一次千川素材数据，回答三个问题：这盘账赚不赚，盘子靠几条素材撑着、有没有接班的，下一批该照着哪几条拍、哪几条该减预算。

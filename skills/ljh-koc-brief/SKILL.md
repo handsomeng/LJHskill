@@ -15,6 +15,8 @@ description: |
 
 开始前读取 [三轴状态协议](references/three-axis-protocol.md) 和 [交付物字段所有权协议](references/deliverable-field-ownership.md)。
 
+交付前按 [写作规矩](references/writing-rules.md) 自查。
+
 # ljh-koc-brief：KOC 测试 Brief
 
 很多公司手上有几百个 KOC，却只发一份 Brief、一个脚本结构让所有人照着拍。这个场景要是没跑通，几百条全亏。KOC 带货最值钱的用处是帮你找内容：同一个产品，拆成 4 到 6 个场景，每个场景分几十个 KOC 去拍。哪怕只跑通一个，你就知道该拍什么、该找谁、直播间该怎么讲。跑通以后，把那一份 Brief 再发给全部 KOC，就是放大。

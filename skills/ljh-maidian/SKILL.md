@@ -16,6 +16,8 @@ description: |
 
 开始前读取 [三轴状态协议](references/three-axis-protocol.md) 和 [交付物字段所有权协议](references/deliverable-field-ownership.md)。
 
+交付前按 [写作规矩](references/writing-rules.md) 自查。
+
 # ljh-maidian：卖点体检
 
 一条卖点问三件事：用户听不听得懂，换成竞品名还成不成立，拿不拿得出证据。

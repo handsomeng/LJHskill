@@ -15,6 +15,8 @@ description: |
 
 开始前读取 [三轴状态协议](references/three-axis-protocol.md) 和 [交付物字段所有权协议](references/deliverable-field-ownership.md)。所有字段、证据和验证结论都按协议标注。
 
+交付前按 [写作规矩](references/writing-rules.md) 自查。
+
 # ljh-duiqi：品、人群、内容对齐表
 
 一张表回答四件事：这个品是什么、卖给谁、为什么会买、每个卖点该怎么说怎么拍。编导、主播、投放看同一张表，不再各说各的。

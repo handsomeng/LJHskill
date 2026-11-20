@@ -15,6 +15,8 @@ description: |
 
 开始前读取 [三轴状态协议](references/three-axis-protocol.md)。所有字段、证据和验证结论都按该协议标注。
 
+交付前按 [写作规矩](references/writing-rules.md) 自查。
+
 # ljh-suanzhang：算账
 
 一单到底赚多少、投流 ROAS 要到多少才不亏、一个新客最多能花多少钱拉。开卖前按计划值估区间，开卖后按真实数据算实账。

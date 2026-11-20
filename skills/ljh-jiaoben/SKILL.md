@@ -16,6 +16,8 @@ description: |
 
 开始前读取 [三轴状态协议](references/three-axis-protocol.md) 和 [交付物字段所有权协议](references/deliverable-field-ownership.md)。
 
+交付前按 [写作规矩](references/writing-rules.md) 自查。
+
 # ljh-jiaoben：带货脚本评审
 
 告诉你这条脚本哪里断了、为什么断、局部怎么改。不替你重写整篇。

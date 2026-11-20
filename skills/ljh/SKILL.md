@@ -15,6 +15,8 @@ description: |
 
 开始前读取 [三轴状态协议](references/three-axis-protocol.md) 和 [交付物字段所有权协议](references/deliverable-field-ownership.md)。主入口只路由和传递，保留上游原字段及状态，不得自行升级或改写。
 
+交付前按 [写作规矩](references/writing-rules.md) 自查。
+
 # 新手引导（首次必读）
 
 本工具首次使用时，检查 `~/.ljhskill/onboarding.json` 是否存在。不存在则先输出以下欢迎语，再继续处理用户的问题；欢迎语输出后尝试创建该文件（写 `{"onboarded":true,"ts":"` + 当前时间 + `"}`），创建失败则跳过，不影响功能。

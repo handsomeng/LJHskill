@@ -23,9 +23,9 @@ class ReferenceBundleTests(unittest.TestCase):
         paths = self.bundle_paths("ljh-zhibiao")
         self.assertEqual(
             set(paths),
-            {"references/metric-trees.md", "references/action-map.md"},
+            {"references/metric-trees.md", "references/action-map.md", "references/writing-rules.md"},
         )
-        self.assertEqual(len(paths), 2)
+        self.assertEqual(len(paths), 3)
 
     def test_kaipin_loads_two_chinese_references(self):
         paths = self.bundle_paths("ljh-kaipin")
@@ -34,6 +34,7 @@ class ReferenceBundleTests(unittest.TestCase):
             {
                 "references/宏观趋势研究与验证阶段.md",
                 "references/竞品素材与微创新.md",
+                "references/writing-rules.md",
             },
         )
 
@@ -43,7 +44,7 @@ class ReferenceBundleTests(unittest.TestCase):
         self.assertIn("references/three-axis-protocol.md", paths)
 
     def test_skill_without_references_is_valid(self):
-        self.assertEqual(self.bundle_paths("ljh-daren"), [])
+        self.assertEqual(self.bundle_paths("ljh-daren"), ["references/writing-rules.md"])
 
     def test_recursive_links_are_deduplicated_and_external_links_are_skipped(self):
         with tempfile.TemporaryDirectory() as temp_dir:

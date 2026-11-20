@@ -15,6 +15,8 @@ description: |
 
 开始前读取 [三轴状态协议](references/three-axis-protocol.md) 和 [交付物字段所有权协议](references/deliverable-field-ownership.md)。
 
+交付前按 [写作规矩](references/writing-rules.md) 自查。
+
 # ljh-liuyaosu：六要素定义与素材体检
 
 一百条视频讲一百个样子，用户记不住你是谁。常见的病根在第一环：口播在对「大家」说话，没有主角，后面只能讲公共场景（早上来不及）、公共痛点（饿、没时间）、公共参数（几种坚果、几秒冲好），最后拿价格收尾。六要素就是把六件事定死，让每条内容都讲同一个人、同一个处境、同一个理由。
