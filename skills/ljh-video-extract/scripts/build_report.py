@@ -5,8 +5,8 @@
   python3 build_report.py <输出目录> [--out 报告路径]
 
 报告内容：样本概览、时长与文稿统计、口播词频、跨视频重复话术、
-每条前 40 字钩子、促销信号词、标题关键词。数据全部来自提取时汇总的索引，
-不重新联网。
+每条开头前 40 字钩子（约等于前 3 到 5 秒）、促销信号词、标题关键词。
+数据全部来自提取时汇总的索引，不重新联网。
 """
 
 from __future__ import annotations
@@ -24,6 +24,9 @@ try:
     JIEBA_AVAILABLE = True
 except ImportError:
     JIEBA_AVAILABLE = False
+
+HOOK_CHARS = 40
+HOOK_NOTE = "开头前 40 字，约等于前 3 到 5 秒"
 
 STOPWORDS = {
     "我们", "你们", "他们", "她们", "大家", "这个", "那个", "什么", "怎么",
@@ -123,8 +126,8 @@ def repeated_phrases(
     ]
 
 
-def hooks(entries: list[dict[str, Any]], limit_chars: int = 40) -> list[dict[str, Any]]:
-    """每条口播的前 N 字，作为钩子示例。"""
+def hooks(entries: list[dict[str, Any]], limit_chars: int = HOOK_CHARS) -> list[dict[str, Any]]:
+    """取每条口播的开头前 N 字，约等于前 3 到 5 秒，作为钩子示例。"""
     result = []
     for entry in entries:
         text = str(entry.get("transcript") or "").strip()
@@ -225,7 +228,7 @@ def build_report(entries: list[dict[str, Any]]) -> str:
         lines.extend(
             [
                 "",
-                "## 五、前 40 字钩子",
+                f"## 五、{HOOK_NOTE}",
                 "",
             ]
         )
@@ -233,7 +236,7 @@ def build_report(entries: list[dict[str, Any]]) -> str:
         for entry in ok_entries:
             text = str(entry.get("transcript") or "").strip()
             if text:
-                hook_lines.append(f"- {text[:40]}（{entry.get('title') or entry.get('url') or ''}）")
+                hook_lines.append(f"- {text[:HOOK_CHARS]}（{entry.get('title') or entry.get('url') or ''}）")
         lines.extend(hook_lines[:60] or ["- 无。"])
         lines.extend(
             [

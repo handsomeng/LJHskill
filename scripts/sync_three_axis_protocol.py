@@ -21,6 +21,8 @@ CONSUMERS = (
     "ljh-jiazhi",
     "ljh-koc",
     "ljh-koc-brief",
+    "ljh-brand-brief",
+    "ljh-koc-review",
     "ljh-lianming",
     "ljh-liuyaosu",
     "ljh-maidian",
