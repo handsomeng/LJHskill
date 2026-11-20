@@ -1176,7 +1176,12 @@ def check_scenario_factor_collab_contracts():
         path = ROOT / "skills" / skill_name / "SKILL.md"
         if not path.exists():
             continue
-        text = path.read_text(encoding="utf-8")
+        files = [path]
+        if skill_name == MAIN_SKILL_NAME:
+            references = path.parent / "references"
+            if references.is_dir():
+                files.extend(sorted(references.glob("*.md")))
+        text = "\n".join(f.read_text(encoding="utf-8") for f in files)
         for fragment in fragments:
             if fragment not in text:
                 problems.append(f"{path.relative_to(ROOT)} 缺少方法契约：{fragment}")
@@ -1216,7 +1221,12 @@ def check_scenario_factor_collab_contracts():
         path = ROOT / "skills" / skill_name / "SKILL.md"
         if not path.exists():
             continue
-        text = path.read_text(encoding="utf-8")
+        files = [path]
+        if skill_name == MAIN_SKILL_NAME:
+            references = path.parent / "references"
+            if references.is_dir():
+                files.extend(sorted(references.glob("*.md")))
+        text = "\n".join(f.read_text(encoding="utf-8") for f in files)
         for fragment in fragments:
             if fragment in text:
                 problems.append(f"{path.relative_to(ROOT)} 命中旧方法：{fragment}")
@@ -1391,14 +1401,19 @@ DOWNSTREAM_CONCLUSIONS = {
 
 def check_main_navigation():
     problems = []
-    main = ROOT / "skills" / MAIN_SKILL_NAME / "SKILL.md"
+    main_dir = ROOT / "skills" / MAIN_SKILL_NAME
+    main = main_dir / "SKILL.md"
     if not main.exists():
         return
-    text = main.read_text(encoding="utf-8")
+    files = [main]
+    references = main_dir / "references"
+    if references.is_dir():
+        files.extend(sorted(references.glob("*.md")))
+    text = "\n".join(f.read_text(encoding="utf-8") for f in files)
     for skill, terms in DOWNSTREAM_CONCLUSIONS.items():
         for t in terms:
             if t not in text:
-                problems.append(f"skills/ljh/SKILL.md 导航缺少 /{skill} 的结论「{t}」")
+                problems.append(f"skills/ljh/SKILL.md 与 references 导航缺少 /{skill} 的结论「{t}」")
     fail_lines("18. 主入口导航覆盖下游工具的全部结论", problems)
 
 
