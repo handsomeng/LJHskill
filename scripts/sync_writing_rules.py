@@ -35,6 +35,7 @@ CONSUMERS = (
     "ljh-suanzhang",
     "ljh-video-extract",
     "ljh-xhs",
+    "ljh-xiegao",
     "ljh-xuanpin",
     "ljh-yinzi",
     "ljh-zhibiao",

@@ -4,13 +4,13 @@
     "name": "handsomeng"
   },
   "metadata": {
-    "description": "LJHskill（老家伙 skill）电商增长工具箱：全网首个免费开源的内容电商增长赋能 skill 合集，总共 27 个业务工具 + 1 个主入口。告诉它你的业务困惑，它自动选择合适的工具帮你解决问题。从《内容电商从 0 到 1 打品》方法论中提炼，覆盖开品、选品、价值、定位、场景、内容、验证、投放、复盘、直播、竞品拆解、指标诊断、算账全链路。",
+    "description": "LJHskill（老家伙 skill）电商增长工具箱：全网首个免费开源的内容电商增长赋能 skill 合集，总共 28 个业务工具 + 1 个主入口。告诉它你的业务困惑，它自动选择合适的工具帮你解决问题。从《内容电商从 0 到 1 打品》方法论中提炼，覆盖开品、选品、价值、定位、场景、内容、验证、投放、复盘、直播、竞品拆解、指标诊断、算账全链路。",
     "version": "1.2.1"
   },
   "plugins": [
     {
       "name": "ljh",
-      "description": "电商增长工具箱主入口，告诉它你的业务困惑，它自动选择合适的工具。装这一个就得到整套工具箱（含 27 个业务工具 + 1 个主入口）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从开品或选品走到算账。",
+      "description": "电商增长工具箱主入口，告诉它你的业务困惑，它自动选择合适的工具。装这一个就得到整套工具箱（含 28 个业务工具 + 1 个主入口）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从开品或选品走到算账。",
       "source": "./",
       "strict": false,
       "category": "content-ecommerce",
@@ -48,7 +48,8 @@
         "./skills/ljh-xhs",
         "./skills/ljh-zhibiao",
         "./skills/ljh-shangxiang",
-        "./skills/ljh-video-extract"
+        "./skills/ljh-video-extract",
+        "./skills/ljh-xiegao"
       ]
     },
     {
@@ -472,6 +473,23 @@
       ],
       "skills": [
         "./skills/ljh-video-extract"
+      ]
+    },
+    {
+      "name": "ljh-xiegao",
+      "description": "照着范本写稿。学 2 到 8 条爆款的结构和说法，给自家产品写 3 版抖音口播；也可以照一篇小红书笔记写标题、封面方向、正文和图序。只学结构和说法，不抄原句。",
+      "source": "./",
+      "strict": false,
+      "category": "content-ecommerce",
+      "keywords": [
+        "script-writing",
+        "voiceover",
+        "xiaohongshu",
+        "copywriting",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-xiegao"
       ]
     }
   ]

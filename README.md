@@ -1,6 +1,6 @@
 # LJHskill 电商增长工具箱
 
-LJHskill（老家伙 skill）电商增长工具箱：全网首个免费开源的内容电商增长赋能 skill 合集，总共 27 个业务工具。你只需要告诉我你的业务困惑是什么，我会自动选择合适的工具帮你解决问题。
+LJHskill（老家伙 skill）电商增长工具箱：全网首个免费开源的内容电商增长赋能 skill 合集，总共 28 个业务工具。你只需要告诉我你的业务困惑是什么，我会自动选择合适的工具帮你解决问题。
 
 LJH 取自李解、瀚森，「老家伙」是 LJH 三个字母的谐音。
 
@@ -63,6 +63,7 @@ npx -y skills add handsomeng/LJHskill -g --all
 | `/ljh-changjing` | 场景机会地图：竞品都在打哪些使用场景，哪个场景值得我们去测 |
 | `/ljh-duiqi` | 对齐表：把定好的定位和卖点，翻译成编导和主播能直接拍、直接说的话 |
 | `/ljh-jiaoben` | 脚本评审：带货脚本哪一步没说服人、哪句缺证据或缺画面 |
+| `/ljh-xiegao` | 照范本写稿：学 2 到 8 条爆款的结构，给你的产品写 3 版口播或一篇小红书 |
 | `/ljh-yinzi` | 内容因子：拆一条爆款，找出能单独测试的部件，比较几个方向先做哪个 |
 | `/ljh-shangxiang` | 商详页：详情页每一屏讲什么、放什么证据 |
 
@@ -101,7 +102,7 @@ npx -y skills add handsomeng/LJHskill -g --all
 ## 按岗位怎么用
 
 - **老板、操盘手**：`/ljh-xuanpin` 判断品值不值得做，`/ljh-suanzhang` 算账，`/ljh-zhibiao` 看指标为什么变
-- **编导**：`/ljh-liuyaosu` 定六要素，`/ljh-jiaoben` 评审脚本，`/ljh-yinzi` 拆爆款，`/ljh-jingpin` 拆竞品
+- **编导**：`/ljh-liuyaosu` 定六要素，`/ljh-jiaoben` 评审脚本，`/ljh-xiegao` 照范本写稿，`/ljh-yinzi` 拆爆款，`/ljh-jingpin` 拆竞品
 - **投手**：`/ljh-qianchuan` 查掉量，`/ljh-qianchuan-fupan` 每周复盘素材
 - **直播负责人**：`/ljh-zhibo-fupan` 每周复盘，`/ljh-zhibo-chaijie` 拆同行直播间
 - **商务**：`/ljh-daren` 选达人，`/ljh-brand-brief` 整理品牌方的 Brief，`/ljh-koc-brief` 给 KOC 发 Brief，`/ljh-koc-review` 审拍回来的成片，`/ljh-brief` 给主播准备资料
