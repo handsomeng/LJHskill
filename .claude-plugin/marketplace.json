@@ -4,13 +4,13 @@
     "name": "handsomeng"
   },
   "metadata": {
-    "description": "LJHskill（老家伙 skill）电商增长工具箱：全网首个免费开源的内容电商增长赋能 skill 合集，总共 25 个业务工具 + 1 个主入口。告诉它你的业务困惑，它自动选择合适的工具帮你解决问题。从《内容电商从 0 到 1 打品》方法论中提炼，覆盖开品、选品、价值、定位、场景、内容、验证、投放、复盘、直播、竞品拆解、指标诊断、算账全链路。",
+    "description": "LJHskill（老家伙 skill）电商增长工具箱：全网首个免费开源的内容电商增长赋能 skill 合集，总共 27 个业务工具 + 1 个主入口。告诉它你的业务困惑，它自动选择合适的工具帮你解决问题。从《内容电商从 0 到 1 打品》方法论中提炼，覆盖开品、选品、价值、定位、场景、内容、验证、投放、复盘、直播、竞品拆解、指标诊断、算账全链路。",
     "version": "1.2.1"
   },
   "plugins": [
     {
       "name": "ljh",
-      "description": "电商增长工具箱主入口，告诉它你的业务困惑，它自动选择合适的工具。装这一个就得到整套工具箱（含 25 个业务工具 + 1 个主入口）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从开品或选品走到算账。",
+      "description": "电商增长工具箱主入口，告诉它你的业务困惑，它自动选择合适的工具。装这一个就得到整套工具箱（含 27 个业务工具 + 1 个主入口）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从开品或选品走到算账。",
       "source": "./",
       "strict": false,
       "category": "content-ecommerce",
@@ -36,12 +36,14 @@
         "./skills/ljh-jingpin",
         "./skills/ljh-koc",
         "./skills/ljh-koc-brief",
+        "./skills/ljh-koc-review",
         "./skills/ljh-qianchuan",
         "./skills/ljh-qianchuan-fupan",
         "./skills/ljh-zhibo-fupan",
         "./skills/ljh-zhibo-chaijie",
         "./skills/ljh-suanzhang",
         "./skills/ljh-daren",
+        "./skills/ljh-brand-brief",
         "./skills/ljh-brief",
         "./skills/ljh-xhs",
         "./skills/ljh-zhibiao",
@@ -251,7 +253,7 @@
     },
     {
       "name": "ljh-koc-brief",
-      "description": "KOC 测试 Brief。把产品资料拆成 4 到 6 个场景，每个场景一份 KOC 拿到就能拍的买点 Brief，附每个场景分多少 KOC、看什么数、怎么算跑通。",
+      "description": "KOC 测试 Brief。按 KOC 总数把产品资料拆成 2 到 6 个场景，每个场景一份 KOC 拿到就能拍的买点 Brief，附每个场景分多少 KOC、看什么数、怎么算跑通。",
       "source": "./",
       "strict": false,
       "category": "content-ecommerce",
@@ -263,6 +265,22 @@
       ],
       "skills": [
         "./skills/ljh-koc-brief"
+      ]
+    },
+    {
+      "name": "ljh-koc-review",
+      "description": "KOC 成片审核。KOC 拍回来的视频发布前，按发出去的 Brief 和产品资料逐条审，结论只有可以发或建议改，再出一段能直接发给达人的修改意见。",
+      "source": "./",
+      "strict": false,
+      "category": "content-ecommerce",
+      "keywords": [
+        "koc",
+        "video-review",
+        "brief-check",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-koc-review"
       ]
     },
     {
@@ -357,6 +375,22 @@
       ],
       "skills": [
         "./skills/ljh-daren"
+      ]
+    },
+    {
+      "name": "ljh-brand-brief",
+      "description": "品牌 Brief 整理。把品牌方给的长 Brief 只摘不编，整理成一张带出处的要求表，供 KOC Brief、主播资料和成片审核直接用。",
+      "source": "./",
+      "strict": false,
+      "category": "content-ecommerce",
+      "keywords": [
+        "brand-brief",
+        "extraction",
+        "brief",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-brand-brief"
       ]
     },
     {

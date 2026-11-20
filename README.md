@@ -1,6 +1,6 @@
 # LJHskill 电商增长工具箱
 
-LJHskill（老家伙 skill）电商增长工具箱：全网首个免费开源的内容电商增长赋能 skill 合集，总共 25 个业务工具。你只需要告诉我你的业务困惑是什么，我会自动选择合适的工具帮你解决问题。
+LJHskill（老家伙 skill）电商增长工具箱：全网首个免费开源的内容电商增长赋能 skill 合集，总共 27 个业务工具。你只需要告诉我你的业务困惑是什么，我会自动选择合适的工具帮你解决问题。
 
 LJH 取自李解、瀚森，「老家伙」是 LJH 三个字母的谐音。
 
@@ -70,7 +70,9 @@ npx -y skills add handsomeng/LJHskill -g --all
 
 | 工具 | 做什么 |
 |---|---|
-| `/ljh-koc-brief` | KOC 测试 Brief：把产品拆成 4 到 6 个场景，每个场景一份 Brief 直接发给 KOC 去拍 |
+| `/ljh-brand-brief` | 品牌 Brief 整理：把品牌方的长 Brief 只摘不编整理成一张要求表 |
+| `/ljh-koc-review` | KOC 成片审核：拍回来的视频发布前按 Brief 逐条审，出给达人的修改意见 |
+| `/ljh-koc-brief` | KOC 测试 Brief：按 KOC 总数把产品拆成 2 到 6 个场景，每个场景一份 Brief 直接发给 KOC 去拍 |
 | `/ljh-koc` | 小范围验证：先找几个 KOC 或投一点钱，测这个卖点或场景行不行 |
 | `/ljh-daren` | 达人选号：这个号能不能投、数据是不是刷的、报价值不值 |
 | `/ljh-brief` | 主播 Brief：给合作主播的一份资料，讲清卖点、证据、演示和不能说的话 |
@@ -102,7 +104,7 @@ npx -y skills add handsomeng/LJHskill -g --all
 - **编导**：`/ljh-liuyaosu` 定六要素，`/ljh-jiaoben` 评审脚本，`/ljh-yinzi` 拆爆款，`/ljh-jingpin` 拆竞品
 - **投手**：`/ljh-qianchuan` 查掉量，`/ljh-qianchuan-fupan` 每周复盘素材
 - **直播负责人**：`/ljh-zhibo-fupan` 每周复盘，`/ljh-zhibo-chaijie` 拆同行直播间
-- **商务**：`/ljh-daren` 选达人，`/ljh-koc-brief` 给 KOC 发 Brief，`/ljh-brief` 给主播准备资料
+- **商务**：`/ljh-daren` 选达人，`/ljh-brand-brief` 整理品牌方的 Brief，`/ljh-koc-brief` 给 KOC 发 Brief，`/ljh-koc-review` 审拍回来的成片，`/ljh-brief` 给主播准备资料
 - **产品**：`/ljh-kaipin` 开品，`/ljh-jiazhi` 和 `/ljh-dingwei` 想清楚价值和定位
 
 ## 两个省事的功能

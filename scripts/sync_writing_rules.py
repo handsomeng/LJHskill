@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "shared" / "writing-rules.md"
 CONSUMERS = (
     "ljh",
+    "ljh-brand-brief",
     "ljh-brief",
     "ljh-changjing",
     "ljh-daren",
@@ -24,6 +25,7 @@ CONSUMERS = (
     "ljh-kaipin",
     "ljh-koc",
     "ljh-koc-brief",
+    "ljh-koc-review",
     "ljh-lianming",
     "ljh-liuyaosu",
     "ljh-maidian",
