@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""29 个独立 Skill 的自包含冒烟测试。零第三方依赖，不访问网络。"""
+"""30 个独立 Skill 的自包含冒烟测试。零第三方依赖，不访问网络。"""
 
 from __future__ import annotations
 
@@ -17,7 +17,7 @@ import run_evals
 sys.dont_write_bytecode = True
 ROOT = Path(__file__).resolve().parent.parent
 SKILLS_DIR = ROOT / "skills"
-EXPECTED_SKILL_COUNT = 29
+EXPECTED_SKILL_COUNT = 30
 
 
 def frontmatter_name(skill_md: Path) -> str | None:

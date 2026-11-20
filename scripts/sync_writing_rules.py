@@ -33,6 +33,7 @@ CONSUMERS = (
     "ljh-qianchuan-fupan",
     "ljh-shangxiang",
     "ljh-suanzhang",
+    "ljh-tishici",
     "ljh-video-extract",
     "ljh-xhs",
     "ljh-xiegao",
