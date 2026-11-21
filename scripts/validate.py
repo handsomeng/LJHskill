@@ -34,7 +34,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-EXPECTED_VERSION = "1.2.1"
+EXPECTED_VERSION = "1.3.0"
 EXPECTED_SKILL_COUNT = 30
 MAIN_SKILL_NAME = "ljh"
 UPDATE_CHECK_SOURCE = ROOT / "scripts" / "check_update.py.template"
@@ -107,6 +107,7 @@ CONTENT_TAXONOMY_CONSUMERS = (
     "ljh-changjing",
     "ljh-video-extract",
     "ljh-xiegao",
+    "ljh-jiaoben",
 )
 CONTENT_TAXONOMY_REFERENCE = "references/content-taxonomy.md"
 CONTENT_TAXONOMY_LINK = "[内容标签](references/content-taxonomy.md)"
@@ -335,7 +336,7 @@ def check_skill_files():
     if MAIN_SKILL_NAME not in skill_names:
         problems.append(f"缺少主入口目录 skills/{MAIN_SKILL_NAME}")
     if len(skill_dirs) - (MAIN_SKILL_NAME in skill_names) != 29:
-        problems.append("业务工具目录数应为 28 个")
+        problems.append("业务工具目录数应为 29 个")
 
     for d in skill_dirs:
         skill_md = d / "SKILL.md"

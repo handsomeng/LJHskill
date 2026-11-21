@@ -2,7 +2,7 @@
 name: ljh-duiqi
 displayName: ljh-duiqi
 slug: ljh-duiqi
-version: 1.2.1
+version: 1.3.0
 description: |
   品、人群、内容对齐表。把定好的定位、卖点和验证结果，翻译成编导和主播能直接拍、直接说的人话和画面，一张表让团队对齐。
   触发方式：/ljh-duiqi、「做品人群内容对齐表」「卖点怎么翻译成人话」「把验证结果交给编导」
@@ -355,4 +355,4 @@ description: |
 - 对齐表确认后，可交 `/ljh-shangxiang` 编排商详页，或交 `/ljh-jiaoben` 做脚本评审。
 - `/ljh-jiaoben` 只做脚本评审。创作者根据评审方向修改后再复评。
 
-KOC 跑通后话术交给谁：找内容通过，先回 `/ljh-koc-brief` 放大，跑通的说法同时交 `/ljh-duiqi` 整理、`/ljh-brief` 给主播用；验赚钱通过交 `/ljh-duiqi`。
+KOC 跑通后话术交给谁：找内容通过，先回 `/ljh-koc-brief` 放大，跑通的说法先交 `/ljh-duiqi` 整理，再交 `/ljh-brief` 给主播用；验赚钱通过后，标准字段再交 `/ljh-duiqi` 更新。

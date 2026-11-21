@@ -2,7 +2,7 @@
 name: ljh-jiaoben
 displayName: ljh-jiaoben
 slug: ljh-jiaoben
-version: 1.2.1
+version: 1.3.0
 description: |
   带货脚本评审。先看这条内容要干什么，再用七步说服链找出哪一步断了、哪句话缺证据或缺画面，给局部改法。
   触发方式：/ljh-jiaoben、「帮我评审一下这个带货脚本」「这个脚本为什么转化不好」「看看我这个口播稿哪里有问题」
@@ -17,6 +17,7 @@ description: |
 开始前读取 [三轴状态协议](references/three-axis-protocol.md) 和 [交付物字段所有权协议](references/deliverable-field-ownership.md)。
 
 交付前按 [写作规矩](references/writing-rules.md) 自查。
+钩子类型按 [内容标签](references/content-taxonomy.md) 第一节选。
 
 # ljh-jiaoben：带货脚本评审
 
@@ -193,7 +194,7 @@ description: |
 谁来拍板：确认后再由创作者修改脚本
 ```
 
-另外固定给 3 条开头钩子的可替换写法。钩子类型按 `/ljh` 内容标签，3 条类型各不相同，每条标类型和它对应脚本里的哪一处。
+另外固定给 3 条开头钩子的可替换写法。钩子类型按 [内容标签](references/content-taxonomy.md) 第一节，3 条类型各不相同，每条标类型和它对应脚本里的哪一处。
 
 「改成」每处都要填，先给一句可替换写法。用户明确要求改写整句时，才可以附一段局部示例，长度以解决该断点为限，仍不出整篇。产品事实只能来自脚本和用户给的产品资料，不自己补成分、数字、价格和背书。
 

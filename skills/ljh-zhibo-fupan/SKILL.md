@@ -2,7 +2,7 @@
 name: ljh-zhibo-fupan
 displayName: ljh-zhibo-fupan
 slug: ljh-zhibo-fupan
-version: 1.2.1
+version: 1.3.0
 description: |
   直播间周复盘（看自己的直播间）。拿罗盘「直播明细」，先把成交额变化拆成开播时长和时均成交额两笔，再把时均成交额按五维四率拆到曝光和四个转化率上，看流量变大以后漏斗哪几步变了，把「流量变了」和「直播间变了」两种解释并列摆出来。
   触发方式：/ljh-zhibo-fupan、「直播间周复盘」「这周直播间多卖的钱从哪来」「五维四率」「放量以后转化掉了吗」「直播间数据复盘」

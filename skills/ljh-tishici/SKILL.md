@@ -2,7 +2,7 @@
 name: ljh-tishici
 displayName: ljh-tishici
 slug: ljh-tishici
-version: 1.2.1
+version: 1.3.0
 description: |
   AI 视频和生图提示词。把照爆款拍的逐镜头拍摄表，或者你自己的分镜，写成即梦、可灵这类工具能直接用的中文提示词；也能写单张生图提示词。
   触发方式：/ljh-tishici、「帮我写 AI 视频的提示词」「这个分镜怎么用即梦做」「把这些镜头转成提示词」「写一段可灵的生图提示词」「这条拍摄表怎么贴进 AI 工具」
