@@ -18,7 +18,7 @@
 14. 行为运行器 reference bundle 与独立包测试契约
 15. 活跃旧路由引用
 16. 公开文件不指向课程、不含本机路径（扫描 skills 全部文件和 evals）
-17. 三轴状态值白名单（表格里不出现协议外状态，如「部分已核验」「待验证」）
+17. 三轴状态值白名单（表格里不出现协议外状态；表头为「定没定」「有没有证据」「验证过没」的列，单元格只用对应协议词，词后可加括号说明）
 18. 主入口导航覆盖下游工具的全部结论
 19. 写作规矩副本、链接与同步脚本
 20. 内容标签副本、链接、消费者边界与同步脚本
@@ -1375,6 +1375,19 @@ def check_course_and_local_paths():
 
 OFF_PROTOCOL_STATUS = {"部分已核验", "部分核验", "核验中", "待验证", "已验证", "部分通过", "部分验证"}
 
+AXIS_STATUS_WHITELIST = {
+    "定没定": ("已确认", "待确认", "修改建议"),
+    "有没有证据": ("已核验", "待核验", "无证据", "已过期", "不适用"),
+    "验证过没": ("验证通过", "信号偏弱", "验证失败", "未验证"),
+}
+
+TABLE_SEPARATOR = re.compile(r"^\s*\|[\s:\-|]+\|\s*$")
+STATUS_WITH_NOTE = re.compile(r"^(?P<word>[^（(]+?)(?:（[^（）]*）|\([^()]*\))?$")
+
+
+def split_table_row(line):
+    return [c.strip() for c in line.strip().strip("|").split("|")]
+
 
 def check_status_whitelist():
     problems = []
@@ -1382,12 +1395,47 @@ def check_status_whitelist():
         if f.suffix != ".md":
             continue
         rel = f.relative_to(ROOT)
-        for line_no, line in enumerate(f.read_text(encoding="utf-8").splitlines(), start=1):
+        lines = f.read_text(encoding="utf-8").splitlines()
+        for line_no, line in enumerate(lines, start=1):
             if not line.lstrip().startswith("|"):
                 continue
-            cells = {c.strip() for c in line.strip().strip("|").split("|")}
+            cells = {c.strip() for c in split_table_row(line)}
             for bad in cells & OFF_PROTOCOL_STATUS:
                 problems.append(f"{rel}:{line_no} 表格里出现协议外状态「{bad}」")
+
+        i = 0
+        while i < len(lines) - 1:
+            header, separator = lines[i], lines[i + 1]
+            if not header.lstrip().startswith("|") or not TABLE_SEPARATOR.match(separator):
+                i += 1
+                continue
+            header_cells = split_table_row(header)
+            axis_columns = {}
+            for index, cell in enumerate(header_cells):
+                for axis in AXIS_STATUS_WHITELIST:
+                    if axis in cell:
+                        axis_columns[index] = axis
+            if not axis_columns:
+                i += 1
+                continue
+            j = i + 2
+            while j < len(lines) and lines[j].lstrip().startswith("|"):
+                row_cells = split_table_row(lines[j])
+                for index, axis in axis_columns.items():
+                    value = row_cells[index] if index < len(row_cells) else ""
+                    if not value:
+                        continue
+                    match = STATUS_WITH_NOTE.match(value)
+                    word = match.group("word").strip() if match else value
+                    if word not in AXIS_STATUS_WHITELIST[axis]:
+                        allowed = "、".join(AXIS_STATUS_WHITELIST[axis])
+                        problems.append(
+                            f"{rel}:{j + 1} 「{axis}」列填了「{value}」，"
+                            f"只允许 {allowed}（可在词后加括号说明）"
+                        )
+                j += 1
+            i = j
+    problems = list(dict.fromkeys(problems))
     fail_lines("17. 三轴状态值白名单", problems)
 
 
