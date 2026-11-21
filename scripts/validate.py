@@ -22,6 +22,7 @@
 18. 主入口导航覆盖下游工具的全部结论
 19. 写作规矩副本、链接与同步脚本
 20. 内容标签副本、链接、消费者边界与同步脚本
+21. 课程核心口径副本、链接与同步脚本
 
 用法：python3 scripts/validate.py
 任一项 FAIL，退出码为 1。
@@ -34,7 +35,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-EXPECTED_VERSION = "1.3.0"
+EXPECTED_VERSION = "1.3.1"
 EXPECTED_SKILL_COUNT = 30
 MAIN_SKILL_NAME = "ljh"
 UPDATE_CHECK_SOURCE = ROOT / "scripts" / "check_update.py.template"
@@ -61,9 +62,11 @@ THREE_AXIS_CONSUMERS = (
     "ljh-maidian",
     "ljh-shangxiang",
     "ljh-suanzhang",
+    "ljh-xiegao",
     "ljh-xuanpin",
     "ljh-yinzi",
 )
+THREE_AXIS_LINK_PENDING = set()
 THREE_AXIS_REFERENCE = "references/three-axis-protocol.md"
 THREE_AXIS_LINK = "开始前读取 [三轴状态协议](references/three-axis-protocol.md)"
 WRITING_RULES_SOURCE = ROOT / "shared" / "writing-rules.md"
@@ -111,6 +114,31 @@ CONTENT_TAXONOMY_CONSUMERS = (
 )
 CONTENT_TAXONOMY_REFERENCE = "references/content-taxonomy.md"
 CONTENT_TAXONOMY_LINK = "[内容标签](references/content-taxonomy.md)"
+COURSE_CORE_SOURCE = ROOT / "shared" / "course-core.md"
+COURSE_CORE_CONSUMERS = (
+    "ljh-jiazhi",
+    "ljh-dingwei",
+    "ljh-maidian",
+    "ljh-liuyaosu",
+    "ljh-duiqi",
+    "ljh-xuanpin",
+    "ljh-suanzhang",
+    "ljh-kaipin",
+    "ljh-shangxiang",
+    "ljh-jiaoben",
+    "ljh-xiegao",
+    "ljh-yinzi",
+    "ljh-brief",
+    "ljh-koc-brief",
+    "ljh-koc-review",
+    "ljh-koc",
+    "ljh-jingpin",
+    "ljh-changjing",
+    "ljh-lianming",
+    "ljh-qianchuan-fupan",
+    "ljh-zhibo-chaijie",
+)
+COURSE_CORE_REFERENCE = "references/course-core.md"
 EXPECTED_AXIS_VALUES = {
     "一、字段决策状态": {"已确认", "待确认", "修改建议"},
     "二、证据状态": {"已核验", "待核验", "无证据", "已过期", "不适用"},
@@ -120,6 +148,7 @@ OWNERSHIP_SOURCE = ROOT / "shared" / "deliverable-field-ownership.md"
 OWNERSHIP_CONSUMERS = (
     "ljh",
     "ljh-brief",
+    "ljh-changjing",
     "ljh-dingwei",
     "ljh-duiqi",
     "ljh-jiaoben",
@@ -127,10 +156,14 @@ OWNERSHIP_CONSUMERS = (
     "ljh-koc-brief",
     "ljh-brand-brief",
     "ljh-koc-review",
+    "ljh-lianming",
     "ljh-liuyaosu",
     "ljh-maidian",
     "ljh-shangxiang",
+    "ljh-xiegao",
+    "ljh-yinzi",
 )
+OWNERSHIP_LINK_PENDING = set()
 OWNERSHIP_REFERENCE = "references/deliverable-field-ownership.md"
 OWNERSHIP_LINK = "[交付物字段所有权协议](references/deliverable-field-ownership.md)"
 REQUIRED_CORE_EVAL_CASES = {
@@ -805,7 +838,7 @@ def check_three_axis_protocol(skill_dirs):
         if not skill_md.exists():
             continue
         text = skill_md.read_text(encoding="utf-8")
-        if THREE_AXIS_LINK not in text:
+        if THREE_AXIS_LINK not in text and skill_name not in THREE_AXIS_LINK_PENDING:
             problems.append(f"{skill_md.relative_to(ROOT)} 缺少三轴协议读取链接")
 
     for skill_dir in skill_dirs:
@@ -954,8 +987,10 @@ def check_field_ownership_protocol(skill_dirs):
             problems.append(f"{reference.relative_to(ROOT)} 不存在")
         elif hashlib.sha256(reference.read_bytes()).hexdigest() != source_hash:
             problems.append(f"{reference.relative_to(ROOT)} 与真源哈希不一致")
-        if skill_md.exists() and OWNERSHIP_LINK not in skill_md.read_text(encoding="utf-8"):
-            problems.append(f"{skill_md.relative_to(ROOT)} 缺少字段所有权协议读取链接")
+        if skill_md.exists():
+            text = skill_md.read_text(encoding="utf-8")
+            if OWNERSHIP_LINK not in text and skill_name not in OWNERSHIP_LINK_PENDING:
+                problems.append(f"{skill_md.relative_to(ROOT)} 缺少字段所有权协议读取链接")
 
     for skill_dir in skill_dirs:
         if skill_dir.name in OWNERSHIP_CONSUMERS:
@@ -1121,6 +1156,45 @@ def check_content_taxonomy_sync(skill_dirs):
             problems.append(f"{unexpected.relative_to(ROOT)} 不应复制无关内容标签")
 
     fail_lines("20. 内容标签副本与链接", problems)
+
+
+def check_course_core_sync(skill_dirs):
+    problems = []
+    sync_script = ROOT / "scripts" / "sync_course_core.py"
+    if not sync_script.exists():
+        problems.append("scripts/sync_course_core.py 不存在")
+
+    if not COURSE_CORE_SOURCE.exists():
+        report("21. 课程核心口径副本、链接与同步脚本", False, "课程核心口径真源不存在")
+        return
+
+    source_hash = hashlib.sha256(COURSE_CORE_SOURCE.read_bytes()).hexdigest()
+
+    skill_names = {d.name for d in skill_dirs}
+    missing_consumers = set(COURSE_CORE_CONSUMERS) - skill_names
+    if missing_consumers:
+        problems.append(f"课程核心口径消费者目录缺失：{sorted(missing_consumers)}")
+
+    for skill_name in COURSE_CORE_CONSUMERS:
+        reference = ROOT / "skills" / skill_name / COURSE_CORE_REFERENCE
+        skill_md = ROOT / "skills" / skill_name / "SKILL.md"
+        if not reference.exists():
+            problems.append(f"{reference.relative_to(ROOT)} 不存在")
+        elif hashlib.sha256(reference.read_bytes()).hexdigest() != source_hash:
+            problems.append(f"{reference.relative_to(ROOT)} 与真源哈希不一致")
+        if skill_md.exists():
+            text = skill_md.read_text(encoding="utf-8")
+            if COURSE_CORE_REFERENCE not in text:
+                problems.append(f"{skill_md.relative_to(ROOT)} 缺少课程核心口径读取链接")
+
+    for skill_dir in skill_dirs:
+        if skill_dir.name in COURSE_CORE_CONSUMERS:
+            continue
+        unexpected = skill_dir / COURSE_CORE_REFERENCE
+        if unexpected.exists():
+            problems.append(f"{unexpected.relative_to(ROOT)} 不应复制无关课程核心口径")
+
+    fail_lines("21. 课程核心口径副本、链接与同步脚本", problems)
 
 
 def check_scenario_factor_collab_contracts():
@@ -1502,6 +1576,7 @@ def main():
     check_main_navigation()
     check_writing_rules_sync(skill_dirs)
     check_content_taxonomy_sync(skill_dirs)
+    check_course_core_sync(skill_dirs)
 
     print()
     print("=" * 60)

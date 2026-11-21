@@ -1,11 +1,11 @@
 {
   "suite": "ljhskill",
-  "version": "1.3.0",
-  "suite_version": "1.3.0",
-  "released_at": "2026-11-21T14:00:00+08:00",
-  "summary": "v1.3.0 工具箱共 29 个业务工具，新增 KOC 成片审核、品牌 Brief 整理、照范本写稿、AI 视频提示词，复盘线和 KOC 链补强，全部工具补开场、阈值、整份示例和回归用例。",
+  "version": "1.3.1",
+  "suite_version": "1.3.1",
+  "released_at": "2026-11-21T18:00:00+08:00",
+  "summary": "v1.3.1 按最新的内容电商课口径校准全部工具：新增一份课程核心口径，统一卖点和买点、促销、定价权四层、需求两类、表达形式和内核的判断；照爆款拍时前三秒照原版用；KOC Brief 给逐句口播并标出照着念的句子；拆解类工具不再只凭销量给照做或避开的建议；写作规矩加结论三查。",
   "readme_url": "https://github.com/handsomeng/LJHskill/blob/main/README.md",
   "update_instructions_url": "https://github.com/handsomeng/LJHskill/blob/main/README.md#如何更新",
-  "readme_update_entry": "https://github.com/handsomeng/LJHskill/blob/main/CHANGELOG.md#v130",
+  "readme_update_entry": "https://github.com/handsomeng/LJHskill/blob/main/CHANGELOG.md#v131",
   "release_url": "https://raw.githubusercontent.com/handsomeng/LJHskill/main/release.json"
 }

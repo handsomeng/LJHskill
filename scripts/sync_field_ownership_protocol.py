@@ -14,6 +14,7 @@ SOURCE = ROOT / "shared" / "deliverable-field-ownership.md"
 CONSUMERS = (
     "ljh",
     "ljh-brief",
+    "ljh-changjing",
     "ljh-dingwei",
     "ljh-duiqi",
     "ljh-jiaoben",
@@ -21,9 +22,12 @@ CONSUMERS = (
     "ljh-koc-brief",
     "ljh-brand-brief",
     "ljh-koc-review",
+    "ljh-lianming",
     "ljh-liuyaosu",
     "ljh-maidian",
     "ljh-shangxiang",
+    "ljh-xiegao",
+    "ljh-yinzi",
 )
 TARGET_NAME = "deliverable-field-ownership.md"
 
