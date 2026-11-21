@@ -38,7 +38,7 @@ description: |
 1. 请用户自己贴口播文字，或把已经下载好的视频、截图发来。
 2. 本工具只做统计：口播字数、时长、钩子类型、视频形式、促单手法、反复出现的说法。
 3. 报告开头写清「这批数据由用户提供，没有经过接口核对」，结论只算观察。
-4. 需要作品数据和逐条口播全文时，再告诉用户补哪个凭证、去哪配；配好之前不接提取任务。
+4. 需要作品数据和逐条口播全文时，再告诉用户补哪个凭证、去哪配：Apify token 看 [references/apify-api.md](references/apify-api.md) 的 token 配置段，运行 `python3 scripts/configure_api_key.py apify`；TikHub 和轻抖看 [references/api-setup.md](references/api-setup.md) 的购买与配置教程，运行 `python3 scripts/configure_api_key.py tikhub` 或 `python3 scripts/configure_api_key.py qingdou`，Key 统一放在 `~/.config/ljhskill/API_Keys.md` 或对应钥匙串。三个凭证都要点名，不能只说「去配一下」。配好之前不接提取任务。
 
 无凭证统计报告按这份模板交：
 
@@ -82,7 +82,7 @@ description: |
 - 词频和重复话术是现象，不作因果结论。
 ```
 
-接口只回了数据、媒体直链失效或视频已下架时，走第二条降级路径：文稿和数据照常交付，媒体一栏写「未下载」和具体原因；不拿别的视频补位，不写一个不存在的文件路径。
+接口只回了数据、媒体直链失效或视频已下架时，走第二条降级路径：文稿和数据照常交付，媒体一栏写「未下载」和具体原因；不拿别的视频补位，不写一个不存在的文件路径。同时说明媒体可以稍后重试这一条，不用换链接；接口恢复后只补跑这一条的媒体。不能把「重试大概率也失败」当结论，也不能让用户换一条视频重来。
 
 ## 开场协议（每次触发必做，用户明确要继续上次任务除外）
 
@@ -122,7 +122,7 @@ python3 scripts/extract_video.py --intro
 | 微信视频号 | TikHub MCP | 轻抖 API（视平台支持） | 无 | TikHub + 轻抖 |
 
 抖音在 Apify 可用时优先走 Apify；没有 Apify token 时回落 TikHub 数据 + 轻抖文稿。
-没有 TikHub / 轻抖时，小红书与视频号会提示缺少凭证，不影响抖音提取。
+没有 TikHub / 轻抖时，小红书与视频号会提示缺少凭证，不影响抖音提取。只有 Apify 时，小红书和视频号的数据与文稿都做不了：TikHub 负责数据，轻抖负责文稿，缺一个就只能做一半。配好之前小红书还能做的是降级统计：用户自己贴口播文字或交下载好的视频，按「没有外部账号凭证」那一节出统计报告，报告里写明数据由用户提供、没有经过接口核对。配好之后能回到正常提取。手上还有抖音链接时，先跑抖音；没有抖音链接就等凭证配好再跑小红书。补凭证入口：TikHub 和轻抖按 [references/api-setup.md](references/api-setup.md) 的购买与配置教程，运行 `python3 scripts/configure_api_key.py tikhub` 或 `python3 scripts/configure_api_key.py qingdou`；Key 放 `~/.config/ljhskill/API_Keys.md` 或对应钥匙串。不要拿 Apify 硬跑小红书，也不要反复重试同一个失败请求。
 
 数据从哪拿：抖音作品数据和媒体从 Apify `easyapi~douyin-video-downloader` 取，小红书和视频号从 TikHub 取，文稿从本地 whisper、Apify 云端或轻抖取；批量结果汇总在 `{输出目录}/_index.json`。
 
@@ -139,7 +139,7 @@ python3 scripts/extract_video.py --check-keys
 | 状态 | 能力 | 必须告知用户 |
 | --- | --- | --- |
 | `complete` | 全平台数据与文稿可用 | 可以直接执行 |
-| `apify_ready` / `apify_only` | 只有 Apify：抖音完整提取可用 | 抖音可执行；小红书与视频号需 TikHub / 轻抖 |
+| `apify_ready` / `apify_only` | 只有 Apify：抖音完整提取可用 | 抖音可执行；小红书与视频号缺 TikHub / 轻抖，配好前不能提取，只能走用户自贴文稿的降级统计 |
 | `data_only` | 只有 TikHub 数据 | 只能查数据，无法生成文字稿 |
 | `transcript_only` | 只有轻抖文稿 | 只能提取文稿，无法查数据 |
 | `unavailable` | 无可用凭证 | 解释使用凭证，再引导购买和配置 |
@@ -186,10 +186,12 @@ python3 scripts/extract_video.py \
 5. 按 `{输出目录}/{作者}/{标题}.md` 保存文稿（作者缺失时归入 `_未识别作者`）；
 6. 结果合并进 `{输出目录}/_index.json`（按链接去重），供报告脚本使用。
 
+单条提取也要在交付里写清两件事：当前凭证状态（已配置哪些、当前可用哪些平台、缺什么）和转写通道（本地 whisper、Apify 云端或轻抖）。不能只写文稿路径和媒体路径。
+
 小红书 / 视频号：TikHub 查数据（MCP），轻抖提取文稿，其余不变。
 
 TikHub 或轻抖任一侧失败时继续完成另一侧，并在汇总中标记 `partial_success`。已经取得
-的结果不能因单侧失败而丢弃。Apify 单侧失败时如实标记，不谎报成功。
+的结果不能因单侧失败而丢弃。只补跑失败的一侧，不要求用户全删重跑。失败原因照接口返回的状态码和含义写，例如「轻抖条目状态 1118：超时失败」；接口没有返回原因时写「接口未返回原因」。不要只写「请你自己去查接口」，也不要把失败说成完整成功。Apify 单侧失败时如实标记，不谎报成功。
 
 ## 可选模式
 
@@ -367,7 +369,7 @@ Apify 调用细节见 [references/apify-api.md](references/apify-api.md)；TikHu
 - 计费：{接口明确返回时写}
 
 ## 五、问题与下一步
-- 失败或部分成功的原因：
+- 失败或部分成功的原因（照接口返回写；媒体失败写可稍后重试这一条）：
 - 下一步：{拆因子 / 全量竞品 / 评脚本}
 
 不要在回复中展示 API Key、`batchId` 或无必要的内部请求标识。
@@ -435,6 +437,7 @@ Apify 调用细节见 [references/apify-api.md](references/apify-api.md)；TikHu
 | 自造标签按固定选项映射，拿不准选最接近并备注，钩子和形式两个以上都像才归「其他」 | 过：用户自造名只作备注，主标签都在固定选项里 |
 | 钩子口径统一 | 过：开头前 40 字，约等于前 3 到 5 秒 |
 | 没画面时不写花字和镜头 | 过：这次只给文稿和数据 |
+| 单条交付也写凭证状态和转写通道 | 过：写明已配置和可用平台，转写走本地 whisper |
 
 ## 边界与常见误用
 
