@@ -39,6 +39,7 @@ CONSUMERS = (
     "ljh-xiegao",
     "ljh-xuanpin",
     "ljh-yinzi",
+    "ljh-yuansu",
     "ljh-zhibiao",
     "ljh-zhibo-chaijie",
     "ljh-zhibo-fupan",

@@ -2,7 +2,7 @@
 name: ljh-maidian
 displayName: ljh-maidian
 slug: ljh-maidian
-version: 1.3.1
+version: 1.3.2
 description: |
   卖点体检。一条卖点三问：用户听得懂吗、竞品也能这么说吗、拿得出证据吗。买点另按角度判断，标清是不是用户原话。给判断和局部改法，不做合规批准。
   触发方式：/ljh-maidian、「帮我看看这个卖点行不行」「这句卖点站得住吗」「体检一下我的卖点」「这个卖点会不会被主播质疑」「这个买点行不行」

@@ -1,10 +1,10 @@
 # LJHskill 电商增长工具箱
 
-LJHskill（老家伙 skill）电商增长工具箱：全网首个免费开源的内容电商增长赋能 skill 合集，总共 29 个业务工具。你只需要告诉我你的业务困惑是什么，我会自动选择合适的工具帮你解决问题。
+LJHskill（老家伙 skill）电商增长工具箱：全网首个免费开源的内容电商增长赋能 skill 合集，总共 30 个业务工具。你只需要告诉我你的业务困惑是什么，我会自动选择合适的工具帮你解决问题。
 
 LJH 取自李解、瀚森，「老家伙」是 LJH 三个字母的谐音。
 
-**最新版本 v1.3.1**。这次更新按最新的内容电商课口径校准了全部工具：卖点和买点、促销、定价权、需求分类的判断统一成一套；照爆款拍时前三秒照原版用；KOC 拿到逐句口播；拆解不再只凭销量下结论。历次更新见 [CHANGELOG.md](CHANGELOG.md)。
+**最新版本 v1.3.2**。这次新增流量元素工具：给一个内容方向，它往八个爆款元素上各发散出能拍的例子；也能审查一条脚本用了什么元素、用得好不好。历次更新见 [CHANGELOG.md](CHANGELOG.md)。
 
 ## 我们是谁
 
@@ -65,6 +65,7 @@ npx -y skills add handsomeng/LJHskill -g --all
 | `/ljh-jiaoben` | 脚本评审：带货脚本哪一步没说服人、哪句缺证据或缺画面 |
 | `/ljh-xiegao` | 照范本写稿：学 2 到 8 条爆款的结构，给你的产品写 3 版口播或一篇小红书 |
 | `/ljh-yinzi` | 内容因子：拆一条爆款，找出能单独测试的部件，比较几个方向先做哪个 |
+| `/ljh-yuansu` | 流量元素：给一个选题，按八个元素各出几个开头和拍法；或审一条脚本用了什么元素、有没有用透 |
 | `/ljh-tishici` | AI 视频提示词：把拍摄表写成即梦、可灵能用的提示词 |
 | `/ljh-shangxiang` | 商详页：详情页每一屏讲什么、放什么证据 |
 
@@ -103,7 +104,7 @@ npx -y skills add handsomeng/LJHskill -g --all
 ## 按岗位怎么用
 
 - **老板、操盘手**：`/ljh-xuanpin` 判断品值不值得做，`/ljh-suanzhang` 算账，`/ljh-zhibiao` 看指标为什么变
-- **编导**：`/ljh-liuyaosu` 定六要素，`/ljh-jiaoben` 评审脚本，`/ljh-xiegao` 照范本写稿，`/ljh-yinzi` 拆爆款，`/ljh-jingpin` 拆竞品
+- **编导**：`/ljh-liuyaosu` 定六要素，`/ljh-yuansu` 发散开头，`/ljh-jiaoben` 评审脚本，`/ljh-xiegao` 照范本写稿，`/ljh-yinzi` 拆爆款，`/ljh-jingpin` 拆竞品
 - **投手**：`/ljh-qianchuan` 查掉量，`/ljh-qianchuan-fupan` 每周复盘素材
 - **直播负责人**：`/ljh-zhibo-fupan` 每周复盘，`/ljh-zhibo-chaijie` 拆同行直播间
 - **商务**：`/ljh-daren` 选达人，`/ljh-brand-brief` 整理品牌方的 Brief，`/ljh-koc-brief` 给 KOC 发 Brief，`/ljh-koc-review` 审拍回来的成片，`/ljh-brief` 给主播准备资料

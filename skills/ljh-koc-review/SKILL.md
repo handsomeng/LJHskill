@@ -2,7 +2,7 @@
 name: ljh-koc-review
 displayName: ljh-koc-review
 slug: ljh-koc-review
-version: 1.3.1
+version: 1.3.2
 description: |
   KOC 成片审核。KOC 把视频拍回来、发布之前，按发出去的那份 Brief 和产品资料逐条对，结论只有「可以发」「建议改」，再出一份能直接发给达人的修改意见。
   触发方式：/ljh-koc-review、「KOC 视频拍回来了帮我审」「这条能不能发」「按 Brief 审一下这条视频」「给达人写修改意见」「几条 KOC 视频一起审」

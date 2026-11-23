@@ -18,6 +18,8 @@ CONSUMERS = (
     "ljh-video-extract",
     "ljh-xiegao",
     "ljh-jiaoben",
+    "ljh-koc-brief",
+    "ljh-yuansu",
 )
 TARGET_NAME = "content-taxonomy.md"
 

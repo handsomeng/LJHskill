@@ -4,13 +4,13 @@
     "name": "handsomeng"
   },
   "metadata": {
-    "description": "LJHskill（老家伙 skill）电商增长工具箱：全网首个免费开源的内容电商增长赋能 skill 合集，总共 29 个业务工具 + 1 个主入口。告诉它你的业务困惑，它自动选择合适的工具帮你解决问题。从《内容电商从 0 到 1 打品》方法论中提炼，覆盖开品、选品、价值、定位、场景、内容、验证、投放、复盘、直播、竞品拆解、指标诊断、算账全链路。",
-    "version": "1.3.1"
+    "description": "LJHskill（老家伙 skill）电商增长工具箱：全网首个免费开源的内容电商增长赋能 skill 合集，总共 30 个业务工具 + 1 个主入口。告诉它你的业务困惑，它自动选择合适的工具帮你解决问题。从《内容电商从 0 到 1 打品》方法论中提炼，覆盖开品、选品、价值、定位、场景、内容、验证、投放、复盘、直播、竞品拆解、指标诊断、算账全链路。",
+    "version": "1.3.2"
   },
   "plugins": [
     {
       "name": "ljh",
-      "description": "电商增长工具箱主入口，告诉它你的业务困惑，它自动选择合适的工具。装这一个就得到整套工具箱（含 29 个业务工具 + 1 个主入口）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从开品或选品走到算账。",
+      "description": "电商增长工具箱主入口，告诉它你的业务困惑，它自动选择合适的工具。装这一个就得到整套工具箱（含 30 个业务工具 + 1 个主入口）。三模式：任务前路由到最合适的工具，任务后读结论推荐下一步，或者一句话触发陪跑，带你从开品或选品走到算账。",
       "source": "./",
       "strict": false,
       "category": "content-ecommerce",
@@ -34,6 +34,7 @@
         "./skills/ljh-jiaoben",
         "./skills/ljh-yinzi",
         "./skills/ljh-tishici",
+        "./skills/ljh-yuansu",
         "./skills/ljh-jingpin",
         "./skills/ljh-koc",
         "./skills/ljh-koc-brief",
@@ -474,6 +475,22 @@
       ],
       "skills": [
         "./skills/ljh-tishici"
+      ]
+    },
+    {
+      "name": "ljh-yuansu",
+      "description": "流量元素发散与审查。给一个选题，按八个流量元素各出 2 到 3 个开头和拍法，每个例子带产品落点和拿掉产品自检；也能审一条脚本用了什么元素、有没有用透、和买点是否一致。",
+      "source": "./",
+      "strict": false,
+      "category": "content-ecommerce",
+      "keywords": [
+        "content-hook",
+        "traffic-element",
+        "script-review",
+        "chinese"
+      ],
+      "skills": [
+        "./skills/ljh-yuansu"
       ]
     },
     {

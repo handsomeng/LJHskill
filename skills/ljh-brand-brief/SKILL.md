@@ -2,7 +2,7 @@
 name: ljh-brand-brief
 displayName: ljh-brand-brief
 slug: ljh-brand-brief
-version: 1.3.1
+version: 1.3.2
 description: |
   品牌 Brief 整理。品牌方给的 Brief 又长又散，可能是一份 PDF、一个 Word，或者聊天里贴的一大段字。本工具只摘不编，把要求整理成一张能直接用的表，给写达人 Brief、主播资料和审成片的工具当依据。
   触发方式：/ljh-brand-brief、「品牌方发了一份 Brief 帮我整理」「这个 PDF 里的拍摄要求提炼一下」「把品牌要求摘成一张表」「品牌 Brief 太长了看不出重点」「整理一下这份合作要求」

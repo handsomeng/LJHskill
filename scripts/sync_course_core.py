@@ -33,6 +33,7 @@ CONSUMERS = (
     "ljh-lianming",
     "ljh-qianchuan-fupan",
     "ljh-zhibo-chaijie",
+    "ljh-yuansu",
 )
 TARGET_NAME = "course-core.md"
 

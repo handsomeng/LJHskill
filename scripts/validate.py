@@ -35,8 +35,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-EXPECTED_VERSION = "1.3.1"
-EXPECTED_SKILL_COUNT = 30
+EXPECTED_VERSION = "1.3.2"
+EXPECTED_SKILL_COUNT = 31
 MAIN_SKILL_NAME = "ljh"
 UPDATE_CHECK_SOURCE = ROOT / "scripts" / "check_update.py.template"
 UPDATE_CHECK_PROTOCOL = (
@@ -97,6 +97,7 @@ WRITING_RULES_CONSUMERS = (
     "ljh-xiegao",
     "ljh-xuanpin",
     "ljh-yinzi",
+    "ljh-yuansu",
     "ljh-zhibiao",
     "ljh-zhibo-chaijie",
     "ljh-zhibo-fupan",
@@ -111,7 +112,10 @@ CONTENT_TAXONOMY_CONSUMERS = (
     "ljh-video-extract",
     "ljh-xiegao",
     "ljh-jiaoben",
+    "ljh-koc-brief",
+    "ljh-yuansu",
 )
+CONTENT_TAXONOMY_LINK_PENDING = set()
 CONTENT_TAXONOMY_REFERENCE = "references/content-taxonomy.md"
 CONTENT_TAXONOMY_LINK = "[内容标签](references/content-taxonomy.md)"
 COURSE_CORE_SOURCE = ROOT / "shared" / "course-core.md"
@@ -137,6 +141,7 @@ COURSE_CORE_CONSUMERS = (
     "ljh-lianming",
     "ljh-qianchuan-fupan",
     "ljh-zhibo-chaijie",
+    "ljh-yuansu",
 )
 COURSE_CORE_REFERENCE = "references/course-core.md"
 EXPECTED_AXIS_VALUES = {
@@ -337,6 +342,11 @@ DANGEROUS_EXAMPLE_BOUNDARY_MARKERS = (
     "不能",
     "禁止",
 )
+# 内容标签第三节用「名人同款」等词给「头牌」元素起名，同节两句提醒已写明要授权；
+# ljh-yuansu 的交付示例会原样引用这句提醒。只放行这两类文件里的同款定义词。
+ELEMENT_DEFINITION_FILES = {"content-taxonomy.md"}
+ELEMENT_DEFINITION_SKILLS = {"ljh-yuansu"}
+ELEMENT_DEFINITION_TERMS = {"名人同款", "明星同款"}
 
 results = []  # (item_name, passed: bool, detail: str)
 
@@ -363,13 +373,13 @@ def check_skill_files():
     skill_dirs = sorted([p for p in skills_dir.iterdir() if p.is_dir()])
     if len(skill_dirs) != EXPECTED_SKILL_COUNT:
         problems.append(
-            f"skills/ 目录数 {len(skill_dirs)}，应为 {EXPECTED_SKILL_COUNT}（29 个业务工具 + 1 个主入口）"
+            f"skills/ 目录数 {len(skill_dirs)}，应为 {EXPECTED_SKILL_COUNT}（30 个业务工具 + 1 个主入口）"
         )
     skill_names = {d.name for d in skill_dirs}
     if MAIN_SKILL_NAME not in skill_names:
         problems.append(f"缺少主入口目录 skills/{MAIN_SKILL_NAME}")
-    if len(skill_dirs) - (MAIN_SKILL_NAME in skill_names) != 29:
-        problems.append("业务工具目录数应为 29 个")
+    if len(skill_dirs) - (MAIN_SKILL_NAME in skill_names) != 30:
+        problems.append("业务工具目录数应为 30 个")
 
     for d in skill_dirs:
         skill_md = d / "SKILL.md"
@@ -455,8 +465,23 @@ def check_public_language(md_files):
             for pattern in EMPTY_ESSENCE_PATTERNS:
                 if pattern.search(line):
                     problems.append(f"{rel}:{line_no} 命中空泛本质句式 '{pattern.pattern}'")
-            if any(pattern.search(line) for pattern in DANGEROUS_EXAMPLE_PATTERNS):
-                if not any(marker in line for marker in DANGEROUS_EXAMPLE_BOUNDARY_MARKERS):
+            dangerous_hits = [
+                pattern for pattern in DANGEROUS_EXAMPLE_PATTERNS if pattern.search(line)
+            ]
+            if dangerous_hits and not any(
+                marker in line for marker in DANGEROUS_EXAMPLE_BOUNDARY_MARKERS
+            ):
+                definition_context = (
+                    path.name in ELEMENT_DEFINITION_FILES
+                    or path.parent.name in ELEMENT_DEFINITION_SKILLS
+                )
+                if not (
+                    definition_context
+                    and all(
+                        pattern.pattern in ELEMENT_DEFINITION_TERMS
+                        for pattern in dangerous_hits
+                    )
+                ):
                     problems.append(f"{rel}:{line_no} 危险或无来源示例缺少反例/证据边界")
 
     fail_lines("13. 公开文档语言与危险示例边界", problems)
@@ -1145,7 +1170,7 @@ def check_content_taxonomy_sync(skill_dirs):
         if not skill_md.exists():
             continue
         text = skill_md.read_text(encoding="utf-8")
-        if CONTENT_TAXONOMY_LINK not in text:
+        if CONTENT_TAXONOMY_LINK not in text and skill_name not in CONTENT_TAXONOMY_LINK_PENDING:
             problems.append(f"{skill_md.relative_to(ROOT)} 缺少内容标签读取链接")
 
     for skill_dir in skill_dirs:
@@ -1375,7 +1400,7 @@ def check_behavior_runner_and_package_tests():
     if package_test_path.is_file():
         package_test_text = package_test_path.read_text(encoding="utf-8")
         package_contracts = (
-            "EXPECTED_SKILL_COUNT = 30",
+            "EXPECTED_SKILL_COUNT = 31",
             "shutil.copytree",
             "rglob(\"*.md\")",
             "resolve_local_markdown_link",
@@ -1430,6 +1455,8 @@ def public_skill_files():
 # ---------- 16. 不指向课程、不含本机路径 ----------
 
 COURSE_PATTERNS = (re.compile(r"课程(?:中|里|所|讲|提到)"), re.compile(r"课里"), re.compile(r"(?:付费)?手册(?:里|中)"))
+# 内容标签「晒过程」要指明对应的课程概念「高光流程」，只登记这一句
+COURSE_REFERENCE_ALLOWLIST = ("对应课程里的「高光流程」",)
 LOCAL_PATH_PATTERNS = (re.compile(r"/Users/"), re.compile(r"~/vibecoding"), re.compile(r"~/Desktop"), re.compile(r"[Vv]ibecoding\W{1,3}\.credentials"),
                        re.compile(r"douyin-video-teardown"), re.compile(r"codex_video_read"))
 
@@ -1439,7 +1466,10 @@ def check_course_and_local_paths():
     for f in public_skill_files() + sorted((ROOT / "evals").glob("*.json")):
         rel = f.relative_to(ROOT)
         for line_no, line in enumerate(f.read_text(encoding="utf-8", errors="ignore").splitlines(), start=1):
-            if any(p.search(line) for p in COURSE_PATTERNS):
+            line_without_allowed = line
+            for allowed in COURSE_REFERENCE_ALLOWLIST:
+                line_without_allowed = line_without_allowed.replace(allowed, "")
+            if any(p.search(line_without_allowed) for p in COURSE_PATTERNS):
                 problems.append(f"{rel}:{line_no} 指向课程，公开工具要直接陈述方法")
             if any(p.search(line) for p in LOCAL_PATH_PATTERNS):
                 problems.append(f"{rel}:{line_no} 含本机路径或私人工具名")
